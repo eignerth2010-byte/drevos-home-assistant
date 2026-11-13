@@ -1,0 +1,123 @@
+{
+  "title": "Drevos Smoker",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Drevos-Gateway",
+        "description": "Lokale Adresse und privaten Zugangsschlüssel des Raspberry Pi eintragen. Der Schlüssel bleibt in Home Assistant.",
+        "data": {
+          "url": "Gateway-Adresse",
+          "token": "Zugangsschlüssel"
+        },
+        "data_description": {
+          "url": "Beispiel: http://drevos-pi.local:8756; nur im vertrauenswürdigen Heimnetz verwenden.",
+          "token": "Wert token aus /etc/drevos/gateway.json. Nicht auf GitHub oder in Chats veröffentlichen."
+        }
+      },
+      "reconfigure": {
+        "title": "Drevos-Gateway",
+        "description": "Lokale Adresse und privaten Zugangsschlüssel des Raspberry Pi eintragen. Der Schlüssel bleibt in Home Assistant.",
+        "data": {
+          "url": "Gateway-Adresse",
+          "token": "Zugangsschlüssel"
+        },
+        "data_description": {
+          "url": "Beispiel: http://drevos-pi.local:8756; nur im vertrauenswürdigen Heimnetz verwenden.",
+          "token": "Wert token aus /etc/drevos/gateway.json. Nicht auf GitHub oder in Chats veröffentlichen."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Drevos-Gateway",
+        "description": "Lokale Adresse und privaten Zugangsschlüssel des Raspberry Pi eintragen. Der Schlüssel bleibt in Home Assistant.",
+        "data": {
+          "url": "Gateway-Adresse",
+          "token": "Zugangsschlüssel"
+        },
+        "data_description": {
+          "url": "Beispiel: http://drevos-pi.local:8756; nur im vertrauenswürdigen Heimnetz verwenden.",
+          "token": "Wert token aus /etc/drevos/gateway.json. Nicht auf GitHub oder in Chats veröffentlichen."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Gateway nicht erreichbar.",
+      "invalid_auth": "Zugangsschlüssel ist ungültig.",
+      "invalid_gateway": "Adresse, API-Version oder Steuerungsprofil wird nicht unterstützt.",
+      "wrong_gateway": "Diese Adresse gehört zu einem anderen Gateway."
+    },
+    "abort": {
+      "already_configured": "Dieses Gateway ist bereits eingerichtet.",
+      "reconfigure_successful": "Gateway-Einstellungen aktualisiert.",
+      "reauth_successful": "Zugangsschlüssel aktualisiert."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "kammertemperatur": {
+        "name": "Kammertemperatur"
+      },
+      "kerntemperatur": {
+        "name": "Kerntemperatur"
+      },
+      "raucheinstellung": {
+        "name": "Rauchstärke"
+      },
+      "timer_restzeit": {
+        "name": "Timer Restzeit"
+      },
+      "timer_laufzeit": {
+        "name": "Timer Laufzeit"
+      }
+    },
+    "number": {
+      "kammertemperatur_soll": {
+        "name": "Kammer Soll"
+      },
+      "kerntemperatur_ziel": {
+        "name": "Kernziel"
+      },
+      "rauch_soll": {
+        "name": "Rauch Soll"
+      },
+      "timer_dauer": {
+        "name": "Timerdauer"
+      }
+    },
+    "switch": {
+      "konvektion": {
+        "name": "Konvektion"
+      },
+      "luefter": {
+        "name": "Lüfter"
+      },
+      "heizelement": {
+        "name": "Heizelement"
+      },
+      "rauchbetrieb": {
+        "name": "Rauchbetrieb mit Zündung"
+      },
+      "timer_lauf": {
+        "name": "Timer läuft"
+      }
+    },
+    "button": {
+      "timer_reset": {
+        "name": "Timer zurücksetzen"
+      },
+      "shutdown": {
+        "name": "Raspberry Pi herunterfahren"
+      }
+    },
+    "binary_sensor": {
+      "connection": {
+        "name": "Verbindung"
+      },
+      "automatik": {
+        "name": "Automatikprogramm"
+      },
+      "controls_available": {
+        "name": "Bedienung verfügbar"
+      }
+    }
+  }
+}
