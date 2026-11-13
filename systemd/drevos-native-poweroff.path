@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch for authenticated Drevos Pi shutdown requests
+
+[Path]
+PathExists=/run/drevos-native/shutdown.request
+Unit=drevos-native-poweroff.service
+
+[Install]
+WantedBy=multi-user.target

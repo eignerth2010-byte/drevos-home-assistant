@@ -1,0 +1,7 @@
+[Unit]
+Description=Power off the Drevos Raspberry Pi
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/rm -f /run/drevos-native/shutdown.request
+ExecStart=/usr/bin/systemctl --no-block poweroff

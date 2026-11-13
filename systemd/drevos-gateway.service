@@ -1,0 +1,26 @@
+[Unit]
+Description=Drevos native Home Assistant gateway
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=drevos
+Group=drevos
+SupplementaryGroups=dialout
+ExecStart=/opt/drevos/.venv/bin/drevos-gateway --config /etc/drevos/gateway.json
+Restart=on-failure
+RestartSec=5
+RuntimeDirectory=drevos-native
+RuntimeDirectoryMode=0700
+RuntimeDirectoryPreserve=yes
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ReadWritePaths=/run/drevos-native
+Environment=PYTHONDONTWRITEBYTECODE=1
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target
