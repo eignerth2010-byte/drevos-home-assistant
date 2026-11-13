@@ -1,0 +1,8 @@
+# Third-party notices
+
+- The gateway depends on **pySerial**, distributed under the BSD 3-Clause license. It is installed from the Python Package Index and is not vendored in this repository. [Project and license](https://github.com/pyserial/pyserial/blob/master/LICENSE.txt).
+- The Home Assistant integration uses Home Assistant APIs and its existing aiohttp dependency. Home Assistant is Apache-2.0 licensed; aiohttp is Apache-2.0/compatible licensed as distributed. These projects are not copied into this repository. [Home Assistant license](https://github.com/home-assistant/core/blob/dev/LICENSE.md), [aiohttp license](https://github.com/aio-libs/aiohttp/blob/master/LICENSE.txt).
+- Protocol behavior was checked against existing FX programming-port references and the supplied controller application. The register mapping describes verified behavior; third-party PLC source projects, original oven programs and photographs are not distributed.
+- The custom card's cabinet illustration is original CSS. The supplied Drevos logo is bundled unchanged and embedded in the card; it requires no external image request. Its brand and trademark rights remain with the owner; see [the logo notice](custom_components/drevos/brand/NOTICE.md). Product names and logo identify the supported hardware and do not imply affiliation or endorsement.
+
+Deutsch: Fremdbibliotheken werden mit ihren jeweiligen Lizenzbedingungen installiert; sie sind nicht in dieses Repository kopiert. Das originale SPS-Projekt und private Bilder sind nicht Bestandteil der Veröffentlichung. Die Ofendarstellung besteht aus eigener CSS-Gestaltung.
