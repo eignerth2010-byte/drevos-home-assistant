@@ -1,0 +1,24 @@
+name: Checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  gateway:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.11', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -e . pytest pytest-asyncio aiohttp
+      - run: python -m pytest -q
+      - run: python -m compileall -q custom_components drevos_gateway
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check custom_components/drevos/www/drevos-smoker-card.js
+      - run: node --test tests/card.test.cjs
+      - run: sh -n scripts/install-gateway.sh
