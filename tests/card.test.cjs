@@ -35,6 +35,11 @@ test('unavailable, removed and concurrently changed entities do not dispatch',as
 test('shutdown guard blocks active heat smoke and timer',async()=>{
  for(const key of ['heizelement','rauchbetrieb','timer_lauf']){const c=card();c.state(key).state='on';assert.equal(await c.perform('shutdown','press'),false);assert.equal(c.intents.length,0);}
 });
+test('a never-pressed but available HA button is usable',async()=>{
+ const c=card();c.state('shutdown').state='unknown';
+ assert.equal(await c.perform('shutdown','press'),true);
+ assert.equal(c.intents.length,1);
+});
 test('invalid numeric drafts never dispatch; valid draft survives delayed HA echo',async()=>{
  for(const value of ['','121','-1','12.5','NaN']){const c=card();const input={value,dataset:{dirty:'true'},focus(){}};c.shadowRoot.getElementById=()=>input;await c.applyNumber('kammertemperatur_soll');assert.equal(c.intents.length,0);}
  const c=card();const input={value:'35',dataset:{dirty:'true'},blur(){}};c.shadowRoot.getElementById=()=>input;await c.applyNumber('kammertemperatur_soll');assert.equal(c.intents.length,1);assert.equal(c.intents[0][2].value,35);assert.equal(input.dataset.dirty,'true');assert.equal(input.dataset.awaiting,'35');
