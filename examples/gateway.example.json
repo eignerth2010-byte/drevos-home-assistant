@@ -1,0 +1,10 @@
+{
+  "id": "replace_with_generated_stable_id",
+  "name": "Drevos Smoker",
+  "profile": "drevos_fx3u_v1",
+  "token": "GENERATE_A_PRIVATE_TOKEN_DO_NOT_USE_THIS_EXAMPLE",
+  "serial_port": "/dev/serial/by-id/YOUR_VERIFIED_PLC_ADAPTER",
+  "bind": "127.0.0.1",
+  "port": 8756,
+  "allow_control": false
+}

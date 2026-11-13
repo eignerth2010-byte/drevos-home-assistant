@@ -1,0 +1,4 @@
+type: custom:drevos-smoker-card
+title: Drevos
+language: auto
+# gateway_id: select in the visual card editor if you have multiple ovens
