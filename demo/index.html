@@ -4,10 +4,10 @@
 <title>Drevos – isolierte Kartenvorschau</title>
 <style>body{background:#e9ecef;font:14px system-ui;margin:20px}main{max-width:460px;margin:auto}h1{font-size:17px}nav{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}nav button{padding:8px}pre{white-space:pre-wrap;font-size:11px}#card{display:block}</style>
 <main><h1>Drevos · Simulation</h1><p>Nur synthetische Werte. Keine Verbindung zum Ofen oder Home Assistant.</p><nav><button id="offline">Verbindung aus/ein</button><button id="fail">Nächster Befehl schlägt fehl</button><button id="language">DE / EN</button></nav><drevos-smoker-card id="card"></drevos-smoker-card><pre id="ledger">0 simulierte Befehle</pre></main>
-<script src="../custom_components/drevos/www/drevos-smoker-card.js?v=dev2"></script>
+<script src="../custom_components/drevos/www/drevos-smoker-card.js?v=0.1.0-2"></script>
 <script>
 const card=document.getElementById('card'),ledger=document.getElementById('ledger');
-const keys={sensor:{kammertemperatur:'28.4',kerntemperatur:'16.8',raucheinstellung:'0',timer_restzeit:'01:30:00',timer_laufzeit:'00:00:00'},number:{kammertemperatur_soll:'0',kerntemperatur_ziel:'0',rauch_soll:'0',timer_dauer:'90'},switch:{heizelement:'off',rauchbetrieb:'off',konvektion:'off',luefter:'off',timer_lauf:'off'},button:{timer_reset:'unknown_button_idle',shutdown:'unknown_button_idle'},binary_sensor:{automatik:'off',controls_available:'on'}};
+const keys={sensor:{kammertemperatur:'28.4',kerntemperatur:'16.8',raucheinstellung:'0',timer_restzeit:'01:30:00',timer_laufzeit:'00:00:00'},number:{kammertemperatur_soll:'0',kerntemperatur_ziel:'0',rauch_soll:'0',timer_dauer:'90'},switch:{heizelement:'off',rauchbetrieb:'off',konvektion:'off',luefter:'off',timer_lauf:'off'},button:{timer_reset:'unknown',shutdown:'unknown'},binary_sensor:{automatik:'off',controls_available:'on'}};
 let states={},intents=[],online=true,fail=false,running=false,elapsed=0;
 for(const [domain,entries] of Object.entries(keys))for(const [key,state] of Object.entries(entries)){const id=domain+'.fixture_'+key;states[id]={entity_id:id,state,attributes:{drevos_key:key,drevos_gateway_id:'synthetic_fixture_01'}};}
 let hass={language:'de',states,callService:async(domain,service,data)=>{
@@ -28,4 +28,6 @@ document.getElementById('language').onclick=()=>{card.setConfig({...card.config,
 setInterval(()=>{states['sensor.fixture_kammertemperatur']={...states['sensor.fixture_kammertemperatur'],state:online?'28.4':'unavailable'};if(running&&online){elapsed++;states['sensor.fixture_timer_laufzeit']={...states['sensor.fixture_timer_laufzeit'],state:'00:00:'+String(elapsed%60).padStart(2,'0')};}push();},1000);
 window.__DREVOS_FIXTURE={snapshot:()=>({intents,online,elapsed,focus:card.shadowRoot.activeElement?.id,inputs:[...card.shadowRoot.querySelectorAll('input')].map(e=>({id:e.id,value:e.value,dirty:e.dataset.dirty}))})};
 </script></html>
+
+
 
