@@ -115,7 +115,7 @@
           <div class="message" role="status" aria-live="polite"></div><div class="note">${t.help}</div><div class="foot"><span class="subtitle">LOCAL · FX3U</span><button data-button="shutdown">${t.shutdown}</button></div></div>
           <div class="modal" hidden><section class="dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-title"><h3 id="confirm-title">${t.confirmTitle}</h3><p></p><div class="actions"><button data-cancel>${t.cancel}</button><button class="primary" data-confirm>${t.confirm}</button></div></section></div>
         </ha-card>`;
-        this.shadowRoot.querySelectorAll('input').forEach(input=>input.addEventListener('input',()=>{input.dataset.dirty='true';}));
+        this.shadowRoot.querySelectorAll('input').forEach(input=>input.addEventListener('input',()=>{input.dataset.dirty='true';delete input.dataset.awaiting;}));
         this._mounted=true;
       }
       const s=this.shadowRoot;
@@ -123,7 +123,7 @@
       const available=alive(this.state('kammertemperatur'));
       const automatic=this.state('automatik')?.state==='on';
       s.querySelector('ha-card').classList.toggle('offline',!available);
-      s.querySelector('[data-status]').textContent=!available?t.offline:automatic?t.automatic:t.online;
+      s.querySelector('[data-status]').textContent=!available?t.offline:automatic?t.automatic:this.state('controls_available')?.state==='off'?t.readonly:t.online;
       s.querySelector('.missing').textContent=t.missing;
       s.querySelector('.missing').hidden=!!this._map.kammertemperatur;
       s.querySelectorAll('[data-reading]').forEach(node=>{const e=this.state(node.dataset.reading);node.textContent=alive(e)?e.state:'—';});
@@ -209,8 +209,10 @@
     render(){
       if(!this.config||!this._hass)return;
       const t=TEXT[this._hass.language?.startsWith('de')?'de':'en'];
-      const groups=new Map();for(const s of Object.values(this._hass.states)){if(s.attributes?.drevos_gateway_id)groups.set(s.attributes.drevos_gateway_id,s.attributes.drevos_gateway_id);}
-      this.shadowRoot.innerHTML=`<style>label{display:block;margin:14px 0 5px}input,select{width:100%;font:inherit;padding:10px;box-sizing:border-box}</style><label>${t.title}</label><input data-field="title" value="${esc(this.config.title||'Drevos')}"><label>${t.device}</label><select data-field="gateway_id"><option value="">${t.notSelected}</option>${[...groups].map(([id])=>`<option value="${esc(id)}" ${id===this.config.gateway_id?'selected':''}>${esc(id)}</option>`).join('')}</select><label>${t.language}</label><select data-field="language">${['auto','de','en'].map(l=>`<option ${l===(this.config.language||'auto')?'selected':''}>${l}</option>`).join('')}</select>`;
+      const groups=new Map();for(const s of Object.values(this._hass.states)){if(s.attributes?.drevos_gateway_id)groups.set(s.attributes.drevos_gateway_id,s.attributes.drevos_device_name||s.attributes.drevos_gateway_id);}
+      const signature=JSON.stringify([this.config.title,this.config.gateway_id,this.config.language,[...groups]]);
+      if(this._editorSignature===signature)return;this._editorSignature=signature;
+      this.shadowRoot.innerHTML=`<style>label{display:block;margin:14px 0 5px}input,select{width:100%;font:inherit;padding:10px;box-sizing:border-box}</style><label>${t.title}</label><input data-field="title" value="${esc(this.config.title||'Drevos')}"><label>${t.device}</label><select data-field="gateway_id"><option value="">${t.notSelected}</option>${[...groups].map(([id,name])=>`<option value="${esc(id)}" ${id===this.config.gateway_id?'selected':''}>${esc(name)}</option>`).join('')}</select><label>${t.language}</label><select data-field="language">${['auto','de','en'].map(l=>`<option ${l===(this.config.language||'auto')?'selected':''}>${l}</option>`).join('')}</select>`;
       this.shadowRoot.querySelectorAll('[data-field]').forEach(el=>el.addEventListener('change',()=>{
         this.config={...this.config,[el.dataset.field]:el.value};this.dispatchEvent(new CustomEvent('config-changed',{detail:{config:this.config},bubbles:true,composed:true}));
       }));
