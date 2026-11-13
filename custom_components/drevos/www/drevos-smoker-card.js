@@ -50,7 +50,7 @@
     timer_reset:'button.drevos_timer_zuruecksetzen',shutdown:'button.drevos_pi_herunterfahren',
     timer_restzeit:'sensor.drevos_timer_restzeit',timer_laufzeit:'sensor.drevos_timer_laufzeit'};
   const esc = v => String(v ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const alive = s => !!s && !['unknown','unavailable'].includes(s.state);
+  const alive = s => !!s && s.state!=='unavailable' && (s.state!=='unknown' || s.entity_id?.startsWith('button.'));
 
   class DrevosSmokerCard extends HTMLElement {
     static getConfigElement() { return document.createElement('drevos-smoker-card-editor'); }
