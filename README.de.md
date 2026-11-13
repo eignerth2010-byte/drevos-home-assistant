@@ -119,7 +119,7 @@ Die Karte enthält Isttemperaturen, Sollwerte, Rauchstärke, beide Lüfter, Heiz
 Die Integration registriert die Kartenressource bei einem Dashboard im Speichermodus automatisch. Falls die Karte nach der Erstinstallation fehlt, den Browser vollständig neu laden. Falls nötig unter Dashboard-Ressourcen eine **JavaScript-Modul**-Ressource eintragen:
 
 ```text
-/drevos_static/drevos-smoker-card.js?v=0.1.0
+/drevos_static/drevos-smoker-card.js?v=0.1.0-2
 ```
 
 Bei YAML-Ressourcenverwaltung diesen Pfad in der vorhandenen Ressourcenliste eintragen; eine automatische Änderung dieser Liste erfolgt nicht. Keine doppelte Ressource hinzufügen. Die neue Versionsnummer im URL-Parameter sorgt nach Updates für frischen Code.
@@ -201,4 +201,5 @@ sudo systemctl disable --now drevos-gateway.service drevos-native-poweroff.path
 ```
 
 Tests, GitHub-Veröffentlichung, Releases und Beiträge: [GITHUB.md](docs/GITHUB.md) und [CONTRIBUTING.md](CONTRIBUTING.md). Die [MIT-Lizenz](LICENSE) verursacht keine Lizenzgebühren. Der tatsächliche Prüfstand und offene Grenzen stehen in [VALIDATION.md](docs/VALIDATION.md).
+
 

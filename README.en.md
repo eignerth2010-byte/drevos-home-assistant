@@ -117,7 +117,7 @@ The card includes temperatures, targets, smoke level, both fans, heating, smoke/
 In storage resource mode, the integration registers the bundled JavaScript automatically. Fully reload the browser after first installation. If manual resource registration is needed, add this **JavaScript module** under dashboard resources:
 
 ```text
-/drevos_static/drevos-smoker-card.js?v=0.1.0
+/drevos_static/drevos-smoker-card.js?v=0.1.0-2
 ```
 
 In YAML resource mode, add the same module URL to the existing resource list. The integration does not edit that list. Avoid duplicate registrations. The version parameter changes on releases so browsers fetch fresh code.
@@ -199,4 +199,5 @@ sudo systemctl disable --now drevos-gateway.service drevos-native-poweroff.path
 ```
 
 See [GitHub publishing and maintenance](docs/GITHUB.md), [contributing](CONTRIBUTING.md) and [validation](docs/VALIDATION.md). There are no license fees for the [MIT license](LICENSE).
+
 
