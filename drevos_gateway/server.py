@@ -151,7 +151,7 @@ class Handler(BaseHTTPRequestHandler):
 
     def authorized(self):
         expected = "Bearer " + self.server.gateway.config["token"]
-        if not hmac.compare_digest(self.headers.get("Authorization", ""), expected):
+        if not hmac.compare_digest(self.headers.get("Authorization", "").encode("utf-8"), expected.encode("utf-8")):
             self.reply(401, {"error": "unauthorized"})
             return False
         if self.headers.get("Origin"):
