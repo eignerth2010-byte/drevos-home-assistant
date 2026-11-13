@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="de"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; img-src 'self' data:; font-src 'none'; worker-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Drevos – isolierte Kartenvorschau</title>
+<style>body{background:#e9ecef;font:14px system-ui;margin:20px}main{max-width:460px;margin:auto}h1{font-size:17px}nav{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}nav button{padding:8px}pre{white-space:pre-wrap;font-size:11px}#card{display:block}</style>
+<main><h1>Drevos · Simulation</h1><p>Nur synthetische Werte. Keine Verbindung zum Ofen oder Home Assistant.</p><nav><button id="offline">Verbindung aus/ein</button><button id="fail">Nächster Befehl schlägt fehl</button><button id="language">DE / EN</button></nav><drevos-smoker-card id="card"></drevos-smoker-card><pre id="ledger">0 simulierte Befehle</pre></main>
+<script src="../custom_components/drevos/www/drevos-smoker-card.js?v=dev2"></script>
+<script>
+const card=document.getElementById('card'),ledger=document.getElementById('ledger');
+const keys={sensor:{kammertemperatur:'28.4',kerntemperatur:'16.8',raucheinstellung:'0',timer_restzeit:'01:30:00',timer_laufzeit:'00:00:00'},number:{kammertemperatur_soll:'0',kerntemperatur_ziel:'0',rauch_soll:'0',timer_dauer:'90'},switch:{heizelement:'off',rauchbetrieb:'off',konvektion:'off',luefter:'off',timer_lauf:'off'},button:{timer_reset:'unknown_button_idle',shutdown:'unknown_button_idle'},binary_sensor:{automatik:'off',controls_available:'on'}};
+let states={},intents=[],online=true,fail=false,running=false,elapsed=0;
+for(const [domain,entries] of Object.entries(keys))for(const [key,state] of Object.entries(entries)){const id=domain+'.fixture_'+key;states[id]={entity_id:id,state,attributes:{drevos_key:key,drevos_gateway_id:'synthetic_fixture_01'}};}
+let hass={language:'de',states,callService:async(domain,service,data)=>{
+ const allowed=['set_value','turn_on','turn_off','press'];if(!allowed.includes(service)||!states[data.entity_id])throw Error('Unmatched mock intent');
+ const item={domain,service,data,status:'pending'};intents.push(item);ledger.textContent=JSON.stringify(intents,null,2);
+ await new Promise(resolve=>setTimeout(resolve,450));if(fail){fail=false;item.status='failed';ledger.textContent=JSON.stringify(intents,null,2);throw Error('Injected failure');}
+ const key=states[data.entity_id].attributes.drevos_key;
+ if(service==='set_value')states[data.entity_id]={...states[data.entity_id],state:String(data.value)};
+ else if(service!=='press')states[data.entity_id]={...states[data.entity_id],state:service==='turn_on'?'on':'off'};
+ if(key==='timer_lauf')running=service==='turn_on';if(key==='timer_reset')elapsed=0;
+ item.status='accepted';ledger.textContent=JSON.stringify(intents,null,2);push();
+}};
+function push(){hass={...hass,states:{...states}};card.hass=hass;}
+card.setConfig({type:'custom:drevos-smoker-card',title:'Räucherofen',language:'de'});push();
+document.getElementById('offline').onclick=()=>{online=!online;for(const [domain,entries] of Object.entries(keys))for(const [key,original] of Object.entries(entries)){const id=domain+'.fixture_'+key;states[id]={...states[id],state:online?original:'unavailable'};}push();};
+document.getElementById('fail').onclick=()=>{fail=true};
+document.getElementById('language').onclick=()=>{card.setConfig({...card.config,language:card.config.language==='de'?'en':'de'});push();};
+setInterval(()=>{states['sensor.fixture_kammertemperatur']={...states['sensor.fixture_kammertemperatur'],state:online?'28.4':'unavailable'};if(running&&online){elapsed++;states['sensor.fixture_timer_laufzeit']={...states['sensor.fixture_timer_laufzeit'],state:'00:00:'+String(elapsed%60).padStart(2,'0')};}push();},1000);
+window.__DREVOS_FIXTURE={snapshot:()=>({intents,online,elapsed,focus:card.shadowRoot.activeElement?.id,inputs:[...card.shadowRoot.querySelectorAll('input')].map(e=>({id:e.id,value:e.value,dirty:e.dataset.dirty}))})};
+</script></html>
+
