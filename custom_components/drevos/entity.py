@@ -27,4 +27,5 @@ class DrevosEntity(CoordinatorEntity):
 
     @property
     def extra_state_attributes(self):
-        return {"drevos_key": self.key, "drevos_gateway_id": self.coordinator.info["id"]}
+        return {"drevos_key": self.key, "drevos_gateway_id": self.coordinator.info["id"],
+                "drevos_device_name": self.coordinator.info["name"]}
