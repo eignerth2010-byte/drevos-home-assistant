@@ -2,6 +2,15 @@
 
 This document separates source/unit tests, isolated browser checks, live HA behavior and energized hardware. Planned support is not the same as a physical test.
 
+## Release 0.1.2 — 20 November 2026
+
+- Removed the superseded `mobile/` prototype and `.github/workflows/mobile.yml` from the HA repository. The standalone app and relay belong to [drevos-app](https://github.com/eignerth2010-byte/drevos-app); the HA source archive contains no mobile application or cloud service.
+- Corrected UTF-8 text in the German translation and German/English README files. Entity keys, unique IDs, control logic and PLC mapping are unchanged from 0.1.1. The HA component version is 0.1.2; the Pi gateway stays 0.1.1.
+- JSON parsing, local Markdown links and repository/package contents are checked during preparation. The existing command/client/card tests remain the functional validation for the unchanged control logic.
+- Live 0.1.1 installation was confirmed in HA Core 2026.11.2: all 19 entity IDs and control states were preserved, actual readings were present and the Terrasse dashboard configuration was unchanged.
+
+Das HA-Projekt und seine neue Veröffentlichung enthalten den früheren Mobile-Prototyp und dessen Build-Workflow nicht mehr. Die aktuelle eigenständige App wird ausschließlich im separaten App-Repository gepflegt. Umlaute und Anleitungen sind korrigiert. Für das vorhandene Pi-Gateway 0.1.1 ist keine Neuinstallation nötig.
+
 ## Release 0.1.1 — 20 November 2026
 
 - 39 Python tests pass. The real asynchronous HA client was exercised against an isolated HTTP server: overlapping commands are rejected without a second POST, reads remain possible, and the command guard recovers after success, HTTP 409/503 and cancellation. Failed/cancelled commands are not retried, and untrusted response bodies do not appear in errors.
