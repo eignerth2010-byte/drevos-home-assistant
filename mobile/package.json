@@ -1,0 +1,44 @@
+{
+  "name": "drevos-mobile",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "preview": "expo start --web",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prebuild": "expo prebuild",
+    "bundle:check": "expo export --platform all --output-dir dist",
+    "format:check": "prettier --check App.tsx index.ts src tests"
+  },
+  "dependencies": {
+    "expo": "58.0.26",
+    "react": "19.3.0",
+    "react-native": "0.88.1",
+    "react-dom": "19.3.0",
+    "react-native-web": "~0.21.4",
+    "expo-auth-session": "~58.0.19",
+    "expo-web-browser": "~58.1.0",
+    "expo-crypto": "~58.0.8",
+    "expo-secure-store": "~58.0.3",
+    "expo-status-bar": "~58.0.5",
+    "expo-build-properties": "~58.0.12",
+    "expo-system-ui": "~58.0.7",
+    "expo-dev-client": "~58.0.21",
+    "react-native-safe-area-context": "~5.11.1"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "vitest": "5.1.1",
+    "@types/react": "19.3.0",
+    "prettier": "3.10.1"
+  },
+  "overrides": {
+    "@expo/fingerprint": {
+      "minimatch": "11.0.9"
+    }
+  }
+}
