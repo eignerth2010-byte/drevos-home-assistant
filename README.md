@@ -1,10 +1,10 @@
 # Drevos Smoker for Home Assistant
 
-[Deutsch: vollständige Anleitung](README.de.md) · [English: complete guide](README.en.md)
+[Deutsch: vollstÃ¤ndige Anleitung](README.de.md) Â· [English: complete guide](README.en.md)
 
 Native, local Home Assistant integration for **one verified Drevos FX3U controller profile**, with a Raspberry Pi serial gateway and a bundled smoker-style dashboard card. No MQTT broker, cloud service or paid license is required.
 
-**Community project, version 0.1.0. Not an official Drevos or Mitsubishi product.** Compatibility is defined by the register profile, not by the Drevos badge on an oven. Other controllers must be checked before enabling writes.
+**Community project, version 0.1.1. Not an official Drevos or Mitsubishi product.** Compatibility is defined by the register profile, not by the Drevos badge on an oven. Other controllers must be checked before enabling writes.
 
 ## What is included
 
@@ -37,11 +37,11 @@ Do not put gateway tokens or personal configuration in an issue, repository or s
 - [Verified register profile](docs/REGISTER_PROFILE.md).
 - [Validation and limits](docs/VALIDATION.md).
 - [Publishing and maintaining on GitHub, DE/EN](docs/GITHUB.md).
-- [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Third-party notices](THIRD_PARTY.md) · [MIT license](LICENSE).
+- [Contributing](CONTRIBUTING.md) Â· [Security](SECURITY.md) Â· [Third-party notices](THIRD_PARTY.md) Â· [MIT license](LICENSE).
 
 The original PLC project, its export, photographs, credentials and installation-specific configuration are deliberately not distributed. The integration never changes the PLC program and never forces a raw Y output.
 
 
 ## Native mobile app (preview)
 
-The [iOS and Android app](mobile/README.md) uses the existing HA integration without Pi changes. [Deutsch](mobile/README.de.md) · [English](mobile/README.en.md). GitHub Actions can build an Android preview APK and compile an unsigned iPhone app; iPhone installation requires separate Apple signing.
+The [iOS and Android app](mobile/README.md) uses the existing HA integration without Pi changes. [Deutsch](mobile/README.de.md) Â· [English](mobile/README.en.md). GitHub Actions can build an Android preview APK and compile an unsigned iPhone app; iPhone installation requires separate Apple signing.

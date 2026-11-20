@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "drevos-gateway"
-version = "0.1.0"
+version = "0.1.1"
 description = "Local serial gateway for the verified Drevos FX3U smoker profile"
 requires-python = ">=3.11"
 dependencies = ["pyserial>=3.5,<4"]
