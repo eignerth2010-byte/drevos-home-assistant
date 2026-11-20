@@ -4,51 +4,51 @@
     "step": {
       "user": {
         "title": "Drevos-Gateway",
-        "description": "Lokale Adresse und privaten ZugangsschlÃ¼ssel des Raspberry Pi eintragen. Der SchlÃ¼ssel bleibt in Home Assistant.",
+        "description": "Lokale Adresse und privaten Zugangsschlüssel des Raspberry Pi eintragen. Der Schlüssel bleibt in Home Assistant.",
         "data": {
           "url": "Gateway-Adresse",
-          "token": "ZugangsschlÃ¼ssel"
+          "token": "Zugangsschlüssel"
         },
         "data_description": {
-          "url": "Beispiel: http://drevos-pi.local:8756; nur im vertrauenswÃ¼rdigen Heimnetz verwenden.",
-          "token": "Wert token aus /etc/drevos/gateway.json. Nicht auf GitHub oder in Chats verÃ¶ffentlichen."
+          "url": "Beispiel: http://drevos-pi.local:8756; nur im vertrauenswürdigen Heimnetz verwenden.",
+          "token": "Wert token aus /etc/drevos/gateway.json. Nicht auf GitHub oder in Chats veröffentlichen."
         }
       },
       "reconfigure": {
         "title": "Drevos-Gateway",
-        "description": "Lokale Adresse und privaten ZugangsschlÃ¼ssel des Raspberry Pi eintragen. Der SchlÃ¼ssel bleibt in Home Assistant.",
+        "description": "Lokale Adresse und privaten Zugangsschlüssel des Raspberry Pi eintragen. Der Schlüssel bleibt in Home Assistant.",
         "data": {
           "url": "Gateway-Adresse",
-          "token": "ZugangsschlÃ¼ssel"
+          "token": "Zugangsschlüssel"
         },
         "data_description": {
-          "url": "Beispiel: http://drevos-pi.local:8756; nur im vertrauenswÃ¼rdigen Heimnetz verwenden.",
-          "token": "Wert token aus /etc/drevos/gateway.json. Nicht auf GitHub oder in Chats verÃ¶ffentlichen."
+          "url": "Beispiel: http://drevos-pi.local:8756; nur im vertrauenswürdigen Heimnetz verwenden.",
+          "token": "Wert token aus /etc/drevos/gateway.json. Nicht auf GitHub oder in Chats veröffentlichen."
         }
       },
       "reauth_confirm": {
         "title": "Drevos-Gateway",
-        "description": "Lokale Adresse und privaten ZugangsschlÃ¼ssel des Raspberry Pi eintragen. Der SchlÃ¼ssel bleibt in Home Assistant.",
+        "description": "Lokale Adresse und privaten Zugangsschlüssel des Raspberry Pi eintragen. Der Schlüssel bleibt in Home Assistant.",
         "data": {
           "url": "Gateway-Adresse",
-          "token": "ZugangsschlÃ¼ssel"
+          "token": "Zugangsschlüssel"
         },
         "data_description": {
-          "url": "Beispiel: http://drevos-pi.local:8756; nur im vertrauenswÃ¼rdigen Heimnetz verwenden.",
-          "token": "Wert token aus /etc/drevos/gateway.json. Nicht auf GitHub oder in Chats verÃ¶ffentlichen."
+          "url": "Beispiel: http://drevos-pi.local:8756; nur im vertrauenswürdigen Heimnetz verwenden.",
+          "token": "Wert token aus /etc/drevos/gateway.json. Nicht auf GitHub oder in Chats veröffentlichen."
         }
       }
     },
     "error": {
       "cannot_connect": "Gateway nicht erreichbar.",
-      "invalid_auth": "ZugangsschlÃ¼ssel ist ungÃ¼ltig.",
-      "invalid_gateway": "Adresse, API-Version oder Steuerungsprofil wird nicht unterstÃ¼tzt.",
-      "wrong_gateway": "Diese Adresse gehÃ¶rt zu einem anderen Gateway."
+      "invalid_auth": "Zugangsschlüssel ist ungültig.",
+      "invalid_gateway": "Adresse, API-Version oder Steuerungsprofil wird nicht unterstützt.",
+      "wrong_gateway": "Diese Adresse gehört zu einem anderen Gateway."
     },
     "abort": {
       "already_configured": "Dieses Gateway ist bereits eingerichtet.",
       "reconfigure_successful": "Gateway-Einstellungen aktualisiert.",
-      "reauth_successful": "ZugangsschlÃ¼ssel aktualisiert."
+      "reauth_successful": "Zugangsschlüssel aktualisiert."
     }
   },
   "entity": {
@@ -60,7 +60,7 @@
         "name": "Kerntemperatur"
       },
       "raucheinstellung": {
-        "name": "RauchstÃ¤rke"
+        "name": "Rauchstärke"
       },
       "timer_restzeit": {
         "name": "Timer Restzeit"
@@ -88,21 +88,21 @@
         "name": "Konvektion"
       },
       "luefter": {
-        "name": "LÃ¼fter"
+        "name": "Lüfter"
       },
       "heizelement": {
         "name": "Heizelement"
       },
       "rauchbetrieb": {
-        "name": "Rauchbetrieb mit ZÃ¼ndung"
+        "name": "Rauchbetrieb mit Zündung"
       },
       "timer_lauf": {
-        "name": "Timer lÃ¤uft"
+        "name": "Timer läuft"
       }
     },
     "button": {
       "timer_reset": {
-        "name": "Timer zurÃ¼cksetzen"
+        "name": "Timer zurücksetzen"
       },
       "shutdown": {
         "name": "Raspberry Pi herunterfahren"
@@ -116,7 +116,7 @@
         "name": "Automatikprogramm"
       },
       "controls_available": {
-        "name": "Bedienung verfÃ¼gbar"
+        "name": "Bedienung verfügbar"
       }
     }
   },
