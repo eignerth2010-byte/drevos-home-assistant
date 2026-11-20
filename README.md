@@ -41,3 +41,7 @@ Do not put gateway tokens or personal configuration in an issue, repository or s
 
 The original PLC project, its export, photographs, credentials and installation-specific configuration are deliberately not distributed. The integration never changes the PLC program and never forces a raw Y output.
 
+
+## Native mobile app (preview)
+
+The [iOS and Android app](mobile/README.md) uses the existing HA integration without Pi changes. [Deutsch](mobile/README.de.md) · [English](mobile/README.en.md). GitHub Actions can build an Android preview APK and compile an unsigned iPhone app; iPhone installation requires separate Apple signing.
