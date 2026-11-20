@@ -1,6 +1,6 @@
-# Drevos Smoker â€“ complete English guide
+# Drevos Smoker – complete English guide
 
-[Deutsch](README.de.md) Â· [Overview](README.md)
+[Deutsch](README.de.md) · [Overview](README.md)
 
 This integration connects Home Assistant directly to a Raspberry Pi beside a Drevos smoker. The Pi communicates with the existing PLC. The native integration does not need MQTT.
 
@@ -76,7 +76,7 @@ The PLC program is not modified. The verified profile fixes serial settings to 3
 
 ### Community store
 
-On HA with Marketplace, open **Settings â†’ Marketplace**, add this repository as an integration using its repository link, download and restart HA. On older installations with HACS, add `eignerth2010-byte/drevos-home-assistant` as a custom repository of type **Integration**, download and restart. This does not mean the project is already listed in the official catalog. Read and accept the store's own notices yourself.
+On HA with Marketplace, open **Settings → Marketplace**, add this repository as an integration using its repository link, download and restart HA. On older installations with HACS, add `eignerth2010-byte/drevos-home-assistant` as a custom repository of type **Integration**, download and restart. This does not mean the project is already listed in the official catalog. Read and accept the store's own notices yourself.
 
 ### Manual installation
 
@@ -92,7 +92,7 @@ Include all Python files, translations and `www`. Restart Home Assistant.
 
 ### Setup
 
-1. Open **Settings â†’ Devices & services â†’ Add integration**.
+1. Open **Settings → Devices & services → Add integration**.
 2. Search for **Drevos Smoker**.
 3. Enter the local gateway address, for example `http://drevos-pi.local:8756`, or the Pi's own address with its port.
 4. Enter the private `token` from the local gateway configuration.
@@ -102,7 +102,7 @@ Use **Reconfigure** on the integration entry if its address or token changes. HA
 
 ## 5. Add the complete smoker card
 
-Open a dashboard, choose **Edit â†’ Add card â†’ Drevos Smoker**. Configure the title, language and device in the visual editor. With exactly one Drevos gateway, the device is selected automatically.
+Open a dashboard, choose **Edit → Add card → Drevos Smoker**. Configure the title, language and device in the visual editor. With exactly one Drevos gateway, the device is selected automatically.
 
 Alternatively use the manual card editor:
 
@@ -117,7 +117,7 @@ The card includes temperatures, targets, smoke level, both fans, heating, smoke/
 In storage resource mode, the integration registers the bundled JavaScript automatically. Fully reload the browser after first installation. If manual resource registration is needed, add this **JavaScript module** under dashboard resources:
 
 ```text
-/drevos_static/drevos-smoker-card.js?v=0.1.1
+/drevos_static/drevos-smoker-card.js?v=0.1.2
 ```
 
 In YAML resource mode, add the same module URL to the existing resource list. The integration does not edit that list. Avoid duplicate registrations. The version parameter changes on releases so browsers fetch fresh code.
@@ -128,13 +128,13 @@ For transitional use with this project's old MQTT entity names, add `legacy_mqtt
 
 | Function | Behavior |
 |---|---|
-| Chamber target | 0â€“120 Â°C in whole degrees. A positive value alone does not enable heating. Zero disables heat first. |
-| Core target | 0â€“115 Â°C. Zero disables this completion criterion. A reached positive core target can end the process early. |
-| Smoke target | 0â€“100%. A positive value alone does not start smoke. Zero disables smoke first. |
+| Chamber target | 0–120 °C in whole degrees. A positive value alone does not enable heating. Zero disables heat first. |
+| Core target | 0–115 °C. Zero disables this completion criterion. A reached positive core target can end the process early. |
+| Smoke target | 0–100%. A positive value alone does not start smoke. Zero disables smoke first. |
 | Heating element | Enables the existing PLC heating control; requires a valid positive chamber target. |
 | Smoke / ignition | Enables the PLC's existing smoke and ignition sequence; requires a positive smoke target. Never directly forces an ignition output. |
 | Convection / fan | The confirmed manual PLC requests. The PLC can also run convection for heating or cooling. |
-| Timer duration | 1â€“9999 minutes. |
+| Timer duration | 1–9999 minutes. |
 | Timer start | Starts only the clock, without enabling heat or smoke. |
 | Timer pause | Requires heat and smoke to be off. |
 | Reset timer | Requires a paused timer and heat/smoke off; clears elapsed time. |
@@ -161,6 +161,8 @@ Never run both readers on one serial port. The original `drevos_lesetest.py` is 
 
 ## 8. Update and roll back
 
+Current HA version **0.1.2** removes the superseded mobile prototype and its build workflow from this repository and corrects UTF-8 text in the guides and German translation. The standalone app is maintained only in the separate [app repository](https://github.com/eignerth2010-byte/drevos-app). The Pi gateway remains at 0.1.1.
+
 Version **0.1.1** includes gateway 0.1.1, shared with the standalone app. Overlapping HA commands and writes to a busy serial connection are refused, not queued. Action errors are available in German and English. Existing entities and dashboard configuration are preserved. If the app setup already installed gateway 0.1.1, only this HA update is needed; no Pi reinstallation is required.
 
 The current [standalone Android/iOS app](https://github.com/eignerth2010-byte/drevos-app) does not require Home Assistant. Both connections use the same local gateway service; never open the PLC port with a second service.
@@ -175,7 +177,7 @@ sudo sh scripts/install-gateway.sh
 sudo systemctl start drevos-gateway.service
 ```
 
-The installer preserves an existing `/etc/drevos/gateway.json`. Update HA files through the store or replace `custom_components/drevos`, then restart HA and reload the browser. For a version rollback, check out the previous Git tag and repeat installation; retain private configuration and follow release notes if its format changed.
+The installer preserves an existing `/etc/drevos/gateway.json`. Update HA files through the store or replace `custom_components/drevos`, then restart HA and reload the browser. To roll back the HA integration, install the earlier version through the store and restart HA. When sharing the gateway with the standalone app, retain gateway 0.1.1. Preserve private configuration.
 
 ## 9. Troubleshooting
 
@@ -196,7 +198,7 @@ HA diagnostics deliberately omit gateway address and token. Still review logs an
 
 ## 10. Remove or develop
 
-Finish any active oven process first. Remove the integration through Devices & services, remove its cards and unused resource, delete `custom_components/drevos` and restart HA. Disable the Pi service and power-off watcher. Keep private configuration until another connection is confirmed working.
+Finish any active oven process first. Remove the integration through Devices & services, remove its cards and unused resource, delete `custom_components/drevos` and restart HA. Disable the Pi service and power-off watcher only if the standalone app or other clients no longer need them. Keep private configuration until another connection is confirmed working.
 
 ```sh
 sudo systemctl disable --now drevos-gateway.service drevos-native-poweroff.path
