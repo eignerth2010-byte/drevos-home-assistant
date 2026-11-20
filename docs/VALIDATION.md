@@ -2,6 +2,19 @@
 
 This document separates source/unit tests, isolated browser checks, live HA behavior and energized hardware. Planned support is not the same as a physical test.
 
+## Release 0.1.1 — 20 November 2026
+
+- 39 Python tests pass. The real asynchronous HA client was exercised against an isolated HTTP server: overlapping commands are rejected without a second POST, reads remain possible, and the command guard recovers after success, HTTP 409/503 and cancellation. Failed/cancelled commands are not retried, and untrusted response bodies do not appear in errors.
+- 9 existing card contract tests pass. Card interactions and entity identities remain unchanged; the resource URL now carries version 0.1.1.
+- The packaged gateway is identical to the 0.1.1 gateway used by the standalone app. A busy serial connection refuses a command immediately, without a deferred write. The concurrency test uses a synthetic PLC; it does not write to the actual oven.
+- The running Pi already reports gateway 0.1.1. Before this HA update, the existing native integration was loaded in HA Core 2026.11.2 and all 19 entities were present, with actual temperatures, smoke and timer readings. An unused button's `unknown` state is normal.
+- Diagnostic integration version comes from the shared version constant; action errors have German/English translations. Control platforms explicitly leave concurrency to the shared client, avoiding a platform command queue.
+- The current standalone Android app is maintained in [drevos-app](https://github.com/eignerth2010-byte/drevos-app). Its user-confirmed remote reading test does not establish physical HA heating/ignition/shutdown validation.
+
+No physical PLC control command is needed for this patch installation. Heating, ignition and actual Pi shutdown remain outside the update checks.
+
+Die Version 0.1.1 umfasst 39 Python- und 9 Kartenprüfungen. Mehrfachbefehle werden abgelehnt und nicht gespeichert oder automatisch wiederholt. Das Pi-Gateway 0.1.1 ist bereits installiert; die HA-Integration wird über den Store aktualisiert und HA anschließend neu gestartet. Die bestehenden Entitäten und die Terrasse-Karte werden weiterverwendet. Heizungs-, Zündungs- und Abschaltbefehle werden beim Update nicht ausgelöst.
+
 ## Release 0.1.0 — 13 November 2026
 
 | Evidence layer | Result |
