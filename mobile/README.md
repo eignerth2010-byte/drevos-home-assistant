@@ -1,6 +1,8 @@
+> This earlier HA-dependent prototype is superseded by the [standalone Drevos app](https://github.com/eignerth2010-byte/drevos-app). Use that repository for the current app and downloads.
+
 # Drevos Mobile
 
-[Deutsch: vollständige Anleitung](README.de.md) · [English: complete guide](README.en.md)
+[Deutsch: vollstÃƒÂ¤ndige Anleitung](README.de.md) Ã‚Â· [English: complete guide](README.en.md)
 
 Native React Native / Expo app for **iOS and Android**, using the existing Drevos Home Assistant integration. Version 0.1.0, preview. This is a community project, not an official Drevos app.
 
@@ -12,7 +14,7 @@ Source code is ready for native builds. JavaScript bundles and automated checks 
 
 ## Build without a local Mac
 
-In this repository, open **Actions → Drevos Mobile → Run workflow**. The workflow checks the app, builds a standalone Android preview APK and optionally compiles an **unsigned iPhone app** on a hosted Mac. Artifacts are retained for 14 days. No Apple credentials are stored in the workflow. Signing and distribution are separate steps; see the language-specific guides.
+In this repository, open **Actions Ã¢â€ â€™ Drevos Mobile Ã¢â€ â€™ Run workflow**. The workflow checks the app, builds a standalone Android preview APK and optionally compiles an **unsigned iPhone app** on a hosted Mac. Artifacts are retained for 14 days. No Apple credentials are stored in the workflow. Signing and distribution are separate steps; see the language-specific guides.
 
 ## Development
 
@@ -35,3 +37,5 @@ Node.js 24 LTS. Native iOS builds: Expo SDK 58 requires Xcode 26.4+ and iOS 16.4
 ## License
 
 App source and original cabinet icon: MIT, see [LICENSE](LICENSE). The supplied Drevos logo and brand are excluded: see [BRAND-NOTICE](BRAND-NOTICE.md). Dependencies keep their respective licenses. [Validation](VALIDATION.md) describes what has and has not been tested.
+
+Available dependency license texts accompany test packages in [THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt).

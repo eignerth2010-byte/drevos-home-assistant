@@ -1,4 +1,6 @@
-# Drevos app – English guide
+> This earlier HA-dependent prototype is superseded by the [standalone Drevos app](https://github.com/eignerth2010-byte/drevos-app). Use that repository for the current app and downloads.
+
+# Drevos app Ã¢â‚¬â€œ English guide
 
 The native app uses the existing **Drevos integration in Home Assistant**. No Raspberry Pi changes, MQTT broker, extra serial connection or PLC program changes are required. Home Assistant and the gateway must be reachable. Use the existing secure HA address or a VPN for remote access.
 
@@ -11,7 +13,7 @@ The native app uses the existing **Drevos integration in Home Assistant**. No Ra
 
 ## Android without local build tools
 
-Open this repository on GitHub, select **Actions → Drevos Mobile → Run workflow**. Disable `build_ios` if you only need Android. After success, download and unzip **Artifacts → Drevos-Android-preview-APK**, transfer the APK to your phone and allow installation of that file. This is a standalone test build with its JavaScript embedded, not a Play Store release. No development server is needed.
+Open this repository on GitHub, select **Actions Ã¢â€ â€™ Drevos Mobile Ã¢â€ â€™ Run workflow**. Disable `build_ios` if you only need Android. After success, download and unzip **Artifacts Ã¢â€ â€™ Drevos-Android-preview-APK**, transfer the APK to your phone and allow installation of that file. This is a standalone test build with its JavaScript embedded, not a Play Store release. No development server is needed.
 
 Test signing keys may change between CI runs. If an update is refused because its signing key differs, sign out, uninstall the previous test app and install the new one. Use your own persistent release signing key for maintained releases.
 
@@ -72,4 +74,8 @@ Sign-out clears local credentials and attempts server revocation. If HA is unrea
 
 No entities: check the native integration and user permissions. Disabled reset/shutdown: ensure heating, smoke and timer are off. Expired sign-in: sign out and authenticate again. Do not publish tokens, passwords or full HA configuration in support requests.
 
-[Validation and limitations](VALIDATION.md) · [Deutsch](README.de.md)
+[Validation and limitations](VALIDATION.md) Ã‚Â· [Deutsch](README.de.md)
+
+### Personal iPhone installation from Windows
+
+Another option is [Sideloadly](https://sideloadly.io/): it can sign the unsigned IPA on Windows using a normal Apple ID and install it on your own iPhone. The provider supports free accounts; free signing lasts seven days and must be renewed. A device connection and the required Apple desktop components are needed. Enter Apple credentials and verification codes yourself only in the appropriate sign-in window, never in chat. This installation route has not been tested on a physical iPhone here. No automatic installation or changes to existing iTunes/iCloud installations are performed.
