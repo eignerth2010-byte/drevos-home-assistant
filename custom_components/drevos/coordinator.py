@@ -2,7 +2,8 @@
 from datetime import timedelta
 from homeassistant.exceptions import HomeAssistantError, ConfigEntryAuthFailed
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
-from .api import DrevosError, DrevosAuthError
+from .api import DrevosError, DrevosAuthError, DrevosBusyError, DrevosRejectedError
+from .const import DOMAIN
 
 
 class DrevosCoordinator(DataUpdateCoordinator):
@@ -26,6 +27,17 @@ class DrevosCoordinator(DataUpdateCoordinator):
         try:
             data = await self.client.command(name, value)
             self.async_set_updated_data(data)
+        except DrevosBusyError:
+            raise HomeAssistantError(
+                translation_domain=DOMAIN, translation_key="command_busy"
+            ) from None
+        except DrevosRejectedError:
+            await self.async_request_refresh()
+            raise HomeAssistantError(
+                translation_domain=DOMAIN, translation_key="command_rejected"
+            ) from None
         except DrevosError:
             await self.async_request_refresh()
-            raise HomeAssistantError("Drevos rejected the command or the connection failed. Check the current oven state before retrying.") from None
+            raise HomeAssistantError(
+                translation_domain=DOMAIN, translation_key="command_failed"
+            ) from None

@@ -3,6 +3,9 @@ from homeassistant.components.button import ButtonEntity
 from homeassistant.helpers.entity import EntityCategory
 from .entity import DrevosEntity
 
+# The shared client rejects overlapping commands; HA must not queue them.
+PARALLEL_UPDATES = 0
+
 
 async def async_setup_entry(hass, entry, async_add_entities):
     async_add_entities([DrevosButton(entry.runtime_data, "timer_reset", "RESET"),

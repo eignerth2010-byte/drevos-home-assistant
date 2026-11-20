@@ -3,6 +3,9 @@ from homeassistant.components.number import NumberEntity, NumberMode, NumberDevi
 from .const import NUMBERS
 from .entity import DrevosEntity
 
+# The shared client rejects overlapping commands; HA must not queue them.
+PARALLEL_UPDATES = 0
+
 
 async def async_setup_entry(hass, entry, async_add_entities):
     async_add_entities(DrevosNumber(entry.runtime_data, key, *values)

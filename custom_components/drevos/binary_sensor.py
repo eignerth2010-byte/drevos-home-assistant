@@ -3,6 +3,8 @@ from homeassistant.components.binary_sensor import BinarySensorEntity, BinarySen
 from homeassistant.helpers.entity import EntityCategory
 from .entity import DrevosEntity
 
+PARALLEL_UPDATES = 0
+
 
 async def async_setup_entry(hass, entry, async_add_entities):
     async_add_entities(DrevosBinarySensor(entry.runtime_data, key)

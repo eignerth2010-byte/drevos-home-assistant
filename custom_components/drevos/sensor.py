@@ -2,6 +2,8 @@
 from homeassistant.components.sensor import SensorEntity, SensorDeviceClass, SensorStateClass
 from .entity import DrevosEntity
 
+PARALLEL_UPDATES = 0
+
 SENSORS = {"kammertemperatur": ("°C", "mdi:thermometer"),
            "kerntemperatur": ("°C", "mdi:food-steak"),
            "raucheinstellung": ("%", "mdi:smoke"),

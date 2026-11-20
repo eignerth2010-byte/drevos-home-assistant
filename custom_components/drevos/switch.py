@@ -3,6 +3,9 @@ from homeassistant.components.switch import SwitchEntity
 from .const import SWITCHES
 from .entity import DrevosEntity
 
+# The shared client rejects overlapping commands; HA must not queue them.
+PARALLEL_UPDATES = 0
+
 
 async def async_setup_entry(hass, entry, async_add_entities):
     async_add_entities(DrevosSwitch(entry.runtime_data, key, *values)
