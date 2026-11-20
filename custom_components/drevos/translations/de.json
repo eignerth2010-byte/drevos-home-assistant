@@ -4,51 +4,51 @@
     "step": {
       "user": {
         "title": "Drevos-Gateway",
-        "description": "Lokale Adresse und privaten Zugangsschlüssel des Raspberry Pi eintragen. Der Schlüssel bleibt in Home Assistant.",
+        "description": "Lokale Adresse und privaten ZugangsschlÃ¼ssel des Raspberry Pi eintragen. Der SchlÃ¼ssel bleibt in Home Assistant.",
         "data": {
           "url": "Gateway-Adresse",
-          "token": "Zugangsschlüssel"
+          "token": "ZugangsschlÃ¼ssel"
         },
         "data_description": {
-          "url": "Beispiel: http://drevos-pi.local:8756; nur im vertrauenswürdigen Heimnetz verwenden.",
-          "token": "Wert token aus /etc/drevos/gateway.json. Nicht auf GitHub oder in Chats veröffentlichen."
+          "url": "Beispiel: http://drevos-pi.local:8756; nur im vertrauenswÃ¼rdigen Heimnetz verwenden.",
+          "token": "Wert token aus /etc/drevos/gateway.json. Nicht auf GitHub oder in Chats verÃ¶ffentlichen."
         }
       },
       "reconfigure": {
         "title": "Drevos-Gateway",
-        "description": "Lokale Adresse und privaten Zugangsschlüssel des Raspberry Pi eintragen. Der Schlüssel bleibt in Home Assistant.",
+        "description": "Lokale Adresse und privaten ZugangsschlÃ¼ssel des Raspberry Pi eintragen. Der SchlÃ¼ssel bleibt in Home Assistant.",
         "data": {
           "url": "Gateway-Adresse",
-          "token": "Zugangsschlüssel"
+          "token": "ZugangsschlÃ¼ssel"
         },
         "data_description": {
-          "url": "Beispiel: http://drevos-pi.local:8756; nur im vertrauenswürdigen Heimnetz verwenden.",
-          "token": "Wert token aus /etc/drevos/gateway.json. Nicht auf GitHub oder in Chats veröffentlichen."
+          "url": "Beispiel: http://drevos-pi.local:8756; nur im vertrauenswÃ¼rdigen Heimnetz verwenden.",
+          "token": "Wert token aus /etc/drevos/gateway.json. Nicht auf GitHub oder in Chats verÃ¶ffentlichen."
         }
       },
       "reauth_confirm": {
         "title": "Drevos-Gateway",
-        "description": "Lokale Adresse und privaten Zugangsschlüssel des Raspberry Pi eintragen. Der Schlüssel bleibt in Home Assistant.",
+        "description": "Lokale Adresse und privaten ZugangsschlÃ¼ssel des Raspberry Pi eintragen. Der SchlÃ¼ssel bleibt in Home Assistant.",
         "data": {
           "url": "Gateway-Adresse",
-          "token": "Zugangsschlüssel"
+          "token": "ZugangsschlÃ¼ssel"
         },
         "data_description": {
-          "url": "Beispiel: http://drevos-pi.local:8756; nur im vertrauenswürdigen Heimnetz verwenden.",
-          "token": "Wert token aus /etc/drevos/gateway.json. Nicht auf GitHub oder in Chats veröffentlichen."
+          "url": "Beispiel: http://drevos-pi.local:8756; nur im vertrauenswÃ¼rdigen Heimnetz verwenden.",
+          "token": "Wert token aus /etc/drevos/gateway.json. Nicht auf GitHub oder in Chats verÃ¶ffentlichen."
         }
       }
     },
     "error": {
       "cannot_connect": "Gateway nicht erreichbar.",
-      "invalid_auth": "Zugangsschlüssel ist ungültig.",
-      "invalid_gateway": "Adresse, API-Version oder Steuerungsprofil wird nicht unterstützt.",
-      "wrong_gateway": "Diese Adresse gehört zu einem anderen Gateway."
+      "invalid_auth": "ZugangsschlÃ¼ssel ist ungÃ¼ltig.",
+      "invalid_gateway": "Adresse, API-Version oder Steuerungsprofil wird nicht unterstÃ¼tzt.",
+      "wrong_gateway": "Diese Adresse gehÃ¶rt zu einem anderen Gateway."
     },
     "abort": {
       "already_configured": "Dieses Gateway ist bereits eingerichtet.",
       "reconfigure_successful": "Gateway-Einstellungen aktualisiert.",
-      "reauth_successful": "Zugangsschlüssel aktualisiert."
+      "reauth_successful": "ZugangsschlÃ¼ssel aktualisiert."
     }
   },
   "entity": {
@@ -60,7 +60,7 @@
         "name": "Kerntemperatur"
       },
       "raucheinstellung": {
-        "name": "Rauchstärke"
+        "name": "RauchstÃ¤rke"
       },
       "timer_restzeit": {
         "name": "Timer Restzeit"
@@ -88,21 +88,21 @@
         "name": "Konvektion"
       },
       "luefter": {
-        "name": "Lüfter"
+        "name": "LÃ¼fter"
       },
       "heizelement": {
         "name": "Heizelement"
       },
       "rauchbetrieb": {
-        "name": "Rauchbetrieb mit Zündung"
+        "name": "Rauchbetrieb mit ZÃ¼ndung"
       },
       "timer_lauf": {
-        "name": "Timer läuft"
+        "name": "Timer lÃ¤uft"
       }
     },
     "button": {
       "timer_reset": {
-        "name": "Timer zurücksetzen"
+        "name": "Timer zurÃ¼cksetzen"
       },
       "shutdown": {
         "name": "Raspberry Pi herunterfahren"
@@ -116,8 +116,19 @@
         "name": "Automatikprogramm"
       },
       "controls_available": {
-        "name": "Bedienung verfügbar"
+        "name": "Bedienung verfÃ¼gbar"
       }
+    }
+  },
+  "exceptions": {
+    "command_busy": {
+      "message": "Ein anderer Drevos-Befehl wird noch verarbeitet. Dieser Befehl wurde nicht gesendet. Prüfe vor einem erneuten Versuch den aktuellen Ofenzustand."
+    },
+    "command_rejected": {
+      "message": "Das Gateway hat den Befehl abgelehnt, weil es belegt ist oder eine Bedienbedingung nicht erfüllt ist. Prüfe vor einem erneuten Versuch den aktuellen Ofenzustand."
+    },
+    "command_failed": {
+      "message": "Der Befehl ist fehlgeschlagen oder sein Ergebnis ist unklar. Prüfe vor einem erneuten Versuch den aktuellen Ofenzustand; der Befehl wird nicht automatisch wiederholt."
     }
   }
 }

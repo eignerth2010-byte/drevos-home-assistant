@@ -119,5 +119,16 @@
         "name": "Controls available"
       }
     }
+  },
+  "exceptions": {
+    "command_busy": {
+      "message": "Another Drevos command is still in progress. This command was not sent. Check the current oven state before trying again."
+    },
+    "command_rejected": {
+      "message": "The gateway refused the command because it is busy or a control condition is not met. Check the current oven state before trying again."
+    },
+    "command_failed": {
+      "message": "The command failed or its outcome is uncertain. Check the current oven state before trying again; the command is not repeated automatically."
+    }
   }
 }
