@@ -1,7 +1,7 @@
 """Integration constants and the verified profile's entities."""
 from homeassistant.const import Platform
 DOMAIN = "drevos"
-VERSION = "0.1.1"
+VERSION = "0.1.2"
 API_VERSION = 1
 PROFILE = "drevos_fx3u_v1"
 PLATFORMS = [Platform.SENSOR, Platform.NUMBER, Platform.SWITCH, Platform.BUTTON, Platform.BINARY_SENSOR]
