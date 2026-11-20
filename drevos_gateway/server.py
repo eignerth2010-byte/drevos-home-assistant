@@ -80,8 +80,10 @@ class Gateway:
     def command(self, name, value):
         if name not in {*SWITCHES, *NUMBERS, "timer_reset", "shutdown"}:
             raise ValueError("Unknown command")
-        # All commands share this single actor/lock. They are never queued or retried.
-        with self.lock:
+        # A busy serial actor refuses writes immediately; it never queues them.
+        if not self.lock.acquire(blocking=False):
+            raise PermissionError("Gateway busy; refresh before trying again")
+        try:
             if self.shutting_down:
                 raise PermissionError("Gateway shutting down")
             state = self._read()
@@ -110,6 +112,9 @@ class Gateway:
                     self.port = None
                 self.cached = None
                 raise ConnectionError("Command outcome uncertain; refresh state before retrying") from None
+
+        finally:
+            self.lock.release()
 
     def close(self):
         with self.lock:
