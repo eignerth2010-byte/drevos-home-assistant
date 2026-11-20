@@ -1,0 +1,104 @@
+name: Drevos Mobile
+
+on:
+  workflow_dispatch:
+    inputs:
+      build_ios:
+        description: Build unsigned iPhone app on a hosted Mac (not installable without signing)
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+env:
+  EXPO_NO_TELEMETRY: '1'
+  CI: '1'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mobile
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: mobile/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run format:check
+      - run: npm test
+      - run: npm run bundle:check
+
+  android:
+    needs: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: mobile
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: mobile/package-lock.json
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - run: npm ci
+      - run: npx expo prebuild --platform android --no-install
+      - run: chmod +x android/gradlew
+      - name: Build standalone preview APK with template test signature
+        run: ./gradlew assembleRelease -PreactNativeArchitectures=arm64-v8a,armeabi-v7a '-Dorg.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=1g'
+        working-directory: mobile/android
+        env:
+          CI: '1'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Drevos-Android-preview-APK
+          path: mobile/android/app/build/outputs/apk/release/*.apk
+          if-no-files-found: error
+          retention-days: 14
+
+  ios:
+    if: inputs.build_ios
+    needs: check
+    runs-on: macos-26
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: mobile
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: mobile/package-lock.json
+      - run: xcodebuild -version
+      - run: npm ci
+      - run: npx expo prebuild --platform ios
+      - name: Compile unsigned iPhone app
+        run: >-
+          xcodebuild -workspace ios/Drevos.xcworkspace -scheme Drevos
+          -configuration Release -sdk iphoneos -destination 'generic/platform=iOS'
+          -derivedDataPath build CODE_SIGNING_ALLOWED=NO
+      - name: Package unsigned app
+        run: |
+          mkdir -p unsigned/Payload
+          cp -R build/Build/Products/Release-iphoneos/Drevos.app unsigned/Payload/
+          cd unsigned
+          zip -qr ../Drevos-iPhone-UNSIGNED.ipa Payload
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Drevos-iPhone-UNSIGNED-needs-Apple-signing
+          path: mobile/Drevos-iPhone-UNSIGNED.ipa
+          if-no-files-found: error
+          retention-days: 14
