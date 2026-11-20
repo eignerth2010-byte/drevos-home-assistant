@@ -17,6 +17,25 @@ class GatewayTests(unittest.TestCase):
         self.base = {"available": True, "controls_available": True, "heizung_freigabe": False,
                      "rauch_freigabe": False, "timer_laeuft": False}
 
+    def test_busy_actor_rejects_a_write_instead_of_queuing_it(self):
+        result=[]
+        def attempt():
+            try: self.gateway.command('luefter','ON')
+            except Exception as error: result.append(error)
+        self.gateway.lock.acquire()
+        with patch.object(self.gateway,'_read',return_value=self.base) as read, patch.object(server,'apply_command') as apply:
+            thread=threading.Thread(target=attempt)
+            thread.start()
+            thread.join(.5)
+            queued=thread.is_alive()
+            self.gateway.lock.release()
+            thread.join(2)
+            self.assertFalse(queued)
+            self.assertEqual(len(result),1)
+            self.assertIsInstance(result[0],PermissionError)
+            read.assert_not_called()
+            apply.assert_not_called()
+
     def test_token_profile_and_identity_are_required(self):
         for change in [{"token": ""}, {"profile": "unknown"}, {"id": "../bad"}]:
             with self.assertRaises(ValueError): server.Gateway({**CONFIG, **change})
