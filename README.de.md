@@ -75,6 +75,9 @@ Keine Änderungen an der SPS-Software sind erforderlich. Die Baudrate ist im gep
 
 ## 4. Integration in Home Assistant installieren
 
+**Aktuelle Lizenz:** Für neue Fassungen den manuellen Installationsweg unten verwenden. Die Beschränkung kommerzieller Weitergabe erfüllt die Marketplace-/HACS-Katalogvorgabe nicht. [Details](docs/LICENSING.md).
+
+
 ### Über den Community-Store
 
 Bei HA mit Marketplace: **Einstellungen → Marketplace**, dort dieses Repository als Integration über den Repository-Link hinzufügen, herunterladen und HA neu starten. Bei älteren Installationen mit HACS: Repository `eignerth2010-byte/drevos-home-assistant` als benutzerdefiniertes Repository der Kategorie **Integration** hinzufügen, herunterladen und neu starten. Die Integration ist dadurch nicht automatisch in den offiziellen Katalog aufgenommen. Die jeweils angebotenen Hinweise des Stores selbst lesen und bestätigen.
@@ -160,7 +163,7 @@ Version **0.1.1** enthält das mit der eigenständigen App gemeinsame Gateway 0.
 
 Die aktuelle [eigenständige Android-/iOS-App](https://github.com/eignerth2010-byte/drevos-app) benötigt kein Home Assistant. Beide Anbindungen verwenden denselben lokalen Gateway-Dienst; kein zweiter Dienst darf den SPS-Port öffnen.
 
-Für **0.1.3** die HA-Integration im **Marketplace** (vor HA 2026.11: HACS) aktualisieren, HA neu starten und das Dashboard neu öffnen. Das bestehende Pi-Gateway 0.1.1 benötigt dafür keine Änderung. Die HA- und App-Versionsnummern laufen getrennt.
+Für **0.1.4** den kompletten Ordner `custom_components/drevos` aus dem neuen Paket in HA ersetzen, HA neu starten und das Dashboard neu öffnen. Das bestehende Pi-Gateway 0.1.1 benötigt dafür keine Änderung. Die HA- und App-Versionsnummern laufen getrennt.
 
 Vor einem Update die private Pi-Konfiguration und HA-Konfiguration sichern. Öffentliche Releases enthalten keine persönlichen Einstellungen.
 

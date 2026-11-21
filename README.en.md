@@ -73,6 +73,9 @@ The PLC program is not modified. The verified profile fixes serial settings to 3
 
 ## 4. Install the Home Assistant integration
 
+**Current license:** Use the manual installation instructions below for new versions. The commercial redistribution restriction does not meet the Marketplace/HACS catalog license requirement. [Details](docs/LICENSING.md).
+
+
 ### Community store
 
 On HA with Marketplace, open **Settings → Marketplace**, add this repository as an integration using its repository link, download and restart HA. On older installations with HACS, add `eignerth2010-byte/drevos-home-assistant` as a custom repository of type **Integration**, download and restart. This does not mean the project is already listed in the official catalog. Read and accept the store's own notices yourself.
@@ -158,7 +161,7 @@ Version **0.1.1** includes gateway 0.1.1, shared with the standalone app. Overla
 
 The current [standalone Android/iOS app](https://github.com/eignerth2010-byte/drevos-app) does not require Home Assistant. Both connections use the same local gateway service; never open the PLC port with a second service.
 
-For **0.1.3**, update the HA integration in the **Marketplace** (HACS before HA 2026.11), restart HA and reopen the dashboard. The existing Pi gateway 0.1.1 needs no change. HA and app versions are numbered independently.
+For **0.1.4**, replace the complete `custom_components/drevos` folder in HA with the new package, restart HA and reopen the dashboard. The existing Pi gateway 0.1.1 needs no change. HA and app versions are numbered independently.
 
 Back up the private Pi configuration and HA configuration first. Public releases contain no personal settings.
 
