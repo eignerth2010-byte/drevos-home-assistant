@@ -1,9 +1,14 @@
-The supplied Drevos logo is used to identify the supported equipment. Brand names,
-logos and trademark rights remain with their respective owners. The repository's
-MIT license applies to its original software and documentation; it does not grant
-trademark rights or relicense the supplied logo. This is an independent community
-project, not an official manufacturer integration.
+# Community artwork / Projektgrafiken
 
-Das bereitgestellte Drevos-Logo kennzeichnet die unterstützte Hardware. Marken-
-und Logorechte verbleiben beim jeweiligen Rechteinhaber. Die MIT-Lizenz für Code
-und Dokumentation verleiht keine Markenrechte und lizenziert das Logo nicht neu.
+The current wordmark is an AI-assisted community-project design, not the
+manufacturer's original Drevos logo. The cabinet icon is original project
+artwork. These project assets are covered by the repository's current LICENSE;
+earlier MIT versions retain their terms. The name Drevos and any manufacturer
+trademark rights remain with their respective owners. This notice grants no
+manufacturer trademark permission and does not claim affiliation or endorsement.
+
+Der aktuelle Schriftzug ist ein mit KI-Unterstützung erstellter Projektentwurf,
+nicht das originale Herstellerlogo. Das Ofensymbol ist eine eigene Projektgrafik.
+Es gilt die aktuelle Projektlizenz; frühere MIT-Rechte bleiben bestehen. Der
+Name Drevos und Hersteller-Markenrechte bleiben beim jeweiligen Rechteinhaber.
+Eine Herstellerfreigabe oder offizielle Zusammenarbeit wird nicht behauptet.
