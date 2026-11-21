@@ -116,7 +116,7 @@ Die Karte enthält Isttemperaturen, Sollwerte, Rauchstärke, beide Lüfter, Heiz
 Die Integration registriert die Kartenressource bei einem Dashboard im Speichermodus automatisch. Falls die Karte nach der Erstinstallation fehlt, den Browser vollständig neu laden. Falls nötig unter Dashboard-Ressourcen eine **JavaScript-Modul**-Ressource eintragen:
 
 ```text
-/drevos_static/drevos-smoker-card.js?v=0.1.2
+/drevos_static/drevos-smoker-card.js?v=0.1.3
 ```
 
 Bei YAML-Ressourcenverwaltung diesen Pfad in der vorhandenen Ressourcenliste eintragen; eine automatische Änderung dieser Liste erfolgt nicht. Keine doppelte Ressource hinzufügen. Die neue Versionsnummer im URL-Parameter sorgt nach Updates für frischen Code.
@@ -144,15 +144,23 @@ Zeitangaben sind **Stunden:Minuten:Sekunden**. Der Timer liegt in der SPS, läuf
 Bei aktivem Automatikprogramm und im unbestätigten Fahrenheit-Modus sind manuelle Schreibzugriffe gesperrt. Die Ofensteuerung läuft bei Netzwerkverlust eigenständig weiter: **„nicht verfügbar“ ist keine Abschaltung des Ofens.**
 
 
+## Info, Versionsnummer und Änderungen
+
+In der Drevos-Karte **Info** wählen. Dort stehen Thomas Eigner als Ersteller, die HA-Integrationsversion, Spendenbutton, Installationsanleitung, Support und Mitwirkende. Die Versionsnummer steht zusätzlich unten an der Karte. **Was ist neu?** erscheint nach einem Update einmal pro Browserprofil und lässt sich in Info wieder öffnen. Details: [Infos und Updates](docs/UPDATES.md).
+
 ## 7. Aktualisieren
 
-Die aktuelle HA-Version **0.1.2** bereinigt den früheren Mobile-Prototyp und dessen Build-Dateien aus diesem Repository und korrigiert Umlaute in den Anleitungen und der deutschen Übersetzung. Die eigenständige App wird ausschließlich im separaten [App-Repository](https://github.com/eignerth2010-byte/drevos-app) gepflegt. Das Pi-Gateway bleibt auf 0.1.1.
+HA-Version **0.1.3** ergänzt die Karte um **Ofen / Info**, deinen Erstellerhinweis, einen freiwilligen PayPal-Spendenbutton, sichtbare Versionsnummer und **Was ist neu?**. Auch die in HA angezeigte Einrichtungsbeschreibung und diese Anleitungen sind aktualisiert. Die frühere Version 0.1.2 hat den alten Mobile-Prototyp entfernt. Die eigenständige App wird ausschließlich im separaten [App-Repository](https://github.com/eignerth2010-byte/drevos-app) gepflegt. Das Pi-Gateway bleibt auf 0.1.1.
 
 Version **0.1.1** enthält das mit der eigenständigen App gemeinsame Gateway 0.1.1. Gleichzeitige HA-Bedienbefehle und Schreibzugriffe auf eine belegte serielle Verbindung werden abgelehnt und nicht vorgemerkt. Fehlermeldungen gibt es auf Deutsch und Englisch. Bestehende Entitäten und Dashboard-Konfigurationen bleiben erhalten. Ist Gateway 0.1.1 durch die App bereits installiert, genügt dieses HA-Update; der Pi braucht dafür keine erneute Installation.
 
 Die aktuelle [eigenständige Android-/iOS-App](https://github.com/eignerth2010-byte/drevos-app) benötigt kein Home Assistant. Beide Anbindungen verwenden denselben lokalen Gateway-Dienst; kein zweiter Dienst darf den SPS-Port öffnen.
 
+Für **0.1.3** die HA-Integration im **Marketplace** (vor HA 2026.11: HACS) aktualisieren, HA neu starten und das Dashboard neu öffnen. Das bestehende Pi-Gateway 0.1.1 benötigt dafür keine Änderung. Die HA- und App-Versionsnummern laufen getrennt.
+
 Vor einem Update die private Pi-Konfiguration und HA-Konfiguration sichern. Öffentliche Releases enthalten keine persönlichen Einstellungen.
+
+Die folgenden Pi-Befehle gelten für eine gesonderte Aktualisierung des Gateways:
 
 ```sh
 cd drevos-home-assistant
@@ -197,6 +205,8 @@ Tests, GitHub-Veröffentlichung, Releases und Beiträge: [GITHUB.md](docs/GITHUB
 ![Drevos – Beispielansicht](docs/assets/drevos-ha-card-demo.jpg)
 
 Originale Drevos-Karte für Home Assistant – isolierte Vorschau mit Beispielwerten.
+
+![HA-Integration 0.1.3 – Info & Unterstützen](docs/assets/drevos-ha-info.jpg)
 
 ## Mitwirkende
 

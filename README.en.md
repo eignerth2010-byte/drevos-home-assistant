@@ -114,7 +114,7 @@ The card includes temperatures, targets, smoke level, both fans, heating, smoke/
 In storage resource mode, the integration registers the bundled JavaScript automatically. Fully reload the browser after first installation. If manual resource registration is needed, add this **JavaScript module** under dashboard resources:
 
 ```text
-/drevos_static/drevos-smoker-card.js?v=0.1.2
+/drevos_static/drevos-smoker-card.js?v=0.1.3
 ```
 
 In YAML resource mode, add the same module URL to the existing resource list. The integration does not edit that list. Avoid duplicate registrations. The version parameter changes on releases so browsers fetch fresh code.
@@ -142,15 +142,23 @@ Times are **hours:minutes:seconds**. The PLC owns the timer; it continues indepe
 Manual writes are blocked during an automatic program and in unverified Fahrenheit mode. On a network outage, **unavailable does not mean the oven has been switched off**: its controller continues independently.
 
 
+## Info, version and release notes
+
+Select **Info** in the Drevos card for creator Thomas Eigner, the HA integration version, support button, setup guide, discussions and contributors. The card footer also shows its version. **What’s new?** appears once after an update per browser profile and can be reopened in Info. See [Info and updates](docs/UPDATES.md).
+
 ## 7. Update and roll back
 
-Current HA version **0.1.2** removes the superseded mobile prototype and its build workflow from this repository and corrects UTF-8 text in the guides and German translation. The standalone app is maintained only in the separate [app repository](https://github.com/eignerth2010-byte/drevos-app). The Pi gateway remains at 0.1.1.
+HA version **0.1.3** adds **Oven / Info** tabs, creator details, optional PayPal support, a visible version and **What’s new?**. The setup information displayed inside HA and these guides are also updated. The earlier 0.1.2 release removed the superseded mobile prototype. The standalone app is maintained only in the separate [app repository](https://github.com/eignerth2010-byte/drevos-app). The Pi gateway remains at 0.1.1.
 
 Version **0.1.1** includes gateway 0.1.1, shared with the standalone app. Overlapping HA commands and writes to a busy serial connection are refused, not queued. Action errors are available in German and English. Existing entities and dashboard configuration are preserved. If the app setup already installed gateway 0.1.1, only this HA update is needed; no Pi reinstallation is required.
 
 The current [standalone Android/iOS app](https://github.com/eignerth2010-byte/drevos-app) does not require Home Assistant. Both connections use the same local gateway service; never open the PLC port with a second service.
 
+For **0.1.3**, update the HA integration in the **Marketplace** (HACS before HA 2026.11), restart HA and reopen the dashboard. The existing Pi gateway 0.1.1 needs no change. HA and app versions are numbered independently.
+
 Back up the private Pi configuration and HA configuration first. Public releases contain no personal settings.
+
+The following Pi commands apply to a separate gateway update:
 
 ```sh
 cd drevos-home-assistant
@@ -195,6 +203,8 @@ See [GitHub publishing and maintenance](docs/GITHUB.md), [contributing](CONTRIBU
 ![Drevos sample interface](docs/assets/drevos-ha-card-demo.jpg)
 
 Original Drevos card for Home Assistant – isolated preview with sample values.
+
+![HA integration 0.1.3 – Info & Support](docs/assets/drevos-ha-info.jpg)
 
 ## Contributors
 

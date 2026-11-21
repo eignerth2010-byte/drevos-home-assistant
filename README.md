@@ -8,7 +8,7 @@
 
 Native, local Home Assistant integration for **one verified Drevos FX3U controller profile**, with a Raspberry Pi serial gateway and a bundled smoker-style dashboard card. The HA connection runs locally without a cloud service or paid license.
 
-**Community project, version 0.1.2. Not an official Drevos or Mitsubishi product.** Compatibility is defined by the register profile, not by the Drevos badge on an oven. Other controllers must be checked before enabling writes.
+**Community project, version 0.1.3. Not an official Drevos or Mitsubishi product.** Compatibility is defined by the register profile, not by the Drevos badge on an oven. Other controllers must be checked before enabling writes.
 
 ## What is included
 
@@ -16,6 +16,7 @@ Native, local Home Assistant integration for **one verified Drevos FX3U controll
 - Separate controls for heating, smoke with the PLC's automatic ignition sequence, convection and fan.
 - Timer duration, start/pause, reset and guarded Raspberry Pi shutdown.
 - A complete, responsive card with German/English text and a stainless-steel cabinet design.
+- Info/support tab with creator Thomas Eigner, optional PayPal support, visible version and once-per-version release notes.
 - GUI setup, reconfiguration, authentication recovery and redacted diagnostics.
 - Raspberry Pi gateway, systemd installer, tests, examples and MIT license.
 
@@ -39,6 +40,7 @@ Do not put gateway tokens or personal configuration in an issue, repository or s
 - [Deutsch](README.de.md) / [English](README.en.md): complete installation, usage, update, rollback and removal.
 - [Hardware and Pi models](docs/HARDWARE.md).
 - [Verified register profile](docs/REGISTER_PROFILE.md).
+- [Card Info, versions and updates / Karteninfos und Updates](docs/UPDATES.md).
 - [Validation and limits](docs/VALIDATION.md).
 - [Publishing and maintaining on GitHub, DE/EN](docs/GITHUB.md).
 - [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Third-party notices](THIRD_PARTY.md) · [MIT license](LICENSE).
@@ -57,6 +59,8 @@ Die [eigenständige Android-/iOS- und Web-App](https://github.com/eignerth2010-b
 ![Drevos – Beispielansicht / Sample interface](docs/assets/drevos-ha-card-demo.jpg)
 
 Originale Drevos-Karte für Home Assistant – isolierte Vorschau mit Beispielwerten. / Original Drevos card for Home Assistant – isolated preview with sample values.
+
+![HA-Integration 0.1.3 – Info & Unterstützen / Info & Support](docs/assets/drevos-ha-info.jpg)
 
 ## Mitwirkende / Contributors
 
