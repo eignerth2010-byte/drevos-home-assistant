@@ -1,4 +1,5 @@
 #!/bin/sh
+# License: Thomas Eigner Free Use License 1.0; see ../drevos_gateway/LICENSE.
 # Run a reviewed local checkout: sudo sh scripts/install-gateway.sh
 set -eu
 test "$(id -u)" -eq 0 || { echo 'Run with sudo.' >&2; exit 1; }
