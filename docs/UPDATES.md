@@ -1,5 +1,19 @@
 # Infos, Versionen und Updates / Info, versions and updates
 
+## 0.1.4 – Projektgrafiken und Lizenz / Project artwork and license
+
+Eigener vorläufiger Schriftzug statt Herstellerlogo und quadratisches Ofensymbol.
+Private und betriebsinterne Nutzung bleiben kostenlos; Verkauf und kommerzielle
+Weitergabe benötigen vorherige schriftliche Freigabe von Thomas Eigner.
+[Vollständige Bedingungen und frühere MIT-Rechte](LICENSING.md).
+Die Ofensteuerung und das Pi-Gateway 0.1.1 bleiben unverändert. HA selbst nach
+Installation neu starten und die Karte neu laden; kein Pi-Update nötig.
+
+Temporary community wordmark and square cabinet icon. Private and internal
+business use remain free; resale and commercial redistribution need prior
+written permission. Earlier MIT versions keep their terms. No gateway or PLC
+behavior changed; restart HA and reload the card after updating HA files.
+
 ## Deutsch
 
 Ab HA-Integration **0.1.3** hat die Drevos-Karte zwei Bereiche: **Ofen** für die bisherige Bedienung und **Info** für Projektinformationen. In Info stehen **Thomas Eigner** als Ersteller, die Versionsnummer, ein freiwilliger PayPal-Spendenbutton sowie Links zu Installation, GitHub, Diskussionen und Mitwirkenden. Der Spendenbutton öffnet PayPal in einem neuen Browser-Tab. Alle Funktionen bleiben kostenlos. Der Info-Bereich funktioniert auch, wenn der Ofen gerade nicht erreichbar ist.

@@ -79,8 +79,8 @@ possible; shared Marketplace/HACS catalog acceptance is not claimed.
 
 ## Historischer MIT-Text / Historical MIT text
 
-**Nur fÃ¼r frÃ¼here MIT-Fassungen; keine alternative Lizenz fÃ¼r neue
-ErgÃ¤nzungen. / Earlier MIT versions only; not an alternative license for new
+**Nur für frühere MIT-Fassungen; keine alternative Lizenz für neue
+Ergänzungen. / Earlier MIT versions only; not an alternative license for new
 additions.**
 
 ```text
