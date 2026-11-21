@@ -1,4 +1,4 @@
-THOMAS EIGNER PERSONAL USE LICENSE 1.0
+THOMAS EIGNER FREE USE LICENSE 1.0
 Effective for versions published with this license from 2026-11-21
 
 Copyright (c) 2026 Thomas Eigner (GitHub: eignerth2010-byte)
@@ -6,50 +6,59 @@ All rights reserved except as expressly granted below.
 
 1. Scope and earlier versions
 This license covers the original software, documentation and original project
-artwork in this repository to the extent Thomas Eigner controls their rights.
-It does not replace third-party licenses or grant rights to manufacturer logos,
-trademarks or other third-party material.
+artwork to the extent Thomas Eigner controls their rights. Third-party
+dependencies, separately identified material and manufacturer marks retain
+their own terms and rights; no trademark permission is granted here.
 
-Earlier releases and commits published under the MIT License retain their MIT
-terms. This change does not revoke or restrict rights already granted under
-MIT. Unchanged material available from those versions may still be used under
-those terms; consult the repository history and docs/LICENSING.md.
+Earlier releases and commits published under MIT retain their MIT terms.
+This change does not revoke or restrict rights already granted under MIT,
+including commercial-use rights. Unchanged material available from earlier
+MIT versions may still be used under those terms. See docs/LICENSING.md and
+the repository history for the earlier versions and notices.
 
-2. Free private use
+2. Free use and non-commercial sharing
 You may download, install, run, inspect, copy and modify the covered material
-free of charge for your own private, personal, non-commercial purposes.
-Non-commercial development, testing, contributions and free redistribution
-solely for these permitted purposes are also allowed, including modified
-versions, provided you retain this license and the copyright notices, identify
-your modifications, and do not grant broader rights than this license grants.
+free of charge for private use and for internal use within a business.
+Development, testing and contributions are also allowed free of charge.
+Merely operating your own oven in a business is not commercial exploitation
+of this project under section 3.
 
-3. Commercial use requires prior written permission
-Any commercial use requires the prior, express written permission of Thomas
-Eigner. Permission is not automatic and is not granted by downloading the
-software, making a donation, opening an issue or submitting a contribution.
-Any commercial terms must be agreed separately in writing before use begins.
+You may redistribute original or modified copies free of charge for these
+permitted purposes, provided that you retain this license and copyright
+notices, identify modifications and do not grant broader rights than this
+license grants. This does not permit commercial exploitation under section 3.
 
-Commercial use includes use in or for a business, trade, profession or paid
-employment; internal business use; paid installation, customization, maintenance
-or other services involving the covered material; selling or commercially
-licensing it; and bundling, hosting or distributing it as part of a commercial
-product or service. This applies even if the software itself is supplied free
-of charge and includes commercial use of modified versions.
+3. Resale and commercial exploitation require written permission
+The prior, express written permission of Thomas Eigner is required before:
+(a) selling, commercially licensing or otherwise supplying the covered
+    material, or access to it, for payment or other commercial consideration;
+(b) bundling, preinstalling, distributing or advertising it as a feature of a
+    commercially offered oven, device, product or service, even if no separate
+    price is charged for the software;
+(c) offering a paid hosted or white-label version of the project; or
+(d) carrying out any of the above with a modified version or a different name.
 
-For permission, contact Thomas Eigner through the relevant repository's GitHub
-Discussions or Issues at https://github.com/eignerth2010-byte . Do not disclose
-private information in a public post. A contact request is not a grant of rights.
-Uses outside section 2 require prior written permission unless applicable law
-or an independently applicable license already permits them.
+For example, including this project with a manufacturer's commercially
+offered ovens requires prior written permission; using it to operate a
+business's own oven does not. A free download does not permit later resale.
+Genuinely optional donations for non-commercial sharing or development,
+without a required payment or paid benefit, are not a sale. A donation does
+not grant commercial exploitation rights.
+
+Commercial terms must be agreed separately in writing before the activity
+begins. Contact Thomas Eigner through the relevant repository's GitHub
+Discussions or Issues at https://github.com/eignerth2010-byte . Do not post
+private information publicly. A request or an unanswered message is not a
+grant of permission. Rights already granted by applicable law or an
+independently applicable license remain unaffected.
 
 4. Third-party rights and contributions
-Third-party dependencies and separately identified materials retain their own
-licenses and notices; this license does not restrict rights granted by those
-licenses. No manufacturer affiliation, endorsement or trademark license is
-implied. Any necessary brand permission must come from the respective owner.
-Contributors retain their copyright. A contribution is offered under these
-same terms unless a separate written agreement says otherwise; no copyright
-assignment or blanket permission to relicense a contribution is implied.
+This license does not restrict rights granted by third-party licenses and
+does not imply manufacturer affiliation, endorsement or permission to use
+manufacturer logos. Obtain any necessary brand permission from its owner.
+Contributors retain their copyright. Contributions are offered under these
+same terms unless separately agreed in writing. No copyright assignment or
+blanket right to commercially relicense another contributor's work is implied.
 
 5. Warranty and liability
 TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, THE COVERED MATERIAL IS
@@ -59,14 +68,14 @@ NONINFRINGEMENT. TO THAT SAME EXTENT, THE AUTHORS AND COPYRIGHT HOLDERS
 ARE NOT LIABLE FOR CLAIMS, DAMAGES OR OTHER LIABILITY ARISING FROM THE
 MATERIAL OR ITS USE. MANDATORY RIGHTS AND LIABILITY RULES REMAIN UNAFFECTED.
 
-This is a source-available personal-use license, not the MIT License or an
-OSI-approved open-source license. No rights beyond those stated are granted.
-The English text above is authoritative.
+This is a source-available license with commercial exploitation restrictions,
+not the MIT License or an OSI-approved open-source license. No rights beyond
+those stated are granted. The English text above is authoritative.
 
-Deutsche Kurzfassung (nur zur Erläuterung): Private, persönliche und
-nichtkommerzielle Nutzung ist kostenlos. Gewerbliche Nutzung, auch innerhalb
-eines Betriebs oder in kostenpflichtigen Dienstleistungen, benötigt vorher
-die ausdrückliche schriftliche Freigabe von Thomas Eigner. Freiwillige
-Spenden ersetzen diese Freigabe nicht. Frühere MIT-Fassungen und die Rechte
-an Fremdbibliotheken bleiben unberührt. Die vollstaendigen Bedingungen
-stehen im englischen Text oben; Erläuterungen in docs/LICENSING.md.
+Deutsche Kurzfassung (nur zur Erläuterung): Private Nutzung und die Nutzung
+für den eigenen Betrieb sind kostenlos. Verkauf, kommerzielle Weitergabe,
+Vorinstallation oder Bewerbung als Bestandteil angebotener Öfen, Geräte,
+Produkte oder Dienste benötigen vorher die ausdrückliche schriftliche
+Freigabe von Thomas Eigner, auch ohne gesonderten Softwarepreis und bei
+abgewandelten Fassungen. Frühere MIT-Rechte und Fremdlizenzen bleiben
+unberührt. Vollständige Bedingungen siehe oben; Details in docs/LICENSING.md.
