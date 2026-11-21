@@ -1,5 +1,7 @@
 # Drevos Smoker – deutsche Anleitung
 
+**Lizenz ab 21.11.2026:** Private Nutzung kostenlos; gewerbliche Nutzung nur mit vorheriger schriftlicher Freigabe von **Thomas Eigner**. [Bedingungen, frühere MIT-Fassungen und Kontakt](docs/LICENSING.md).
+
 **[Einfache Schritt-für-Schritt-Installation für Pi und HA](docs/INSTALLATION.de.md)** · **[HA schon da oder App schon da – was zusätzlich nötig ist](docs/HA-UND-APP.de.md)**
 
 [English](README.en.md) · [Projektübersicht](README.md)
@@ -197,7 +199,7 @@ Zunächst laufenden Ofenbetrieb ordnungsgemäß beenden. Integration in **Gerät
 sudo systemctl disable --now drevos-gateway.service drevos-native-poweroff.path
 ```
 
-Tests, GitHub-Veröffentlichung, Releases und Beiträge: [GITHUB.md](docs/GITHUB.md) und [CONTRIBUTING.md](CONTRIBUTING.md). Die [MIT-Lizenz](LICENSE) verursacht keine Lizenzgebühren. Der tatsächliche Prüfstand und offene Grenzen stehen in [VALIDATION.md](docs/VALIDATION.md).
+Tests, GitHub-Veröffentlichung, Releases und Beiträge: [GITHUB.md](docs/GITHUB.md) und [CONTRIBUTING.md](CONTRIBUTING.md). Private Nutzung ist nach der [aktuellen Lizenz](LICENSE) kostenlos; gewerbliche Nutzung erfordert vorherige schriftliche Freigabe. Der tatsächliche Prüfstand und offene Grenzen stehen in [VALIDATION.md](docs/VALIDATION.md).
 
 
 ## Vorschau

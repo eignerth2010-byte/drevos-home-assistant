@@ -1,5 +1,7 @@
 # Drevos Smoker – complete English guide
 
+**License from 2026-11-21:** Free for private personal use; commercial use requires **Thomas Eigner's prior written permission**. [Terms, earlier MIT versions and contact](docs/LICENSING.md).
+
 **[Easy step-by-step Pi and HA installation](docs/INSTALLATION.en.md)** · **[Already have HA or the app? What to add](docs/HA-UND-APP.en.md)**
 
 [Deutsch](README.de.md) · [Overview](README.md)
@@ -195,7 +197,7 @@ Finish any active oven process first. Remove the integration through Devices & s
 sudo systemctl disable --now drevos-gateway.service drevos-native-poweroff.path
 ```
 
-See [GitHub publishing and maintenance](docs/GITHUB.md), [contributing](CONTRIBUTING.md) and [validation](docs/VALIDATION.md). There are no license fees for the [MIT license](LICENSE).
+See [GitHub publishing and maintenance](docs/GITHUB.md), [contributing](CONTRIBUTING.md) and [validation](docs/VALIDATION.md). There are no license fees for the [Personal-use license](LICENSE).
 
 
 ## Preview
