@@ -4,7 +4,7 @@
 
 [Deutsch](README.de.md) · [Overview](README.md)
 
-This integration connects Home Assistant directly to a Raspberry Pi beside a Drevos smoker. The Pi communicates with the existing PLC. The native integration does not need MQTT.
+This integration connects Home Assistant directly to a Raspberry Pi beside a Drevos smoker. The Pi communicates with the existing PLC.
 
 The supported profile is `drevos_fx3u_v1`. This is an independent community project. A matching brand does not establish controller compatibility: verify the [register profile](docs/REGISTER_PROFILE.md) before enabling writes. The oven's existing thermal protection, interlocks and original controls remain necessary.
 
@@ -60,18 +60,11 @@ HTTP is intended for a trusted LAN and does **not** encrypt the token. Do not fo
 
 The token stays in `/etc/drevos/gateway.json`, readable only by the service account, and HA's protected integration configuration. It does not belong in a dashboard card, issue or GitHub repository.
 
-**Stop every other service using the same serial port before starting this gateway.** For an existing MQTT installation of this project:
+**No other program may have the same serial port open when starting the gateway.** Then start the shared gateway:
 
 ```sh
-sudo systemctl stop drevos-mqtt.service
 sudo systemctl enable --now drevos-gateway.service drevos-native-poweroff.path
 sudo systemctl status drevos-gateway.service --no-pager
-```
-
-After successful migration, disable the old service:
-
-```sh
-sudo systemctl disable drevos-mqtt.service
 ```
 
 The PLC program is not modified. The verified profile fixes serial settings to 38400 baud, 7 data bits, even parity and 1 stop bit.
@@ -126,8 +119,6 @@ In storage resource mode, the integration registers the bundled JavaScript autom
 
 In YAML resource mode, add the same module URL to the existing resource list. The integration does not edit that list. Avoid duplicate registrations. The version parameter changes on releases so browsers fetch fresh code.
 
-For transitional use with this project's old MQTT entity names, add `legacy_mqtt: true` to the card. This is a compatibility aid; the native integration itself does not require MQTT.
-
 ## 6. Operation
 
 | Function | Behavior |
@@ -150,20 +141,8 @@ Times are **hours:minutes:seconds**. The PLC owns the timer; it continues indepe
 
 Manual writes are blocked during an automatic program and in unverified Fahrenheit mode. On a network outage, **unavailable does not mean the oven has been switched off**: its controller continues independently.
 
-## 7. Migrate an existing MQTT installation
 
-The native integration creates its own entities. Keep old MQTT entities initially: switch the gateway, set up the native integration, compare readings, and use the new card. Then update other automations and dashboards deliberately. Remove old discovery entries only after migration is complete. Keep a shared MQTT broker if other devices use it.
-
-Keep the previous service files and configuration for rollback:
-
-```sh
-sudo systemctl disable --now drevos-gateway.service
-sudo systemctl enable --now drevos-mqtt.service
-```
-
-Never run both readers on one serial port. The original `drevos_lesetest.py` is not changed by this installer.
-
-## 8. Update and roll back
+## 7. Update and roll back
 
 Current HA version **0.1.2** removes the superseded mobile prototype and its build workflow from this repository and corrects UTF-8 text in the guides and German translation. The standalone app is maintained only in the separate [app repository](https://github.com/eignerth2010-byte/drevos-app). The Pi gateway remains at 0.1.1.
 
@@ -183,7 +162,7 @@ sudo systemctl start drevos-gateway.service
 
 The installer preserves an existing `/etc/drevos/gateway.json`. Update HA files through the store or replace `custom_components/drevos`, then restart HA and reload the browser. To roll back the HA integration, install the earlier version through the store and restart HA. When sharing the gateway with the standalone app, retain gateway 0.1.1. Preserve private configuration.
 
-## 9. Troubleshooting
+## 8. Troubleshooting
 
 ```sh
 sudo systemctl status drevos-gateway.service --no-pager
@@ -200,7 +179,7 @@ ls -l /dev/serial/by-id/
 
 HA diagnostics deliberately omit gateway address and token. Still review logs and screenshots for personal information before sharing them. An uncertain command is never retried automatically; check the actual oven state before retrying.
 
-## 10. Remove or develop
+## 9. Remove or develop
 
 Finish any active oven process first. Remove the integration through Devices & services, remove its cards and unused resource, delete `custom_components/drevos` and restart HA. Disable the Pi service and power-off watcher only if the standalone app or other clients no longer need them. Keep private configuration until another connection is confirmed working.
 

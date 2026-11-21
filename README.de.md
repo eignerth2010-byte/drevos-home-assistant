@@ -4,7 +4,7 @@
 
 [English](README.en.md) · [Projektübersicht](README.md)
 
-Diese Integration verbindet Home Assistant direkt über das Heimnetz mit einem Raspberry Pi am Drevos-Räucherofen. Der Pi spricht mit der vorhandenen SPS. MQTT wird für diese Integration nicht benötigt.
+Diese Integration verbindet Home Assistant direkt über das Heimnetz mit einem Raspberry Pi am Drevos-Räucherofen. Der Pi spricht mit der vorhandenen SPS.
 
 Das Projekt unterstützt das geprüfte Profil `drevos_fx3u_v1`. Es ist eine unabhängige Community-Integration. Gleiche Marke bedeutet nicht automatisch gleiche Steuerung. Die SPS muss zum [Registerprofil](docs/REGISTER_PROFILE.md) passen. Die vorhandenen Temperaturbegrenzer, Schutzfunktionen und Bedienmöglichkeiten des Ofens bleiben erforderlich.
 
@@ -62,18 +62,11 @@ Für diese lokale HTTP-Schnittstelle ist ein vertrauenswürdiges Heimnetz erford
 
 Der Schlüssel bleibt in `/etc/drevos/gateway.json`, lesbar nur für den Dienstbenutzer. HA speichert ihn in seiner geschützten Integrationskonfiguration. Der Schlüssel gehört weder in Dashboard-Karten noch in GitHub-Dateien.
 
-**Vor dem Start jeden anderen Dienst stoppen, der dieselbe serielle Schnittstelle verwendet.** Für eine bestehende Installation dieses Projekts mit MQTT:
+**Vor dem Start darf kein anderes Programm dieselbe serielle Schnittstelle geöffnet haben.** Anschließend den gemeinsamen Gateway starten:
 
 ```sh
-sudo systemctl stop drevos-mqtt.service
 sudo systemctl enable --now drevos-gateway.service drevos-native-poweroff.path
 sudo systemctl status drevos-gateway.service --no-pager
-```
-
-Bei erfolgreichem Umstieg den alten Dienst deaktivieren:
-
-```sh
-sudo systemctl disable drevos-mqtt.service
 ```
 
 Keine Änderungen an der SPS-Software sind erforderlich. Die Baudrate ist im geprüften Profil fest 38400, 7 Datenbits, gerade Parität, 1 Stoppbit.
@@ -128,8 +121,6 @@ Die Integration registriert die Kartenressource bei einem Dashboard im Speicherm
 
 Bei YAML-Ressourcenverwaltung diesen Pfad in der vorhandenen Ressourcenliste eintragen; eine automatische Änderung dieser Liste erfolgt nicht. Keine doppelte Ressource hinzufügen. Die neue Versionsnummer im URL-Parameter sorgt nach Updates für frischen Code.
 
-Für einen vorübergehenden Betrieb der Karte mit den früheren MQTT-Entitätsnamen kann `legacy_mqtt: true` gesetzt werden. Das ist nur eine Übergangshilfe; die native Integration selbst benötigt MQTT nicht.
-
 ## 6. Bedienung
 
 | Funktion | Verhalten |
@@ -152,20 +143,8 @@ Zeitangaben sind **Stunden:Minuten:Sekunden**. Der Timer liegt in der SPS, läuf
 
 Bei aktivem Automatikprogramm und im unbestätigten Fahrenheit-Modus sind manuelle Schreibzugriffe gesperrt. Die Ofensteuerung läuft bei Netzwerkverlust eigenständig weiter: **„nicht verfügbar“ ist keine Abschaltung des Ofens.**
 
-## 7. Bestehende MQTT-Anlage umstellen
 
-Die native Integration erzeugt eigene Entitäten. Bestehende MQTT-Entitäten nicht vorab löschen: zunächst Gateway umstellen, neue Integration einrichten, Werte vergleichen und die neue Karte verwenden. Andere Automationen und Dashboards danach gezielt auf die neuen Entitäten umstellen. Alte MQTT-Discovery-Einträge können anschließend entfernt werden; den gemeinsamen MQTT-Broker nicht deinstallieren, wenn andere Geräte ihn verwenden.
-
-Sicherung der früheren Dienstdateien und Konfiguration behalten. Rückkehr:
-
-```sh
-sudo systemctl disable --now drevos-gateway.service
-sudo systemctl enable --now drevos-mqtt.service
-```
-
-Nie beide Dienste gleichzeitig auf denselben SPS-Port zugreifen lassen. Die ursprüngliche `drevos_lesetest.py` wird von dieser Installation nicht verändert.
-
-## 8. Aktualisieren
+## 7. Aktualisieren
 
 Die aktuelle HA-Version **0.1.2** bereinigt den früheren Mobile-Prototyp und dessen Build-Dateien aus diesem Repository und korrigiert Umlaute in den Anleitungen und der deutschen Übersetzung. Die eigenständige App wird ausschließlich im separaten [App-Repository](https://github.com/eignerth2010-byte/drevos-app) gepflegt. Das Pi-Gateway bleibt auf 0.1.1.
 
@@ -185,7 +164,7 @@ sudo systemctl start drevos-gateway.service
 
 Eine vorhandene `/etc/drevos/gateway.json` wird vom Installer beibehalten. Die HA-Dateien über den Store aktualisieren oder `custom_components/drevos` ersetzen, anschließend HA neu starten. Nach einer Kartenaktualisierung Browser neu laden. Für eine Rückkehr der HA-Integration die vorherige Version im Store installieren und HA neu starten. Bei gemeinsamer Nutzung mit der eigenständigen App das Gateway 0.1.1 beibehalten. Private Konfigurationen nicht überschreiben.
 
-## 9. Fehler finden
+## 8. Fehler finden
 
 ```sh
 sudo systemctl status drevos-gateway.service --no-pager
@@ -202,7 +181,7 @@ ls -l /dev/serial/by-id/
 
 HA-Diagnosedaten enthalten bewusst keine Gateway-Adresse und keinen Zugangsschlüssel. Vor dem Hochladen von Protokollen oder Screenshots trotzdem persönliche Angaben prüfen. Ein unklar beantworteter Schreibbefehl wird nicht automatisch wiederholt; zuerst aktuellen Zustand am Display oder in HA prüfen.
 
-## 10. Entfernen und Entwicklung
+## 9. Entfernen und Entwicklung
 
 Zunächst laufenden Ofenbetrieb ordnungsgemäß beenden. Integration in **Geräte & Dienste** entfernen, zugehörige Karten und ungenutzte Dashboard-Ressource entfernen, `custom_components/drevos` löschen und HA neu starten. Auf dem Pi den Gateway-Dienst und den zugehörigen Poweroff-Wächter nur deaktivieren, wenn die eigenständige App oder andere Clients sie nicht weiter benötigen. Die private Konfiguration bis zur bestätigten Rückkehr zu einer anderen Anbindung aufbewahren.
 

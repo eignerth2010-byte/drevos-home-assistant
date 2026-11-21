@@ -6,7 +6,7 @@
 
 [Deutsch: vollständige Anleitung](README.de.md) · [English: complete guide](README.en.md)
 
-Native, local Home Assistant integration for **one verified Drevos FX3U controller profile**, with a Raspberry Pi serial gateway and a bundled smoker-style dashboard card. No MQTT broker, cloud service or paid license is required.
+Native, local Home Assistant integration for **one verified Drevos FX3U controller profile**, with a Raspberry Pi serial gateway and a bundled smoker-style dashboard card. The HA connection runs locally without a cloud service or paid license.
 
 **Community project, version 0.1.2. Not an official Drevos or Mitsubishi product.** Compatibility is defined by the register profile, not by the Drevos badge on an oven. Other controllers must be checked before enabling writes.
 
