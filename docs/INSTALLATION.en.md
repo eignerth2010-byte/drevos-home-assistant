@@ -81,19 +81,21 @@ systemctl is-active drevos-gateway.service
 
 Expect `active`; the service now starts on boot. Resolve `failed`/`inactive` before proceeding.
 
-## 7 Install the HA extension
+## 7 Install the integration manually in Home Assistant
 
-In **Home Assistant's browser UI**, if you have HACS or a suitable community store, add `https://github.com/eignerth2010-byte/drevos-home-assistant` as a custom **Integration**, download it and restart HA. Read and accept the store's notices yourself. See the [store instructions](../README.en.md#community-store).
+The current resale restriction does not meet the shared Marketplace/HACS
+catalog license requirement. Use manual installation for current versions.
+[License and earlier MIT versions](LICENSING.md).
 
-For manual installation:
+1. Download the [project ZIP](https://github.com/eignerth2010-byte/drevos-home-assistant/archive/refs/heads/main.zip) and extract it on your PC.
+2. Open the Home Assistant configuration directory containing `configuration.yaml`, using your existing file access or share.
+3. Create `custom_components` there if needed.
+4. Copy the complete `drevos` folder from the download's `custom_components`, including `translations`, `www`, `brand` and `LICENSE`. For an update, replace the complete existing `custom_components/drevos` folder.
+5. Restart Home Assistant, then reload the dashboard browser.
 
-1. [Download the repository ZIP](https://github.com/eignerth2010-byte/drevos-home-assistant/archive/refs/heads/main.zip) and extract it on the computer.
-2. Open HA's configuration directory using your configured file access, such as a file share. It is the directory containing `configuration.yaml`.
-3. Create `custom_components` there if necessary.
-4. Copy the **entire downloaded `custom_components/drevos` folder** into it, including translations and `www`.
-5. Restart Home Assistant.
-
-The result includes `custom_components/drevos/manifest.json` inside HA's configuration directory. Do not copy the whole GitHub checkout as an integration. If file access is missing, set it up for your HA installation first; the Pi's project directory is not HA's configuration directory.
+The resulting path must include `custom_components/drevos/manifest.json` inside
+the HA configuration directory. Do not copy the entire GitHub project folder.
+The Raspberry Pi project directory is not the HA configuration directory.
 
 ## 8 Add the oven in HA
 
@@ -130,4 +132,4 @@ See [technical maintenance instructions](../README.en.md) for updates/rollback a
 
 ## Info and later updates
 
-From HA integration **0.1.3**, select **Info** in the Drevos card for creator Thomas Eigner, version, optional support, setup guide and discussions. **What’s new?** explains changes. Install updates through **Settings → Marketplace**, restart HA and reopen the dashboard. This card update retains the existing Pi gateway 0.1.1. [Update guide](UPDATES.md).
+From HA integration **0.1.3**, select **Info** in the Drevos card for creator Thomas Eigner, version, optional support, setup guide and discussions. **What’s new?** explains changes. For updates, replace the complete `custom_components/drevos` folder from the new package, restart HA and reopen the dashboard. This card update retains the existing Pi gateway 0.1.1. [Update guide](UPDATES.md).

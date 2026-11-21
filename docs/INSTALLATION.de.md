@@ -112,11 +112,14 @@ systemctl is-active drevos-gateway.service
 
 **Im Browser in Home Assistant**, nicht im Pi-Terminal:
 
-### Wenn HACS oder ein passender Community-Store vorhanden ist
+### Aktuelle Version manuell installieren
 
-Das Repository `https://github.com/eignerth2010-byte/drevos-home-assistant` als benutzerdefinierte **Integration** hinzufügen, herunterladen und Home Assistant neu starten. Die vom Store gezeigten Hinweise selbst lesen und bestätigen. [Ausführliche Store-Anleitung](../README.de.md#über-den-community-store).
+Seit dem Lizenzwechsel erlaubt das Projekt keine kommerzielle Weitergabe ohne
+schriftliche Freigabe. Damit erfüllt es die Lizenzvorgabe des Marketplace-/HACS-
+Katalogs nicht. Für den aktuellen Stand den folgenden manuellen Weg verwenden.
+[Lizenz und frühere MIT-Fassungen](LICENSING.md).
 
-### Ohne Community-Store manuell
+### Dateien nach HA kopieren
 
 1. Das [Projekt als ZIP herunterladen](https://github.com/eignerth2010-byte/drevos-home-assistant/archive/refs/heads/main.zip) und am PC entpacken.
 2. Den Konfigurationsordner deiner HA-Installation öffnen – den Ordner, der auch `configuration.yaml` enthält. Dazu deinen eingerichteten Dateizugriff, etwa eine Dateifreigabe, verwenden.
