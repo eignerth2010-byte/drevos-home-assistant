@@ -4,7 +4,7 @@
     "step": {
       "user": {
         "title": "Drevos-Gateway",
-        "description": "Lokale Adresse und privaten Zugangsschlüssel des Raspberry Pi eintragen. Der Schlüssel bleibt in Home Assistant.",
+        "description": "Verbinde deinen Drevos-Ofen über das lokale Raspberry-Pi-Gateway. Unabhängiges Community-Projekt von Thomas Eigner. Trage Adresse und privaten Zugangsschlüssel ein; der Schlüssel bleibt in Home Assistant. [Einfache Installationsanleitung](https://github.com/eignerth2010-byte/drevos-home-assistant/blob/main/docs/INSTALLATION.de.md).",
         "data": {
           "url": "Gateway-Adresse",
           "token": "Zugangsschlüssel"
