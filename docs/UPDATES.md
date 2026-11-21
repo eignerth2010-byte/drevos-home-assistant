@@ -3,15 +3,14 @@
 ## 0.1.4 – Projektgrafiken und Lizenz / Project artwork and license
 
 Eigener vorläufiger Schriftzug statt Herstellerlogo und quadratisches Ofensymbol.
-Private und betriebsinterne Nutzung bleiben kostenlos; Verkauf und kommerzielle
-Weitergabe benötigen vorherige schriftliche Freigabe von Thomas Eigner.
+HA-Integration und Karte bleiben unter MIT. Nur Pi-Software und Apps benötigen
+für Verkauf und kommerzielle Weitergabe schriftliche Freigabe von Thomas Eigner.
 [Vollständige Bedingungen und frühere MIT-Rechte](LICENSING.md).
 Die Ofensteuerung und das Pi-Gateway 0.1.1 bleiben unverändert. HA selbst nach
 Installation neu starten und die Karte neu laden; kein Pi-Update nötig.
 
-Temporary community wordmark and square cabinet icon. Private and internal
-business use remain free; resale and commercial redistribution need prior
-written permission. Earlier MIT versions keep their terms. No gateway or PLC
+Temporary community wordmark and square cabinet icon. The HA integration and card remain MIT licensed; only Pi software and apps
+need prior written permission for resale or commercial redistribution. Earlier MIT versions keep their terms. No gateway or PLC
 behavior changed; restart HA and reload the card after updating HA files.
 
 ## Deutsch

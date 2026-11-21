@@ -114,10 +114,12 @@ systemctl is-active drevos-gateway.service
 
 ### Aktuelle Version manuell installieren
 
-Seit dem Lizenzwechsel erlaubt das Projekt keine kommerzielle Weitergabe ohne
-schriftliche Freigabe. Damit erfüllt es die Lizenzvorgabe des Marketplace-/HACS-
-Katalogs nicht. Für den aktuellen Stand den folgenden manuellen Weg verwenden.
-[Lizenz und frühere MIT-Fassungen](LICENSING.md).
+Die HA-Integration und Karte sind unter MIT frei verfügbar. Der folgende
+manuelle Weg funktioniert unabhängig vom Katalogstatus. Alternativ das
+Repository als benutzerdefinierte Integration im Marketplace/HACS hinzufügen,
+die dortigen Hinweise selbst bestätigen und HA nach dem Download neu starten.
+Eine Katalogaufnahme wird erst beantragt und ist damit nicht zugesagt.
+[Getrennte Lizenz der Pi-Software](LICENSING.md).
 
 ### Dateien nach HA kopieren
 

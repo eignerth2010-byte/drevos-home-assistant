@@ -8,7 +8,7 @@ Das öffentliche Projekt liegt unter `eignerth2010-byte/drevos-home-assistant`. 
 
 1. Auf GitHub anmelden und ein neues Repository namens `drevos-home-assistant` im eigenen Konto anlegen.
 2. Als Beschreibung beispielsweise verwenden: **Local Home Assistant integration for a verified Drevos smoker controller, with Raspberry Pi gateway and a complete dashboard card. German and English documentation.**
-3. Sichtbarkeit **Public**, Standardbranch `main`. Die aktuelle LICENSE-Datei und docs/LICENSING.md aus diesem Projekt beilegen; private und betriebsinterne Nutzung ist kostenlos; Verkauf und kommerzielle Weitergabe erfordern vorherige schriftliche Freigabe.
+3. Sichtbarkeit **Public**, Standardbranch `main`. Die aktuelle LICENSE-Datei und docs/LICENSING.md aus diesem Projekt beilegen; HA-Integration und Karte stehen unter MIT; für Pi-Software gelten die getrennten Bedingungen in drevos_gateway/LICENSE.
 4. Nur den bereinigten Projektordner hochladen. `/etc/drevos/gateway.json`, Zugangsschlüssel, `.env`, private Konfiguration, Logs, Fotos und das ursprüngliche SPS-Projekt gehören nicht hinein.
 5. Änderungen lokal mit den untenstehenden Tests prüfen. Auf GitHub müssen die **Checks** zum veröffentlichten Commit ausgewertet werden.
 6. Unter **Releases → Draft a new release** einen Versions-Tag wie `v0.1.0`, Titel und Änderungsbeschreibung anlegen. Hinweise auf experimentellen Stand und tatsächlich getestete Hardware einschließen. Keine Behauptung allgemeiner Drevos-Kompatibilität.
@@ -59,7 +59,7 @@ The public project is `eignerth2010-byte/drevos-home-assistant`. Personal instal
 
 1. Sign in to GitHub and create a repository named `drevos-home-assistant` in your account.
 2. Suggested description: **Local Home Assistant integration for a verified Drevos smoker controller, with Raspberry Pi gateway and a complete dashboard card. German and English documentation.**
-3. Choose **Public**, branch `main`, and include this project's current LICENSE and docs/LICENSING.md; resale and commercial redistribution require prior written permission.
+3. Choose **Public**, branch `main`, and include this project's current LICENSE and docs/LICENSING.md; the HA integration/card use MIT, while Pi software has separate terms in drevos_gateway/LICENSE.
 4. Upload only the sanitized project. Exclude gateway tokens, `.env`, personal configuration, logs, photos and the original PLC project.
 5. Run the tests and inspect GitHub **Checks** for the published commit.
 6. Under **Releases → Draft a new release**, create a version tag such as `v0.1.0`, add release notes and state the experimental status and hardware actually tested. Do not claim universal Drevos compatibility.

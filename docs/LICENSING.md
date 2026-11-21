@@ -1,108 +1,65 @@
-# Lizenz, Nutzung und Weiterverkauf / Licensing, use and resale
+# Lizenzen / Licenses
 
 ## Deutsch
 
-Neue Fassungen ab dem Lizenzwechsel vom **21. November 2026** verwenden die
-[Thomas Eigner Free Use License 1.0](../LICENSE).
+**Alle Funktionen bleiben kostenlos nutzbar.** Die Lizenzen sind nach
+Programmteilen getrennt:
 
-- **Private Nutzung ist kostenlos.** Auch die Nutzung zum Betrieb des eigenen
-  Ofens in einem Unternehmen bleibt kostenlos. Untersuchen, Anpassen, Testen
-  und Beiträge sind erlaubt.
-- **Verkauf und kommerzielle Weitergabe benötigen vorher die ausdrückliche
-  schriftliche Freigabe von Thomas Eigner.** Das betrifft insbesondere die
-  Weitergabe oder Vorinstallation zusammen mit angebotenen Öfen, Geräten,
-  Produkten oder Diensten, auch ohne gesonderten Softwarepreis.
-- Beispiel: Ein Hersteller darf das Projekt ohne schriftliche Freigabe nicht
-  zusammen mit seinen angebotenen Öfen vertreiben oder als deren Funktion
-  bewerben. Die reine Nutzung im eigenen Betrieb ist dagegen erlaubt.
-- Diese Regel gilt auch für abgewandelte oder umbenannte Fassungen. Kostenloses
-  nichtkommerzielles Teilen ist unter Beibehaltung der Lizenz und Hinweise
-  erlaubt; ein kostenloser Download erlaubt keinen späteren Weiterverkauf.
-- Freiwillige Spenden sind keine gewerbliche Freigabe.
-- Anfragen über die [Diskussionen](https://github.com/eignerth2010-byte/drevos-home-assistant/discussions)
-  stellen. Private Daten nicht öffentlich posten. Erst eine ausdrückliche
-  schriftliche Zusage erteilt die zusätzlichen Vermarktungsrechte.
+| Bestandteil | Lizenz und Weitergabe |
+|---|---|
+| HA-Integration einschließlich Karte, Einrichtungsdialog, Übersetzungen und eigener Projektgrafiken unter `custom_components/drevos/` | [MIT](../custom_components/drevos/LICENSE). Auch gewerbliche Nutzung und Weitergabe sind nach MIT ohne zusätzliche Freigabe erlaubt. |
+| Raspberry-Pi-Gateway unter `drevos_gateway/`, Pi-Dienste unter `systemd/` und `scripts/install-gateway.sh` | [Thomas Eigner Free Use License 1.0](../drevos_gateway/LICENSE). Private und betriebsinterne Nutzung kostenlos; Verkauf, kommerzielle Weitergabe oder Bündelung mit angebotenen Produkten/Diensten nur mit vorheriger ausdrücklicher schriftlicher Freigabe von Thomas Eigner. |
+| Übrige eigene Dateien dieses Repositorys, sofern nicht gesondert gekennzeichnet | [MIT](../LICENSE). |
+| Eigenständige Android-/iOS- und Web-App, Cloud-Agent und Relay | Separates [App-Projekt mit eigener Lizenz](https://github.com/eignerth2010-byte/drevos-app/blob/main/docs/LICENSING.md). |
 
-Der Quellcode bleibt einsehbar. Wegen der Einschränkung ist die Lizenz
-**keine Open-Source-Lizenz im OSI-Sinn**. Fremdbibliotheken und Herstellerzeichen
-behalten ihre eigenen Bedingungen und Rechte. Eine Herstellerfreigabe für
-Name oder Logo wird hierdurch nicht erteilt.
+Ein Hersteller darf die Pi-Software oder Apps beispielsweise nicht ohne
+schriftliche Freigabe mit angebotenen Öfen vertreiben oder als Bestandteil
+seines kommerziellen Angebots vermarkten. Die reine Nutzung für den eigenen
+Ofen, auch in einem Betrieb, bleibt kostenlos. Die MIT-Freigabe der HA-Integration
+verleiht keine zusätzlichen Rechte an Pi-Software, Apps oder Herstellerzeichen.
+Freiwillige Spenden ersetzen keine gewerbliche Freigabe für die geschützten Teile.
+Anfragen über die [Diskussionen](https://github.com/eignerth2010-byte/drevos-home-assistant/discussions);
+private Daten nicht öffentlich posten.
 
-### Frühere MIT-Fassungen
+Die unter MIT veröffentlichte HA-Integration kann für den Marketplace-/HACS-
+Katalog beantragt werden. Der Katalog installiert nur `custom_components/drevos`;
+die getrennt lizenzierte Pi-Software wird dadurch nicht mitinstalliert.
+Eine Aufnahme hängt von den Prüfungen und der Entscheidung der Maintainer ab.
 
-Die Änderung wirkt nicht rückwirkend. Bereits unter MIT veröffentlichte
-Fassungen, einschließlich ihrer unveränderten Bestandteile, behalten die
-bisherigen Rechte auch für gewerbliche Nutzung und Weiterverkauf. Bestehende
-Releases, APKs, Web-Auslieferungen und Tags werden nicht nachträglich neu
-lizenziert oder ersetzt. Für jede Kopie gilt ihr veröffentlichter Lizenzstand.
+### Frühere Fassungen und Fremdrechte
 
-Letzter Hauptbranch-Stand vor dem Lizenzwechsel:
+Bereits unter MIT veröffentlichte Pi-/App-Fassungen und deren unveränderte
+Bestandteile behalten ihre bisherigen Rechte, einschließlich gewerblicher
+Nutzung und Weiterverkauf. Bestehende Releases und Tags werden nicht
+nachträglich neu lizenziert. Letzter HA-Repository-Stand vor dem Lizenzwechsel:
 [`c08ec4cc2e10`](https://github.com/eignerth2010-byte/drevos-home-assistant/tree/c08ec4cc2e108faa7a5dd83ef871fafc0364cf7e).
-Der historische MIT-Text steht unten.
+Die ursprüngliche MIT-Lizenz bleibt in der Repository-Historie und als
+Standardlizenz oben erhalten. Fremdbibliotheken behalten ihre eigenen Lizenzen;
+Name und Markenrechte des Herstellers bleiben unberührt. Der vorläufige
+Projekt-Schriftzug behauptet keine Herstellerfreigabe.
 
 ## English
 
-New versions published with the license change of **21 November 2026** use the
-[Thomas Eigner Free Use License 1.0](../LICENSE). Private use and internal
-business use are free. Development, testing and contributions are allowed.
+**All features remain free to use.** `custom_components/drevos/`, including the
+HA integration, dashboard card and original community artwork, is **MIT licensed**.
+Commercial use and redistribution of that HA component are allowed under MIT
+without additional permission. Other original repository files default to MIT
+unless separately identified.
 
-Selling, commercially redistributing, preinstalling or promoting the project
-as a feature of commercially offered ovens, devices, products or services
-requires **Thomas Eigner's prior, express written permission**, even if there
-is no separate software price or the project is modified or renamed. Merely
-operating your own oven in a business does not require such permission.
-Non-commercial free sharing is allowed with the license and notices retained.
-Donations do not provide commercial exploitation rights. See LICENSE for the
-complete terms, including examples and the contact route linked above.
+The separately licensed Pi gateway (`drevos_gateway/`), Pi service units
+(`systemd/`) and `scripts/install-gateway.sh` use the
+[Thomas Eigner Free Use License 1.0](../drevos_gateway/LICENSE). Private and internal
+business use are free. Resale, commercial redistribution, bundling/preinstallation
+or promotion as a feature of commercially offered products/services require
+Thomas Eigner's prior, express written permission, even without a separate
+software price. This covers modified or renamed versions too.
 
-This is source-available software, **not OSI-approved open source**. Third-party
-licenses and brand rights are unaffected. Contributors retain copyright;
-separate permissions may be needed before commercial relicensing.
+Standalone apps, cloud agent and relay are maintained under the separate
+[app project terms](https://github.com/eignerth2010-byte/drevos-app/blob/main/docs/LICENSING.md).
+The MIT license for the HA component grants no extra rights in those parts or
+manufacturer marks. Third-party licenses are unaffected. Previously published
+MIT versions retain their rights, including commercial use and resale.
 
-Earlier MIT releases and commits retain their terms, including commercial-use
-and resale rights. Existing releases, APKs, deployed Web App copies and tags
-are not retroactively relicensed or replaced. Unchanged material available
-from those earlier versions remains available under MIT. The pre-change main
-commit is linked above; its MIT text is retained below.
-
-## Marketplace-Katalog / Marketplace catalog
-
-Die neue Einschränkung der kommerziellen Weitergabe ist nicht OSI-konform.
-Ein Antrag auf Aufnahme in den gemeinsamen Marketplace-/HACS-Katalog ist
-damit nicht möglich: Die [Lizenzprüfung](https://hacs.xyz/docs/publish/include/#check-license)
-verlangt eine erkannte OSI-Lizenz. Die manuelle Installation bleibt möglich;
-eine Katalogfreigabe wird nicht behauptet.
-
-The commercial redistribution restriction is not OSI-approved. Catalog
-submission cannot proceed under these terms. Manual installation remains
-possible; shared Marketplace/HACS catalog acceptance is not claimed.
-
-## Historischer MIT-Text / Historical MIT text
-
-**Nur für frühere MIT-Fassungen; keine alternative Lizenz für neue
-Ergänzungen. / Earlier MIT versions only; not an alternative license for new
-additions.**
-
-```text
-MIT License
-
-Copyright (c) 2026 eignerth2010-byte
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+Catalog submission concerns the MIT HA component only; Marketplace/HACS installs
+`custom_components/drevos`, not the separately licensed external Pi gateway.
+Acceptance still requires successful checks and maintainer review.

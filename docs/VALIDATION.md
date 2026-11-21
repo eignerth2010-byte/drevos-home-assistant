@@ -1,5 +1,29 @@
 # Validation / Prüfstand
 
+## 2026-11-21 – HA 0.1.4 community artwork and licensing
+
+- 39 local Python tests and 16 card contract tests pass; compile checks pass.
+- The isolated browser fixture shows the new temporary wordmark, HA 0.1.4,
+  German text, Info, donation link and revised resale terms. The preview
+  screenshots use synthetic values; no real PLC command was sent.
+- Official hassfest passes after moving setup URLs into description
+  placeholders: [verified validation run](https://github.com/eignerth2010-byte/drevos-home-assistant/actions/runs/44935092574).
+- HACS validation runs with **no ignored checks**. The HA integration/card are
+  MIT licensed; the external Pi gateway has separate resale restrictions and
+  is not installed by Marketplace/HACS. Catalog acceptance requires passing
+  checks and maintainer review; submission does not claim acceptance.
+- The square cabinet icons are 256 and 512 pixels, rendered from the original
+  community cabinet SVG. The temporary wordmark replaces the manufacturer logo
+  in current source, card and preview images. This does not itself grant rights
+  in the manufacturer name.
+- Existing HA, Pi configuration, gateway 0.1.1 and PLC remain untouched. User
+  installs the new HA files manually. No new energized hardware test is claimed.
+
+Deutsch: 39 Python- und 16 Kartenprüfungen sowie hassfest bestehen. HA-Integration und Karte bleiben unter MIT. Nur Pi-Software und Apps haben
+gesonderte Weitergabebedingungen. Keine Prüfung wurde deaktiviert.
+Die Vorschau zeigt nur Beispielwerte. HA/Pi und Ofen wurden nicht verändert.
+
+
 This document separates source/unit tests, isolated browser checks, live HA behavior and energized hardware. Planned support is not the same as a physical test.
 
 ## Release 0.1.3 — 21 November 2026

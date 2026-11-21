@@ -83,9 +83,11 @@ Expect `active`; the service now starts on boot. Resolve `failed`/`inactive` bef
 
 ## 7 Install the integration manually in Home Assistant
 
-The current resale restriction does not meet the shared Marketplace/HACS
-catalog license requirement. Use manual installation for current versions.
-[License and earlier MIT versions](LICENSING.md).
+The HA integration/card are MIT licensed. The manual route below works
+independently of catalog status. Alternatively add this repository as a custom
+integration in Marketplace/HACS, confirm its notices and restart HA after
+download. Catalog acceptance is not yet claimed.
+[Separate Pi software license](LICENSING.md).
 
 1. Download the [project ZIP](https://github.com/eignerth2010-byte/drevos-home-assistant/archive/refs/heads/main.zip) and extract it on your PC.
 2. Open the Home Assistant configuration directory containing `configuration.yaml`, using your existing file access or share.
