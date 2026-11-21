@@ -8,10 +8,13 @@ version = "0.1.1"
 description = "Local serial gateway for the verified Drevos FX3U smoker profile"
 requires-python = ">=3.11"
 dependencies = ["pyserial>=3.5,<4"]
-license = {file = "LICENSE"}
+license = {file = "drevos_gateway/LICENSE"}
 
 [project.scripts]
 drevos-gateway = "drevos_gateway.server:main"
+
+[tool.setuptools]
+license-files = ["drevos_gateway/LICENSE"]
 
 [tool.setuptools.packages.find]
 include = ["drevos_gateway*"]

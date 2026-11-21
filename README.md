@@ -1,8 +1,8 @@
 # Drevos Smoker for Home Assistant
 
-**Lizenz ab 21.11.2026:** Private und betriebsinterne Nutzung kostenlos; Verkauf und kommerzielle Weitergabe nur mit vorheriger schriftlicher Freigabe von **Thomas Eigner**. [Bedingungen, frühere MIT-Fassungen und Kontakt](docs/LICENSING.md).
+**Lizenzen:** HA-Integration und Karte bleiben unter [MIT](LICENSE) frei nutzbar und weitergebbar. Nur Pi-Software und Apps benötigen für Verkauf oder kommerzielle Weitergabe Thomas Eigners schriftliche Freigabe. [Genaue Abgrenzung](docs/LICENSING.md).
 
-**License from 2026-11-21:** Free for private and internal business use; resale and commercial redistribution require **Thomas Eigner's prior written permission**. [Terms, earlier MIT versions and contact](docs/LICENSING.md).
+**Licenses:** HA integration and card remain [MIT licensed](LICENSE). Only Pi software and apps require written permission for resale or commercial redistribution. [Exact scope](docs/LICENSING.md).
 
 **[Einfach starten – Pi und HA installieren](docs/INSTALLATION.de.md)** · **[Easy Pi and HA setup](docs/INSTALLATION.en.md)**
 
@@ -24,7 +24,7 @@ Native, local Home Assistant integration for **one verified Drevos FX3U controll
 - A complete, responsive card with German/English text and a stainless-steel cabinet design.
 - Info/support tab with creator Thomas Eigner, optional PayPal support, visible version and once-per-version release notes.
 - GUI setup, reconfiguration, authentication recovery and redacted diagnostics.
-- Raspberry Pi gateway, systemd installer, tests, examples and the project license.
+- Raspberry Pi gateway, systemd installer, tests, examples, MIT-licensed HA code and separately licensed Pi software.
 
 ## Requirements at a glance
 
@@ -49,7 +49,7 @@ Do not put gateway tokens or personal configuration in an issue, repository or s
 - [Card Info, versions and updates / Karteninfos und Updates](docs/UPDATES.md).
 - [Validation and limits](docs/VALIDATION.md).
 - [Publishing and maintaining on GitHub, DE/EN](docs/GITHUB.md).
-- [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Third-party notices](THIRD_PARTY.md) · [Free-use license](LICENSE).
+- [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Third-party notices](THIRD_PARTY.md) · [MIT license for HA](LICENSE).
 
 The original PLC project, its export, photographs, credentials and installation-specific configuration are deliberately not distributed. The integration never changes the PLC program and never forces a raw Y output.
 

@@ -1,6 +1,6 @@
 # Drevos Smoker – deutsche Anleitung
 
-**Lizenz ab 21.11.2026:** Private und betriebsinterne Nutzung kostenlos; Verkauf und kommerzielle Weitergabe nur mit vorheriger schriftlicher Freigabe von **Thomas Eigner**. [Bedingungen, frühere MIT-Fassungen und Kontakt](docs/LICENSING.md).
+**Lizenzen:** HA-Integration und Karte bleiben unter [MIT](LICENSE) frei nutzbar und weitergebbar. Nur Pi-Software und Apps benötigen für Verkauf oder kommerzielle Weitergabe Thomas Eigners schriftliche Freigabe. [Genaue Abgrenzung](docs/LICENSING.md).
 
 **[Einfache Schritt-für-Schritt-Installation für Pi und HA](docs/INSTALLATION.de.md)** · **[HA schon da oder App schon da – was zusätzlich nötig ist](docs/HA-UND-APP.de.md)**
 
@@ -74,8 +74,6 @@ sudo systemctl status drevos-gateway.service --no-pager
 Keine Änderungen an der SPS-Software sind erforderlich. Die Baudrate ist im geprüften Profil fest 38400, 7 Datenbits, gerade Parität, 1 Stoppbit.
 
 ## 4. Integration in Home Assistant installieren
-
-**Aktuelle Lizenz:** Für neue Fassungen den manuellen Installationsweg unten verwenden. Die Beschränkung kommerzieller Weitergabe erfüllt die Marketplace-/HACS-Katalogvorgabe nicht. [Details](docs/LICENSING.md).
 
 
 ### Über den Community-Store
@@ -155,7 +153,7 @@ In der Drevos-Karte **Info** wählen. Dort stehen Thomas Eigner als Ersteller, d
 
 ## 7. Aktualisieren
 
-**Neu: 0.1.4** ersetzt das Herstellerlogo durch einen eigenen vorläufigen Schriftzug und ein eigenes quadratisches Ofensymbol. Die Nutzung bleibt kostenlos; Verkauf und kommerzielle Weitergabe benötigen vorherige schriftliche Freigabe. [Lizenz und frühere MIT-Fassungen](docs/LICENSING.md). Das Pi-Gateway bleibt auf 0.1.1.
+**Neu: 0.1.4** ersetzt das Herstellerlogo durch einen eigenen vorläufigen Schriftzug und ein eigenes quadratisches Ofensymbol. Die HA-Integration und Karte bleiben unter MIT; nur Pi-Software und Apps brauchen für Verkauf oder kommerzielle Weitergabe schriftliche Freigabe. [Lizenz und frühere MIT-Fassungen](docs/LICENSING.md). Das Pi-Gateway bleibt auf 0.1.1.
 
 HA-Version **0.1.3** ergänzt die Karte um **Ofen / Info**, deinen Erstellerhinweis, einen freiwilligen PayPal-Spendenbutton, sichtbare Versionsnummer und **Was ist neu?**. Auch die in HA angezeigte Einrichtungsbeschreibung und diese Anleitungen sind aktualisiert. Die frühere Version 0.1.2 hat den alten Mobile-Prototyp entfernt. Die eigenständige App wird ausschließlich im separaten [App-Repository](https://github.com/eignerth2010-byte/drevos-app) gepflegt. Das Pi-Gateway bleibt auf 0.1.1.
 
@@ -204,7 +202,7 @@ Zunächst laufenden Ofenbetrieb ordnungsgemäß beenden. Integration in **Gerät
 sudo systemctl disable --now drevos-gateway.service drevos-native-poweroff.path
 ```
 
-Tests, GitHub-Veröffentlichung, Releases und Beiträge: [GITHUB.md](docs/GITHUB.md) und [CONTRIBUTING.md](CONTRIBUTING.md). Private und betriebsinterne Nutzung sind nach der [aktuellen Lizenz](LICENSE) kostenlos; Verkauf und kommerzielle Weitergabe erfordern vorherige schriftliche Freigabe. Der tatsächliche Prüfstand und offene Grenzen stehen in [VALIDATION.md](docs/VALIDATION.md).
+Tests, GitHub-Veröffentlichung, Releases und Beiträge: [GITHUB.md](docs/GITHUB.md) und [CONTRIBUTING.md](CONTRIBUTING.md). HA-Integration und Karte stehen unter [MIT](LICENSE); die Pi-Software hat [getrennte Weitergabebedingungen](docs/LICENSING.md). Der tatsächliche Prüfstand und offene Grenzen stehen in [VALIDATION.md](docs/VALIDATION.md).
 
 
 ## Vorschau

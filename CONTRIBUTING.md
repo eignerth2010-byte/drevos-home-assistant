@@ -6,6 +6,10 @@ English: Use a branch and pull request. Preserve bounds, interlocks and readback
 
 ## Lizenz / License
 
-Beiträge werden unter der [aktuellen Projektlizenz](LICENSE) angeboten; Rechte bleiben bei den Mitwirkenden. Keine pauschale Rechteübertragung oder Freigabe zur gewerblichen Neulizenzierung. Gesonderte Erlaubnisse vor einer solchen Nutzung schriftlich einholen. [Details](docs/LICENSING.md).
+HA-Beiträge einschließlich Karte: MIT. Pi-Gateway und zugehörige Pi-Dienste:
+Thomas Eigner Free Use License 1.0. Rechte verbleiben bei den Mitwirkenden;
+keine Rechteübertragung wird angenommen. [Genaue Abgrenzung](docs/LICENSING.md).
 
-Contributions are offered under the [current project license](LICENSE); contributors retain copyright. No assignment or blanket permission for commercial relicensing is implied. Obtain separate written permission where needed. [Details](docs/LICENSING.md).
+HA integration/card contributions use MIT. Pi gateway/service contributions
+use the Thomas Eigner Free Use License 1.0. Contributors retain copyright;
+no assignment is implied. [Exact scope](docs/LICENSING.md).

@@ -1,6 +1,6 @@
 # Drevos Smoker – complete English guide
 
-**License from 2026-11-21:** Free for private and internal business use; resale and commercial redistribution require **Thomas Eigner's prior written permission**. [Terms, earlier MIT versions and contact](docs/LICENSING.md).
+**Licenses:** HA integration and card remain [MIT licensed](LICENSE). Only Pi software and apps require written permission for resale or commercial redistribution. [Exact scope](docs/LICENSING.md).
 
 **[Easy step-by-step Pi and HA installation](docs/INSTALLATION.en.md)** · **[Already have HA or the app? What to add](docs/HA-UND-APP.en.md)**
 
@@ -72,8 +72,6 @@ sudo systemctl status drevos-gateway.service --no-pager
 The PLC program is not modified. The verified profile fixes serial settings to 38400 baud, 7 data bits, even parity and 1 stop bit.
 
 ## 4. Install the Home Assistant integration
-
-**Current license:** Use the manual installation instructions below for new versions. The commercial redistribution restriction does not meet the Marketplace/HACS catalog license requirement. [Details](docs/LICENSING.md).
 
 
 ### Community store
@@ -153,7 +151,7 @@ Select **Info** in the Drevos card for creator Thomas Eigner, the HA integration
 
 ## 7. Update and roll back
 
-**New: 0.1.4** replaces the manufacturer logo with a temporary community wordmark and square cabinet icon. Use remains free; resale and commercial redistribution require prior written permission. [License and earlier MIT versions](docs/LICENSING.md). The Pi gateway remains 0.1.1.
+**New: 0.1.4** replaces the manufacturer logo with a temporary community wordmark and square cabinet icon. The HA component remains MIT; only Pi software and apps require prior written permission for resale or commercial redistribution. [License and earlier MIT versions](docs/LICENSING.md). The Pi gateway remains 0.1.1.
 
 HA version **0.1.3** adds **Oven / Info** tabs, creator details, optional PayPal support, a visible version and **What’s new?**. The setup information displayed inside HA and these guides are also updated. The earlier 0.1.2 release removed the superseded mobile prototype. The standalone app is maintained only in the separate [app repository](https://github.com/eignerth2010-byte/drevos-app). The Pi gateway remains at 0.1.1.
 
@@ -202,7 +200,7 @@ Finish any active oven process first. Remove the integration through Devices & s
 sudo systemctl disable --now drevos-gateway.service drevos-native-poweroff.path
 ```
 
-See [GitHub publishing and maintenance](docs/GITHUB.md), [contributing](CONTRIBUTING.md) and [validation](docs/VALIDATION.md). There are no license fees for the [Free-use license](LICENSE).
+See [GitHub publishing and maintenance](docs/GITHUB.md), [contributing](CONTRIBUTING.md) and [validation](docs/VALIDATION.md). There are no license fees for the [MIT license for HA](LICENSE).
 
 
 ## Preview
