@@ -108,8 +108,6 @@ systemctl is-active drevos-gateway.service
 
 **Erwartet:** `active`. Der Dienst startet künftig automatisch. Bei `failed` oder `inactive` erst den Fehler klären.
 
-Wer noch die frühere `drevos-mqtt.service` dieses Projekts verwendet, muss vor dem Gateway-Start deren seriellen Zugriff beenden. Dafür die [MQTT-Umstellung](../README.de.md#7-bestehende-mqtt-anlage-umstellen) beachten; nicht beide Programme gleichzeitig am Ofen betreiben.
-
 ## 7 Erweiterung in Home Assistant installieren
 
 **Im Browser in Home Assistant**, nicht im Pi-Terminal:

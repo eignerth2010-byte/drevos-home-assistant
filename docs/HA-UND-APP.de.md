@@ -13,11 +13,10 @@ Wenn HA und App bereits funktionieren, ist kein Umstieg nötig. Die folgenden Sc
 | Native Drevos-Integration in HA | App-Verbindungsdienst auf demselben Pi, Handy-/Web-App und einmalige QR-Kopplung | Pi, Kabel, Gateway, HA-Integration, Karte und bestehende Einstellungen |
 | Eigenständige Drevos-App | Home Assistant, Drevos-Integration und lokaler Netzwerkzugriff auf denselben Gateway | Pi, Kabel, Gateway, App-Dienst und vorhandene Handy-Kopplung |
 | HA und App | Nur ein weiteres Handy koppeln oder eine weitere Dashboard-Karte hinzufügen | Bestehende Installation und Schlüssel |
-| Frühere MQTT-Lösung | Zuerst auf den gemeinsamen nativen Gateway umstellen, dann App ergänzen | Hardware; MQTT-Automationen müssen gesondert auf neue Entitäten umgestellt werden |
 
 ## A Home Assistant funktioniert schon die App soll dazukommen
 
-Gemeint ist die **native Drevos-Integration** dieses Projekts mit `drevos-gateway.service`, nicht nur ein MQTT-Broker oder alte MQTT-Sensoren.
+Gemeint ist die **native Drevos-Integration** dieses Projekts mit dem gemeinsamen Dienst `drevos-gateway.service`.
 
 ### Was zusätzlich benötigt wird
 
@@ -130,7 +129,6 @@ Die lokale HTTP-Schnittstelle gehört in ein vertrauenswürdiges Heimnetz; sie v
 
 | Situation | Was tun? |
 |---|---|
-| HA zeigt nur alte MQTT-Sensoren | Zuerst die [Umstellung auf den nativen Gateway](https://github.com/eignerth2010-byte/drevos-home-assistant/blob/main/README.de.md#7-bestehende-mqtt-anlage-umstellen) durchführen. Der alte MQTT-Leser und der neue Gateway dürfen die Schnittstelle nicht gleichzeitig öffnen. Den gemeinsamen Broker für andere Geräte behalten. |
 | Nur HA vorhanden und kein Internet gewünscht | Beim lokalen HA-Betrieb bleiben. Die eigenständige App verwendet für ihren einfachen Fernzugriff den gemeinsamen Internetdienst. |
 | App fällt direkt nach Änderung von `bind` aus | `gateway_url` in `/etc/drevos-cloud/config.json` mit der tatsächlichen lokalen Gateway-Adresse abgleichen, dann App-Dienst neu starten. Nicht neue Kopplungsschlüssel erzeugen. |
 | Pi bekommt eine andere IP-Adresse | `bind`, die lokale App-`gateway_url` und die in HA verwendete Adresse prüfen. Eine unveränderte funktionierende Namens-/Proxy-Adresse kann weiterverwendet werden. |

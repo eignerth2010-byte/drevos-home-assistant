@@ -11,11 +11,10 @@
 | Native HA Drevos integration | Pi app bridge, phone/web app and QR pairing | Pi, cable, gateway, HA integration/card and settings |
 | Standalone app | Home Assistant, Drevos integration and LAN access to the gateway | Pi, cable, gateway, app service and phone pairing |
 | HA and app | Pair another phone or add a dashboard card | Existing installation and keys |
-| Old MQTT setup | Migrate to the shared native gateway first | Hardware; separately migrate MQTT automations/entities |
 
 ## A Home Assistant works add the app
 
-This means the **native integration** using `drevos-gateway.service`, not merely a broker or old MQTT entities.
+This means the **native integration** using the shared `drevos-gateway.service`.
 
 You additionally need internet on the existing Pi, the web/native app and `drevos-cloud.service`. The shared public endpoint is included. End users need no Cloudflare account, second Pi or extra oven cable.
 
@@ -114,7 +113,6 @@ Local HTTP does not transport-encrypt the gateway token. Use a trusted LAN and n
 
 | Situation | Action |
 |---|---|
-| Only old MQTT entities exist | Follow [native migration](https://github.com/eignerth2010-byte/drevos-home-assistant/blob/main/README.en.md#7-migrate-an-existing-mqtt-installation) first. Old MQTT reader and new gateway must not share serial access. Retain a broker used by other devices. |
 | Local HA without internet is wanted | Keep local HA. The standalone app's simple remote path uses the shared internet service. |
 | App fails after changing `bind` | Match the agent's local `gateway_url` to the reachable gateway and restart the agent; do not generate new pairing keys. |
 | Pi IP changes | Review `bind`, local app `gateway_url` and HA URL. An unchanged working hostname/proxy URL may remain in use. |

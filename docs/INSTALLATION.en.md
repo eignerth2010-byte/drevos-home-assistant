@@ -79,7 +79,7 @@ sudo systemctl enable --now drevos-gateway.service drevos-native-poweroff.path
 systemctl is-active drevos-gateway.service
 ```
 
-Expect `active`; the service now starts on boot. Resolve `failed`/`inactive` before proceeding. If this project's old `drevos-mqtt.service` is still using serial, follow the [MQTT migration](../README.en.md#7-migrate-an-existing-mqtt-installation) before starting a competing gateway.
+Expect `active`; the service now starts on boot. Resolve `failed`/`inactive` before proceeding.
 
 ## 7 Install the HA extension
 
