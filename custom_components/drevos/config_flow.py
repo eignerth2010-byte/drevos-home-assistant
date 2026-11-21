@@ -9,6 +9,11 @@ from homeassistant.helpers.selector import TextSelector, TextSelectorConfig, Tex
 from .api import DrevosClient, DrevosError, DrevosAuthError, validate_url
 from .const import DOMAIN, API_VERSION, PROFILE
 
+DESCRIPTION_PLACEHOLDERS = {
+    "gateway_url": "http://drevos-pi.local:8756",
+    "installation_url": "https://github.com/eignerth2010-byte/drevos-home-assistant/blob/main/README.md",
+}
+
 
 def schema(defaults=None):
     defaults = defaults or {}
@@ -44,7 +49,8 @@ class DrevosConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 errors["base"] = "cannot_connect"
             except ValueError:
                 errors["base"] = "invalid_gateway"
-        return self.async_show_form(step_id="user", data_schema=schema(user_input), errors=errors)
+        return self.async_show_form(step_id="user", data_schema=schema(user_input), errors=errors,
+                                    description_placeholders=DESCRIPTION_PLACEHOLDERS)
 
     async def async_step_reconfigure(self, user_input=None):
         entry = self._get_reconfigure_entry()
@@ -62,7 +68,8 @@ class DrevosConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 errors["base"] = "cannot_connect"
             except ValueError:
                 errors["base"] = "invalid_gateway"
-        return self.async_show_form(step_id="reconfigure", data_schema=schema(entry.data), errors=errors)
+        return self.async_show_form(step_id="reconfigure", data_schema=schema(entry.data), errors=errors,
+                                    description_placeholders=DESCRIPTION_PLACEHOLDERS)
 
     async def async_step_reauth(self, entry_data):
         return await self.async_step_reauth_confirm()
@@ -83,4 +90,5 @@ class DrevosConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 errors["base"] = "cannot_connect"
             except ValueError:
                 errors["base"] = "invalid_gateway"
-        return self.async_show_form(step_id="reauth_confirm", data_schema=schema(entry.data), errors=errors)
+        return self.async_show_form(step_id="reauth_confirm", data_schema=schema(entry.data), errors=errors,
+                                    description_placeholders=DESCRIPTION_PLACEHOLDERS)
