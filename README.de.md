@@ -209,3 +209,8 @@ sudo systemctl disable --now drevos-gateway.service drevos-native-poweroff.path
 Tests, GitHub-Veröffentlichung, Releases und Beiträge: [GITHUB.md](docs/GITHUB.md) und [CONTRIBUTING.md](CONTRIBUTING.md). Die [MIT-Lizenz](LICENSE) verursacht keine Lizenzgebühren. Der tatsächliche Prüfstand und offene Grenzen stehen in [VALIDATION.md](docs/VALIDATION.md).
 
 
+## Projekt unterstützen
+
+Wenn dir dieses Projekt hilft, kannst du die Weiterentwicklung mit einer freiwilligen Spende über PayPal unterstützen. Vielen Dank!
+
+[![Über PayPal spenden](https://img.shields.io/badge/Donate-PayPal-0070BA?logo=paypal&logoColor=white)](https://www.paypal.me/ThomasEigner877)

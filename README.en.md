@@ -207,3 +207,8 @@ sudo systemctl disable --now drevos-gateway.service drevos-native-poweroff.path
 See [GitHub publishing and maintenance](docs/GITHUB.md), [contributing](CONTRIBUTING.md) and [validation](docs/VALIDATION.md). There are no license fees for the [MIT license](LICENSE).
 
 
+## Support this project
+
+If this project helps you, you can support its continued development with a voluntary donation via PayPal. Thank you!
+
+[![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-0070BA?logo=paypal&logoColor=white)](https://www.paypal.me/ThomasEigner877)
