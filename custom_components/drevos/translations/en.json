@@ -4,13 +4,13 @@
     "step": {
       "user": {
         "title": "Drevos gateway",
-        "description": "Connect your Drevos smoker through the local Raspberry Pi gateway. Independent community project by Thomas Eigner. Enter its address and private access token; the token stays in Home Assistant. [Easy installation guide](https://github.com/eignerth2010-byte/drevos-home-assistant/blob/main/docs/INSTALLATION.en.md).",
+        "description": "Connect your Drevos smoker through the local Raspberry Pi gateway. Independent community project by Thomas Eigner. Enter its address and private access token; the token stays in Home Assistant. [Easy installation guide]({installation_url}).",
         "data": {
           "url": "Gateway URL",
           "token": "Access token"
         },
         "data_description": {
-          "url": "Example: http://drevos-pi.local:8756; HTTP is for a trusted LAN only.",
+          "url": "Example: {gateway_url}; HTTP is for a trusted LAN only.",
           "token": "The token value from /etc/drevos/gateway.json. Never publish it on GitHub or in chat."
         }
       },
@@ -22,7 +22,7 @@
           "token": "Access token"
         },
         "data_description": {
-          "url": "Example: http://drevos-pi.local:8756; HTTP is for a trusted LAN only.",
+          "url": "Example: {gateway_url}; HTTP is for a trusted LAN only.",
           "token": "The token value from /etc/drevos/gateway.json. Never publish it on GitHub or in chat."
         }
       },
@@ -34,7 +34,7 @@
           "token": "Access token"
         },
         "data_description": {
-          "url": "Example: http://drevos-pi.local:8756; HTTP is for a trusted LAN only.",
+          "url": "Example: {gateway_url}; HTTP is for a trusted LAN only.",
           "token": "The token value from /etc/drevos/gateway.json. Never publish it on GitHub or in chat."
         }
       }
