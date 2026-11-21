@@ -4,7 +4,7 @@
     "step": {
       "user": {
         "title": "Drevos gateway",
-        "description": "Enter the local Raspberry Pi gateway address and private access token. The token stays in Home Assistant.",
+        "description": "Connect your Drevos smoker through the local Raspberry Pi gateway. Independent community project by Thomas Eigner. Enter its address and private access token; the token stays in Home Assistant. [Easy installation guide](https://github.com/eignerth2010-byte/drevos-home-assistant/blob/main/docs/INSTALLATION.en.md).",
         "data": {
           "url": "Gateway URL",
           "token": "Access token"

@@ -1,13 +1,18 @@
 {
   "domain": "drevos",
   "name": "Drevos Smoker",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "config_flow": true,
-  "codeowners": ["@eignerth2010-byte"],
+  "codeowners": [
+    "@eignerth2010-byte"
+  ],
   "documentation": "https://github.com/eignerth2010-byte/drevos-home-assistant",
   "issue_tracker": "https://github.com/eignerth2010-byte/drevos-home-assistant/issues",
   "iot_class": "local_polling",
   "integration_type": "device",
-  "dependencies": ["http", "lovelace"],
+  "dependencies": [
+    "http",
+    "lovelace"
+  ],
   "requirements": []
 }
