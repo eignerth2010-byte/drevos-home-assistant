@@ -127,3 +127,7 @@ This permission does not itself start heating/ignition. Automatic mode and conne
 | Controls disabled | `allow_control`, automatic mode and connection. |
 
 See [technical maintenance instructions](../README.en.md) for updates/rollback and [HA plus app](HA-UND-APP.en.md) for extending either existing installation.
+
+## Info and later updates
+
+From HA integration **0.1.3**, select **Info** in the Drevos card for creator Thomas Eigner, version, optional support, setup guide and discussions. **What’s new?** explains changes. Install updates through **Settings → Marketplace**, restart HA and reopen the dashboard. This card update retains the existing Pi gateway 0.1.1. [Update guide](UPDATES.md).

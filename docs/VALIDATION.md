@@ -2,6 +2,13 @@
 
 This document separates source/unit tests, isolated browser checks, live HA behavior and energized hardware. Planned support is not the same as a physical test.
 
+## Release 0.1.3 — 21 November 2026
+
+- Python syntax/JSON validation and 39 existing Python tests pass. Sixteen card contract tests pass, including seven new tests for Info navigation, command isolation, release-note deferral, public-version-only acknowledgement, blocked storage, card removal and version consistency.
+- Isolated browser checks with the actual card and synthetic HA states covered German/English Info, creator Thomas Eigner, the exact PayPal URL, release-note reopening and persisted acknowledgement after reload. A typed target draft survived Info/Oven switching. Info remained usable offline. The fixture recorded zero simulated service calls throughout these checks.
+- Integration manifest, diagnostics/shared constant, card footer, Info and bundled notes all identify version 0.1.3. The initial HA setup description and documentation are updated in both languages. Existing entity keys, unique IDs, gateway code and PLC mapping are unchanged; the Pi gateway stays 0.1.1.
+- This release does not establish new energized-hardware validation. Heating, ignition, fan switching, timer control and Pi shutdown are not triggered by the update checks.
+
 ## Release 0.1.2 — 20 November 2026
 
 - Removed the superseded `mobile/` prototype and `.github/workflows/mobile.yml` from the HA repository. The standalone app and relay belong to [drevos-app](https://github.com/eignerth2010-byte/drevos-app); the HA source archive contains no mobile application or cloud service.

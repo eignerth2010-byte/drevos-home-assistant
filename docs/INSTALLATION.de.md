@@ -164,3 +164,7 @@ Die Freigabe selbst startet weder Heizung noch Zündung. Bei Automatikbetrieb od
 | Bedienelemente gesperrt | `allow_control`, Automatikmodus und Verbindungszustand prüfen. |
 
 Für Updates und Rückkehr zur vorherigen Installation: [technische Anleitung](../README.de.md). Für App-Erweiterung und parallelen Betrieb: [Was brauche ich zusätzlich?](HA-UND-APP.de.md).
+
+## Infos und spätere Updates
+
+Ab HA-Integration **0.1.3** findest du in der Drevos-Karte **Info**: Ersteller Thomas Eigner, Versionsnummer, freiwilliger Spendenbutton, Anleitung und Support. **Was ist neu?** erklärt die Änderungen. Updates über **Einstellungen → Marketplace** installieren, danach HA neu starten und das Dashboard neu öffnen. Für dieses Kartenupdate bleibt das vorhandene Pi-Gateway 0.1.1 bestehen. [Update-Anleitung](UPDATES.md).
