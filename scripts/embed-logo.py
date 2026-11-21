@@ -1,4 +1,4 @@
-"""Embed the unchanged supplied logo so the card needs no external image request."""
+"""Embed the current community wordmark so the card needs no external image request."""
 import base64
 from pathlib import Path
 import re
@@ -12,4 +12,4 @@ source, count = re.subn(r"const LOGO_DATA = '[^']*';", "const LOGO_DATA = '" + d
 if count != 1:
     raise SystemExit("Expected exactly one logo constant")
 card.write_text(source, encoding="utf-8")
-print("Embedded the unchanged logo.")
+print("Embedded the current community wordmark.")
