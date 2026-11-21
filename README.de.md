@@ -1,5 +1,7 @@
 # Drevos Smoker – deutsche Anleitung
 
+**[Einfache Schritt-für-Schritt-Installation für Pi und HA](docs/INSTALLATION.de.md)** · **[HA schon da oder App schon da – was zusätzlich nötig ist](docs/HA-UND-APP.de.md)**
+
 [English](README.en.md) · [Projektübersicht](README.md)
 
 Diese Integration verbindet Home Assistant direkt über das Heimnetz mit einem Raspberry Pi am Drevos-Räucherofen. Der Pi spricht mit der vorhandenen SPS. MQTT wird für diese Integration nicht benötigt.
@@ -34,6 +36,8 @@ sudo sh scripts/install-gateway.sh
 Der Installer legt einen eigenen Dienstbenutzer, eine Python-Umgebung und eine private Konfigurationsdatei an. **Er startet das Gateway noch nicht.** Ein individueller Zugangsschlüssel wird lokal erzeugt und nicht im Installationsprotokoll ausgegeben.
 
 ## 3. Gateway einstellen
+
+**App bereits eingerichtet?** Vor einer Änderung von `bind` die [Anleitung für App → HA](docs/HA-UND-APP.de.md#b-die-app-funktioniert-schon-home-assistant-soll-dazukommen) verwenden. Dort wird auch `gateway_url` des vorhandenen App-Dienstes angepasst, damit die App weiter funktioniert.
 
 Die Datei ausschließlich lokal öffnen:
 

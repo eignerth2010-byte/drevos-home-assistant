@@ -1,5 +1,9 @@
 # Drevos Smoker for Home Assistant
 
+**[Einfach starten – Pi und HA installieren](docs/INSTALLATION.de.md)** · **[Easy Pi and HA setup](docs/INSTALLATION.en.md)**
+
+**Schon HA oder die App eingerichtet? [Was brauche ich zusätzlich?](docs/HA-UND-APP.de.md)** · [HA + app, English](docs/HA-UND-APP.en.md)
+
 [Deutsch: vollständige Anleitung](README.de.md) · [English: complete guide](README.en.md)
 
 Native, local Home Assistant integration for **one verified Drevos FX3U controller profile**, with a Raspberry Pi serial gateway and a bundled smoker-style dashboard card. No MQTT broker, cloud service or paid license is required.
@@ -44,9 +48,9 @@ The original PLC project, its export, photographs, credentials and installation-
 
 ## Separate standalone app
 
-The current [standalone Android/iOS app](https://github.com/eignerth2010-byte/drevos-app) is maintained in its own repository and works independently of Home Assistant. This repository contains only the HA integration, its dashboard card and local Pi gateway. Both connections can use gateway 0.1.1; only that gateway opens the PLC serial port. This HA update does not require reinstalling an existing gateway 0.1.1.
+The current [standalone Android/iOS and Web App](https://github.com/eignerth2010-byte/drevos-app) is maintained in its own repository and works independently of Home Assistant. This repository contains only the HA integration, its dashboard card and local Pi gateway. Both connections can use gateway 0.1.1; only that gateway opens the PLC serial port. This HA update does not require reinstalling an existing gateway 0.1.1. Follow [the combined-use guide](docs/HA-UND-APP.en.md) when adding either client; LAN binding and the app bridge's local URL must agree.
 
-Die [eigenständige Android-/iOS-App](https://github.com/eignerth2010-byte/drevos-app) hat ein eigenes Repository. Dieses Projekt enthält ausschließlich die HA-Integration, ihre Dashboard-Karte und das lokale Pi-Gateway.
+Die [eigenständige Android-/iOS- und Web-App](https://github.com/eignerth2010-byte/drevos-app) hat ein eigenes Repository. Dieses Projekt enthält ausschließlich die HA-Integration, ihre Dashboard-Karte und das lokale Pi-Gateway.
 
 ## Unterstützen / Support
 
