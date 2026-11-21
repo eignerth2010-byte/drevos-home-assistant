@@ -54,4 +54,8 @@ Wenn dir dieses Projekt hilft, kannst du die Weiterentwicklung mit einer freiwil
 
 If this project helps you, you can support its continued development with a voluntary donation via PayPal. Thank you!
 
-[![PayPal – Spenden / Donate](https://img.shields.io/badge/Donate-PayPal-0070BA?logo=paypal&logoColor=white)](https://www.paypal.me/ThomasEigner877)
+[![PayPal – Spenden / Donate](https://img.shields.io/badge/Donate-PayPal-0070BA?logo=paypal&logoColor=white)](https://www.paypal.com/donate/?hosted_button_id=GSMP9644VUY8C)
+
+QR-Code scannen / Scan the QR code:
+
+[![PayPal – Spenden-QR-Code / Donation QR code](docs/assets/paypal-donate-qr.png)](https://www.paypal.com/donate/?hosted_button_id=GSMP9644VUY8C)
