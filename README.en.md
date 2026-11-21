@@ -1,10 +1,10 @@
-# Drevos Smoker â€“ complete English guide
+# Drevos Smoker – complete English guide
 
 **License from 2026-11-21:** Free for private and internal business use; resale and commercial redistribution require **Thomas Eigner's prior written permission**. [Terms, earlier MIT versions and contact](docs/LICENSING.md).
 
-**[Easy step-by-step Pi and HA installation](docs/INSTALLATION.en.md)** Â· **[Already have HA or the app? What to add](docs/HA-UND-APP.en.md)**
+**[Easy step-by-step Pi and HA installation](docs/INSTALLATION.en.md)** · **[Already have HA or the app? What to add](docs/HA-UND-APP.en.md)**
 
-[Deutsch](README.de.md) Â· [Overview](README.md)
+[Deutsch](README.de.md) · [Overview](README.md)
 
 This integration connects Home Assistant directly to a Raspberry Pi beside a Drevos smoker. The Pi communicates with the existing PLC.
 
@@ -39,7 +39,7 @@ The installer creates a dedicated service account, Python environment and privat
 
 ## 3. Configure the gateway
 
-**Already using the app?** Follow [App â†’ HA](docs/HA-UND-APP.en.md#b-the-app-works-add-home-assistant) before changing `bind`. It also updates the existing app service's local `gateway_url` so the app keeps working.
+**Already using the app?** Follow [App → HA](docs/HA-UND-APP.en.md#b-the-app-works-add-home-assistant) before changing `bind`. It also updates the existing app service's local `gateway_url` so the app keeps working.
 
 Open the configuration locally:
 
@@ -75,7 +75,7 @@ The PLC program is not modified. The verified profile fixes serial settings to 3
 
 ### Community store
 
-On HA with Marketplace, open **Settings â†’ Marketplace**, add this repository as an integration using its repository link, download and restart HA. On older installations with HACS, add `eignerth2010-byte/drevos-home-assistant` as a custom repository of type **Integration**, download and restart. This does not mean the project is already listed in the official catalog. Read and accept the store's own notices yourself.
+On HA with Marketplace, open **Settings → Marketplace**, add this repository as an integration using its repository link, download and restart HA. On older installations with HACS, add `eignerth2010-byte/drevos-home-assistant` as a custom repository of type **Integration**, download and restart. This does not mean the project is already listed in the official catalog. Read and accept the store's own notices yourself.
 
 ### Manual installation
 
@@ -91,7 +91,7 @@ Include all Python files, translations and `www`. Restart Home Assistant.
 
 ### Setup
 
-1. Open **Settings â†’ Devices & services â†’ Add integration**.
+1. Open **Settings → Devices & services → Add integration**.
 2. Search for **Drevos Smoker**.
 3. Enter the local gateway address, for example `http://drevos-pi.local:8756`, or the Pi's own address with its port.
 4. Enter the private `token` from the local gateway configuration.
@@ -101,7 +101,7 @@ Use **Reconfigure** on the integration entry if its address or token changes. HA
 
 ## 5. Add the complete smoker card
 
-Open a dashboard, choose **Edit â†’ Add card â†’ Drevos Smoker**. Configure the title, language and device in the visual editor. With exactly one Drevos gateway, the device is selected automatically.
+Open a dashboard, choose **Edit → Add card → Drevos Smoker**. Configure the title, language and device in the visual editor. With exactly one Drevos gateway, the device is selected automatically.
 
 Alternatively use the manual card editor:
 
@@ -116,7 +116,7 @@ The card includes temperatures, targets, smoke level, both fans, heating, smoke/
 In storage resource mode, the integration registers the bundled JavaScript automatically. Fully reload the browser after first installation. If manual resource registration is needed, add this **JavaScript module** under dashboard resources:
 
 ```text
-/drevos_static/drevos-smoker-card.js?v=0.1.3
+/drevos_static/drevos-smoker-card.js?v=0.1.4
 ```
 
 In YAML resource mode, add the same module URL to the existing resource list. The integration does not edit that list. Avoid duplicate registrations. The version parameter changes on releases so browsers fetch fresh code.
@@ -125,13 +125,13 @@ In YAML resource mode, add the same module URL to the existing resource list. Th
 
 | Function | Behavior |
 |---|---|
-| Chamber target | 0â€“120 Â°C in whole degrees. A positive value alone does not enable heating. Zero disables heat first. |
-| Core target | 0â€“115 Â°C. Zero disables this completion criterion. A reached positive core target can end the process early. |
-| Smoke target | 0â€“100%. A positive value alone does not start smoke. Zero disables smoke first. |
+| Chamber target | 0–120 °C in whole degrees. A positive value alone does not enable heating. Zero disables heat first. |
+| Core target | 0–115 °C. Zero disables this completion criterion. A reached positive core target can end the process early. |
+| Smoke target | 0–100%. A positive value alone does not start smoke. Zero disables smoke first. |
 | Heating element | Enables the existing PLC heating control; requires a valid positive chamber target. |
 | Smoke / ignition | Enables the PLC's existing smoke and ignition sequence; requires a positive smoke target. Never directly forces an ignition output. |
 | Convection / fan | The confirmed manual PLC requests. The PLC can also run convection for heating or cooling. |
-| Timer duration | 1â€“9999 minutes. |
+| Timer duration | 1–9999 minutes. |
 | Timer start | Starts only the clock, without enabling heat or smoke. |
 | Timer pause | Requires heat and smoke to be off. |
 | Reset timer | Requires a paused timer and heat/smoke off; clears elapsed time. |
@@ -146,11 +146,13 @@ Manual writes are blocked during an automatic program and in unverified Fahrenhe
 
 ## Info, version and release notes
 
-Select **Info** in the Drevos card for creator Thomas Eigner, the HA integration version, support button, setup guide, discussions and contributors. The card footer also shows its version. **Whatâ€™s new?** appears once after an update per browser profile and can be reopened in Info. See [Info and updates](docs/UPDATES.md).
+Select **Info** in the Drevos card for creator Thomas Eigner, the HA integration version, support button, setup guide, discussions and contributors. The card footer also shows its version. **What’s new?** appears once after an update per browser profile and can be reopened in Info. See [Info and updates](docs/UPDATES.md).
 
 ## 7. Update and roll back
 
-HA version **0.1.3** adds **Oven / Info** tabs, creator details, optional PayPal support, a visible version and **Whatâ€™s new?**. The setup information displayed inside HA and these guides are also updated. The earlier 0.1.2 release removed the superseded mobile prototype. The standalone app is maintained only in the separate [app repository](https://github.com/eignerth2010-byte/drevos-app). The Pi gateway remains at 0.1.1.
+**New: 0.1.4** replaces the manufacturer logo with a temporary community wordmark and square cabinet icon. Use remains free; resale and commercial redistribution require prior written permission. [License and earlier MIT versions](docs/LICENSING.md). The Pi gateway remains 0.1.1.
+
+HA version **0.1.3** adds **Oven / Info** tabs, creator details, optional PayPal support, a visible version and **What’s new?**. The setup information displayed inside HA and these guides are also updated. The earlier 0.1.2 release removed the superseded mobile prototype. The standalone app is maintained only in the separate [app repository](https://github.com/eignerth2010-byte/drevos-app). The Pi gateway remains at 0.1.1.
 
 Version **0.1.1** includes gateway 0.1.1, shared with the standalone app. Overlapping HA commands and writes to a busy serial connection are refused, not queued. Action errors are available in German and English. Existing entities and dashboard configuration are preserved. If the app setup already installed gateway 0.1.1, only this HA update is needed; no Pi reinstallation is required.
 
@@ -204,9 +206,9 @@ See [GitHub publishing and maintenance](docs/GITHUB.md), [contributing](CONTRIBU
 
 ![Drevos sample interface](docs/assets/drevos-ha-card-demo.jpg)
 
-Original Drevos card for Home Assistant â€“ isolated preview with sample values.
+Original Drevos card for Home Assistant – isolated preview with sample values.
 
-![HA integration 0.1.3 â€“ Info & Support](docs/assets/drevos-ha-info.jpg)
+![HA integration 0.1.3 – Info & Support](docs/assets/drevos-ha-info.jpg)
 
 ## Contributors
 
