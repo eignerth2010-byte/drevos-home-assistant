@@ -47,3 +47,66 @@ test('invalid numeric drafts never dispatch; valid draft survives delayed HA ech
 test('auto selection never mixes two gateways',()=>{
  const c=card();c.config={};c._hass.states={a:{entity_id:'sensor.a',state:'10',attributes:{drevos_gateway_id:'fixture_a',drevos_key:'kammertemperatur'}},b:{entity_id:'sensor.b',state:'20',attributes:{drevos_gateway_id:'fixture_b',drevos_key:'kammertemperatur'}}};c.resolveEntities();assert.equal(c._map.kammertemperatur,undefined);c.config.gateway_id='fixture_b';c.resolveEntities();assert.equal(c._map.kammertemperatur,'sensor.b');
 });
+
+function notesFixture({seen=null,brokenStorage=false}={}) {
+ const registry=new Map(),stored=new Map(seen?[['drevos.ha.release-notes.v1',seen]]:[]);
+ const environment={visibilityState:'visible',createElement(){}};
+ let dirty=false,opened=0,current;
+ const dialog={open:false,showModal(){this.open=true;opened++;},close(){this.open=false;current.acknowledgeRelease();}};
+ const root={activeElement:null,addEventListener(){},querySelector(selector){
+   if(selector==='dialog[data-release-notes]')return dialog;
+   if(selector==='input[data-dirty="true"]')return dirty?{}:null;
+   return null;
+ }};
+ class NotesElement {isConnected=true;attachShadow(){this.shadowRoot=root;return root;}}
+ vm.runInNewContext(source,{HTMLElement:NotesElement,customElements:{get:k=>registry.get(k),define:(k,v)=>registry.set(k,v)},
+   window:{localStorage:{getItem(k){if(brokenStorage)throw Error('storage unavailable');return stored.get(k)||null;},setItem(k,v){if(brokenStorage)throw Error('storage unavailable');stored.set(k,v);}}},document:environment,console});
+ const NotesCard=registry.get('drevos-smoker-card');
+ function make(){const c=new NotesCard();c.config={language:'en'};c.render=()=>{};c._hass={states:{}};current=c;return c;}
+ const instance=make();
+ return {instance,make,root,dialog,stored,environment,setDirty:value=>dirty=value,opened:()=>opened};
+}
+
+test('Info navigation dispatches nothing and is deferred during commands/confirmations',()=>{
+ const c=card();c.selectTab('info');assert.equal(c._tab,'info');assert.equal(c.intents.length,0);
+ c._pending=true;c.selectTab('oven');assert.equal(c._tab,'info');c._pending=false;
+ c._dialog={key:'heizelement'};c.selectTab('oven');assert.equal(c._tab,'info');c._dialog=null;
+ c._notesOpen=true;c.selectTab('oven');assert.equal(c._tab,'info');c._notesOpen=false;
+ c.selectTab('unsupported');assert.equal(c._tab,'info');c.selectTab('oven');assert.equal(c._tab,'oven');
+});
+test('release notes defer commands, confirmations, hidden views and target drafts',()=>{
+ const f=notesFixture(),c=f.instance;
+ c._pending=true;c.showReleaseNotes();assert.equal(f.opened(),0);c._pending=false;
+ c._dialog={};c.showReleaseNotes();assert.equal(f.opened(),0);c._dialog=null;
+ f.environment.visibilityState='hidden';c.showReleaseNotes();assert.equal(f.opened(),0);f.environment.visibilityState='visible';
+ f.setDirty(true);c.showReleaseNotes();assert.equal(f.opened(),0);f.setDirty(false);
+ f.root.activeElement={tagName:'INPUT'};c.showReleaseNotes();assert.equal(f.opened(),0);f.root.activeElement=null;
+ c.showReleaseNotes();assert.equal(f.opened(),1);assert.equal(c._notesOpen,true);
+});
+test('acknowledgement stores only the public version and notes can be reopened manually',()=>{
+ const f=notesFixture(),c=f.instance;c.showReleaseNotes();f.dialog.close();
+ assert.equal(c._notesOpen,false);assert.equal(f.stored.size,1);assert.equal(f.stored.get('drevos.ha.release-notes.v1'),'0.1.3');
+ const second=f.make();second.showReleaseNotes();assert.equal(f.opened(),1);
+ second.showReleaseNotes(true);assert.equal(f.opened(),2);
+});
+test('already acknowledged release does not reopen and unavailable storage is tolerated',()=>{
+ const seen=notesFixture({seen:'0.1.3'});seen.instance.showReleaseNotes();assert.equal(seen.opened(),0);
+ const blocked=notesFixture({brokenStorage:true});blocked.instance.showReleaseNotes();assert.equal(blocked.opened(),1);
+ assert.doesNotThrow(()=>blocked.dialog.close());blocked.instance.showReleaseNotes();assert.equal(blocked.opened(),1);
+});
+test('removing an open card does not record an unread release as acknowledged',()=>{
+ const f=notesFixture();f.instance.showReleaseNotes();f.instance.disconnectedCallback();
+ assert.equal(f.stored.size,0);assert.equal(f.instance._notesOpen,false);
+});
+test('Info and release-note surfaces cannot dispatch an oven command',async()=>{
+ for(const surface of ['info','notes']){
+  const c=card();if(surface==='info')c._tab='info';else c._notesOpen=true;
+  assert.equal(await c.perform('luefter','turn_on',{},'off'),false);assert.equal(c.intents.length,0);
+ }
+});
+test('card, integration and manifest advertise the same release',()=>{
+ const manifest=JSON.parse(fs.readFileSync('custom_components/drevos/manifest.json','utf8'));
+ const version=source.match(/const CARD_VERSION = '([^']+)'/)[1];
+ assert.equal(manifest.version,version);
+ assert.match(fs.readFileSync('custom_components/drevos/const.py','utf8'),new RegExp('VERSION = "'+version.replaceAll('.','\\.')+'"'));
+});
