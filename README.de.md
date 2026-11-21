@@ -192,6 +192,16 @@ sudo systemctl disable --now drevos-gateway.service drevos-native-poweroff.path
 Tests, GitHub-Veröffentlichung, Releases und Beiträge: [GITHUB.md](docs/GITHUB.md) und [CONTRIBUTING.md](CONTRIBUTING.md). Die [MIT-Lizenz](LICENSE) verursacht keine Lizenzgebühren. Der tatsächliche Prüfstand und offene Grenzen stehen in [VALIDATION.md](docs/VALIDATION.md).
 
 
+## Vorschau
+
+![Drevos – Beispielansicht](docs/assets/drevos-ha-card-demo.jpg)
+
+Originale Drevos-Karte für Home Assistant – isolierte Vorschau mit Beispielwerten.
+
+## Mitwirkende
+
+Erstellt von **Thomas Eigner**, mit KI-Unterstützung durch **ChatGPT (OpenAI)** bei Entwicklung, Tests und Dokumentation. [Alle Mitwirkenden](CONTRIBUTORS.md).
+
 ## Projekt unterstützen
 
 Wenn dir dieses Projekt hilft, kannst du die Weiterentwicklung mit einer freiwilligen Spende über PayPal unterstützen. Vielen Dank!

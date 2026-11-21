@@ -190,6 +190,16 @@ sudo systemctl disable --now drevos-gateway.service drevos-native-poweroff.path
 See [GitHub publishing and maintenance](docs/GITHUB.md), [contributing](CONTRIBUTING.md) and [validation](docs/VALIDATION.md). There are no license fees for the [MIT license](LICENSE).
 
 
+## Preview
+
+![Drevos sample interface](docs/assets/drevos-ha-card-demo.jpg)
+
+Original Drevos card for Home Assistant – isolated preview with sample values.
+
+## Contributors
+
+Created by **Thomas Eigner**, with AI assistance from **ChatGPT (OpenAI)** for development, software checks and documentation. [Contributor acknowledgements](CONTRIBUTORS.md).
+
 ## Support this project
 
 If this project helps you, you can support its continued development with a voluntary donation via PayPal. Thank you!

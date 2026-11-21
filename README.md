@@ -52,6 +52,16 @@ The current [standalone Android/iOS and Web App](https://github.com/eignerth2010
 
 Die [eigenständige Android-/iOS- und Web-App](https://github.com/eignerth2010-byte/drevos-app) hat ein eigenes Repository. Dieses Projekt enthält ausschließlich die HA-Integration, ihre Dashboard-Karte und das lokale Pi-Gateway.
 
+## Vorschau / Preview
+
+![Drevos – Beispielansicht / Sample interface](docs/assets/drevos-ha-card-demo.jpg)
+
+Originale Drevos-Karte für Home Assistant – isolierte Vorschau mit Beispielwerten. / Original Drevos card for Home Assistant – isolated preview with sample values.
+
+## Mitwirkende / Contributors
+
+**Thomas Eigner** – Ersteller / creator. **ChatGPT (OpenAI)** – KI-Unterstützung bei Entwicklung, Tests und Dokumentation / AI assistance with development, software checks and documentation. [Details](CONTRIBUTORS.md).
+
 ## Unterstützen / Support
 
 Wenn dir dieses Projekt hilft, kannst du die Weiterentwicklung mit einer freiwilligen Spende über PayPal unterstützen. Vielen Dank!
