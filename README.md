@@ -66,7 +66,7 @@ Die [eigenständige Android-/iOS- und Web-App](https://github.com/eignerth2010-b
 
 Originale Drevos-Karte für Home Assistant – isolierte Vorschau mit Beispielwerten. / Original Drevos card for Home Assistant – isolated preview with sample values.
 
-![HA-Integration 0.1.3 – Info & Unterstützen / Info & Support](docs/assets/drevos-ha-info.jpg)
+![HA-Integration 0.1.4 – Info & Unterstützen / Info & Support](docs/assets/drevos-ha-info.jpg)
 
 ## Mitwirkende / Contributors
 
