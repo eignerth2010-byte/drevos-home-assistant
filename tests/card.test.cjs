@@ -85,12 +85,12 @@ test('release notes defer commands, confirmations, hidden views and target draft
 });
 test('acknowledgement stores only the public version and notes can be reopened manually',()=>{
  const f=notesFixture(),c=f.instance;c.showReleaseNotes();f.dialog.close();
- assert.equal(c._notesOpen,false);assert.equal(f.stored.size,1);assert.equal(f.stored.get('drevos.ha.release-notes.v1'),'0.1.3');
+ assert.equal(c._notesOpen,false);assert.equal(f.stored.size,1);assert.equal(f.stored.get('drevos.ha.release-notes.v1'),'0.1.4');
  const second=f.make();second.showReleaseNotes();assert.equal(f.opened(),1);
  second.showReleaseNotes(true);assert.equal(f.opened(),2);
 });
 test('already acknowledged release does not reopen and unavailable storage is tolerated',()=>{
- const seen=notesFixture({seen:'0.1.3'});seen.instance.showReleaseNotes();assert.equal(seen.opened(),0);
+ const seen=notesFixture({seen:'0.1.4'});seen.instance.showReleaseNotes();assert.equal(seen.opened(),0);
  const blocked=notesFixture({brokenStorage:true});blocked.instance.showReleaseNotes();assert.equal(blocked.opened(),1);
  assert.doesNotThrow(()=>blocked.dialog.close());blocked.instance.showReleaseNotes();assert.equal(blocked.opened(),1);
 });
