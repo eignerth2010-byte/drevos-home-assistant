@@ -1,5 +1,21 @@
 # Drevos Smoker for Home Assistant
 
+<!-- ha-marketplace:exclude-start -->
+<p align="center">
+  <a href="https://my.home-assistant.io/redirect/marketplace_repository/?owner=eignerth2010-byte&amp;repository=drevos-home-assistant&amp;category=integration"><img src="https://my.home-assistant.io/badges/marketplace_repository.svg" alt="Open Drevos Smoker in your Home Assistant Marketplace"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/eignerth2010-byte/drevos-home-assistant/releases/latest"><img src="https://img.shields.io/github/v/release/eignerth2010-byte/drevos-home-assistant?label=release" alt="Latest release"></a>
+  <a href="https://my.home-assistant.io/redirect/marketplace_repository/?owner=eignerth2010-byte&amp;repository=drevos-home-assistant&amp;category=integration"><img src="https://img.shields.io/badge/Marketplace-default-41BDF5?logo=homeassistant&amp;logoColor=white" alt="Marketplace: default"></a>
+  <a href="https://github.com/eignerth2010-byte/drevos-home-assistant/blob/main/LICENSE"><img src="https://img.shields.io/badge/HA%20%2B%20card-MIT-green" alt="HA integration and card: MIT"></a>
+  <a href="https://github.com/eignerth2010-byte/drevos-home-assistant/blob/main/README.md"><img src="https://img.shields.io/badge/cloud-not%20required-8A2BE2" alt="No cloud required for the HA connection"></a>
+  <a href="https://github.com/eignerth2010-byte/drevos-home-assistant/discussions"><img src="https://img.shields.io/badge/community-GitHub-5865F2?logo=github&amp;logoColor=white" alt="Community: GitHub Discussions"></a>
+</p>
+
+Home Assistant 2026.11+: Marketplace · [Open in HACS on older installations](https://my.home-assistant.io/redirect/hacs_repository/?owner=eignerth2010-byte&repository=drevos-home-assistant&category=integration).
+<!-- ha-marketplace:exclude-end -->
+
 **Lizenzen:** HA-Integration und Karte bleiben unter [MIT](LICENSE) frei nutzbar und weitergebbar. Nur Pi-Software und Apps benötigen für Verkauf oder kommerzielle Weitergabe Thomas Eigners schriftliche Freigabe. [Genaue Abgrenzung](docs/LICENSING.md).
 
 **Licenses:** HA integration and card remain [MIT licensed](LICENSE). Only Pi software and apps require written permission for resale or commercial redistribution. [Exact scope](docs/LICENSING.md).

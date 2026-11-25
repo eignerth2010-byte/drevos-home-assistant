@@ -1,5 +1,21 @@
 # Drevos Smoker – deutsche Anleitung
 
+<!-- ha-marketplace:exclude-start -->
+<p align="center">
+  <a href="https://my.home-assistant.io/redirect/marketplace_repository/?owner=eignerth2010-byte&amp;repository=drevos-home-assistant&amp;category=integration"><img src="https://my.home-assistant.io/badges/marketplace_repository.svg" alt="Drevos Smoker im Home-Assistant-Marketplace öffnen"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/eignerth2010-byte/drevos-home-assistant/releases/latest"><img src="https://img.shields.io/github/v/release/eignerth2010-byte/drevos-home-assistant?label=release" alt="Aktuelle Veröffentlichung"></a>
+  <a href="https://my.home-assistant.io/redirect/marketplace_repository/?owner=eignerth2010-byte&amp;repository=drevos-home-assistant&amp;category=integration"><img src="https://img.shields.io/badge/Marketplace-default-41BDF5?logo=homeassistant&amp;logoColor=white" alt="Marketplace: default"></a>
+  <a href="https://github.com/eignerth2010-byte/drevos-home-assistant/blob/main/LICENSE"><img src="https://img.shields.io/badge/HA%20und%20Karte-MIT-green" alt="HA-Integration und Karte: MIT"></a>
+  <a href="https://github.com/eignerth2010-byte/drevos-home-assistant/blob/main/README.de.md"><img src="https://img.shields.io/badge/cloud-nicht%20erforderlich-8A2BE2" alt="Keine Cloud für die HA-Verbindung erforderlich"></a>
+  <a href="https://github.com/eignerth2010-byte/drevos-home-assistant/discussions"><img src="https://img.shields.io/badge/community-GitHub-5865F2?logo=github&amp;logoColor=white" alt="Community: GitHub Discussions"></a>
+</p>
+
+Home Assistant 2026.11+: Marketplace · [Für ältere HACS-Installationen öffnen](https://my.home-assistant.io/redirect/hacs_repository/?owner=eignerth2010-byte&repository=drevos-home-assistant&category=integration).
+<!-- ha-marketplace:exclude-end -->
+
 **Lizenzen:** HA-Integration und Karte bleiben unter [MIT](LICENSE) frei nutzbar und weitergebbar. Nur Pi-Software und Apps benötigen für Verkauf oder kommerzielle Weitergabe Thomas Eigners schriftliche Freigabe. [Genaue Abgrenzung](docs/LICENSING.md).
 
 **[Einfache Schritt-für-Schritt-Installation für Pi und HA](docs/INSTALLATION.de.md)** · **[HA schon da oder App schon da – was zusätzlich nötig ist](docs/HA-UND-APP.de.md)**
