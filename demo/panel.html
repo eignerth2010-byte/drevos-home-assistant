@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="de">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; connect-src 'none'; img-src data:; font-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Drevos · Sidebar demo</title>
+<style>
+  :root {--primary-color:#03a9f4;--primary-background-color:#f4f5f7;--primary-text-color:#202124;--secondary-text-color:#656b73;--app-header-background-color:white;--app-header-text-color:#202124;font:14px system-ui;}
+  body {margin:0;display:flex;height:100vh;}
+  aside {width:230px;flex:none;background:white;border-right:1px solid #ddd;box-sizing:border-box;padding:16px 12px;}
+  h2 {font-size:19px;font-weight:500;margin:8px 6px 28px;}
+  a {display:block;background:#e2f3fb;color:#007da9;padding:14px;border-radius:8px;text-decoration:none;font-weight:600;}
+  aside p {font-size:12px;color:#656b73;line-height:1.7;margin:24px 6px;}
+  aside button {display:block;margin:10px 0;width:100%;border:1px solid #ddd;background:#fff;border-radius:8px;padding:10px;cursor:pointer;}
+  drevos-smoker-panel {display:block;flex:1;min-width:0;height:100vh;}
+  body.hide-sidebar aside {display:none;}
+  @media(max-width:700px) {aside {display:none;} body.hide-sidebar aside {display:block;position:absolute;inset:0 auto 0 0;z-index:4;box-shadow:0 0 20px #0003;}}
+</style>
+<aside>
+  <h2>Home Assistant · Demo</h2>
+  <a href="panel.html">♨ Drevos</a>
+  <p>Isolierte Vorschau mit Beispielwerten.<br>Kein Zugriff auf einen echten Ofen.</p>
+  <button id="offline">Verbindung aus/ein</button>
+  <button id="language">DE / EN</button>
+  <button id="second">Zweiten Ofen aus/ein</button>
+  <p id="ledger" role="status">0 simulierte Befehle</p>
+</aside>
+<drevos-smoker-panel></drevos-smoker-panel>
+<script type="module" src="panel-demo.js"></script>
+</html>
