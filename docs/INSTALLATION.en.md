@@ -83,10 +83,11 @@ Expect `active`; the service now starts on boot. Resolve `failed`/`inactive` bef
 
 ## 7 Install the integration manually in Home Assistant
 
-The HA integration/card are MIT licensed. The manual route below works
-independently of catalog status. Alternatively add this repository as a custom
-integration in Marketplace/HACS, confirm its notices and restart HA after
-download. Catalog acceptance is not yet claimed.
+The HA integration/card are MIT licensed. **Drevos Smoker** has been in the
+shared Marketplace/HACS catalog since 2026-11-24. Search in **Settings →
+Marketplace**, read and accept its community notices, install and restart HA.
+Before HA 2026.11, use the existing HACS installation. The manual route below
+remains an alternative.
 [Separate Pi software license](LICENSING.md).
 
 1. Download the [project ZIP](https://github.com/eignerth2010-byte/drevos-home-assistant/archive/refs/heads/main.zip) and extract it on your PC.
@@ -106,6 +107,10 @@ Open **Settings → Devices & services → Add integration → Drevos Smoker**. 
 Expect live chamber/core temperatures; compare them with the display.
 
 ## 9 Add the dashboard card
+
+From **0.1.5**, open the complete controls directly under **Drevos** in the sidebar. The integration adds this entry automatically; no separate dashboard is required. [Sidebar details](SIDEBAR.md).
+
+Adding another card to an existing dashboard is optional:
 
 In the dashboard choose **Edit → Add card → Drevos Smoker**, set title/language and save. A single oven is selected automatically. Reload the browser after first installation if necessary. If the card is missing, use the [resource/manual-editor instructions](../README.en.md#5-add-the-complete-smoker-card).
 

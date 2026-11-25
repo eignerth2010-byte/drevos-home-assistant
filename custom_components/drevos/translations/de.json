@@ -4,7 +4,7 @@
     "step": {
       "user": {
         "title": "Drevos-Gateway",
-        "description": "Verbinde deinen Drevos-Ofen über das lokale Raspberry-Pi-Gateway. Unabhängiges Community-Projekt von Thomas Eigner. Trage Adresse und privaten Zugangsschlüssel ein; der Schlüssel bleibt in Home Assistant. [Einfache Installationsanleitung]({installation_url}).",
+        "description": "Verbinde deinen Drevos-Ofen über das lokale Raspberry-Pi-Gateway. Unabhängiges Community-Projekt von Thomas Eigner. Trage Adresse und privaten Zugangsschlüssel ein; der Schlüssel bleibt in Home Assistant. Nach der Einrichtung öffnet Drevos in der Seitenleiste die vollständige Bedienung. [Einfache Installationsanleitung]({installation_url}).",
         "data": {
           "url": "Gateway-Adresse",
           "token": "Zugangsschlüssel"

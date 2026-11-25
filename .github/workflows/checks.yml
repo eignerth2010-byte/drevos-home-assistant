@@ -20,5 +20,6 @@ jobs:
         with:
           node-version: '22'
       - run: node --check custom_components/drevos/www/drevos-smoker-card.js
-      - run: node --test tests/card.test.cjs
+      - run: node --check custom_components/drevos/www/drevos-smoker-panel.js
+      - run: node --test tests/*.test.cjs
       - run: sh -n scripts/install-gateway.sh

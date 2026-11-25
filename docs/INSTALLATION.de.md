@@ -114,11 +114,11 @@ systemctl is-active drevos-gateway.service
 
 ### Aktuelle Version manuell installieren
 
-Die HA-Integration und Karte sind unter MIT frei verfügbar. Der folgende
-manuelle Weg funktioniert unabhängig vom Katalogstatus. Alternativ das
-Repository als benutzerdefinierte Integration im Marketplace/HACS hinzufügen,
-die dortigen Hinweise selbst bestätigen und HA nach dem Download neu starten.
-Eine Katalogaufnahme wird erst beantragt und ist damit nicht zugesagt.
+Die HA-Integration und Karte sind unter MIT frei verfügbar. Seit 24.11.2026
+steht **Drevos Smoker** im gemeinsamen Marketplace-/HACS-Katalog. Unter
+**Einstellungen → Marketplace** danach suchen, die Community-Hinweise selbst
+bestätigen, installieren und HA neu starten. Vor HA 2026.11 den vorhandenen
+HACS verwenden. Alternativ funktioniert der manuelle Weg unten.
 [Getrennte Lizenz der Pi-Software](LICENSING.md).
 
 ### Dateien nach HA kopieren
@@ -142,6 +142,10 @@ Das Ergebnis muss unter anderem `custom_components/drevos/manifest.json` im HA-K
 **Erfolg erkennen:** Das neue Drevos-Gerät liefert die echten Kammer- und Kerntemperaturen. Werte mit dem Ofendisplay vergleichen.
 
 ## 9 Ofenkarte ins Dashboard legen
+
+Ab **0.1.5** ist die vollständige Ofenbedienung direkt links unter **Drevos** erreichbar. Die Integration legt diesen Seitenleisteneintrag automatisch an; ein separates Dashboard ist nicht nötig. [Details zur Seitenleiste](SIDEBAR.md).
+
+Eine zusätzliche Karte im bisherigen Dashboard ist optional:
 
 Im gewünschten Dashboard **Bearbeiten → Karte hinzufügen → Drevos Smoker** wählen, Titel/Sprache einstellen und speichern. Bei genau einem Ofen wird er automatisch ausgewählt. Nach der ersten Installation den Browser gegebenenfalls vollständig neu laden.
 
