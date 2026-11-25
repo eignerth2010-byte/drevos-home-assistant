@@ -37,7 +37,7 @@ python -m pip install -e . pytest pytest-asyncio aiohttp
 python -m pytest -q
 python -m compileall -q custom_components drevos_gateway
 node --check custom_components/drevos/www/drevos-smoker-card.js
-node --test tests/card.test.cjs
+node --test tests/*.test.cjs
 sh -n scripts/install-gateway.sh
 ```
 

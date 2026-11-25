@@ -1,5 +1,16 @@
 # Validation / Prüfstand
 
+## 2026-11-25 – HA 0.1.5 integrated sidebar
+
+- 48 Python tests and 24 Node card/panel tests pass locally; Python compile and JavaScript syntax checks pass.
+- New lifecycle checks cover offline startup/retry, idempotent registration, resource retry after failure, multiple ovens, successful/failed unloading, removal of an offline entry, disabled entries and foreign-panel ownership.
+- Panel tests verify explicit per-oven binding, retained input drafts, delayed HA context, accessible sidebar navigation and local, version-matched module imports.
+- The real bundled panel and card were checked together in an isolated browser fixture: German and English initial contexts, Info and licensing text, unavailable readings/disabled controls during outage, preserved draft, two separate ovens and one simulated setpoint command affecting only its selected oven.
+- Desktop and 390 × 844 mobile layouts were visually inspected; the mobile document had no horizontal overflow. The native `hass-toggle-menu` event opened the fixture sidebar. Browser error/warning logs were empty after the successful checks.
+- Registration/removal signatures and the custom-panel config contract were checked against Home Assistant Core 2026.3.0 and 2026.11.3 source. The integration does not rely on the newer `async_panel_exists` helper.
+- Screenshots use synthetic values. Version 0.1.5 was not installed into the user's live HA; the user performs installation. The mistakenly created standalone dashboard was backed up and removed through the HA API at the user's request. No live PLC command, Pi change or HA restart was performed for this release.
+- The previously accepted catalog entry remains valid: [accepted Marketplace/HACS submission](https://github.com/hacs/default/pull/14660). New release checks are recorded on GitHub.
+
 ## 2026-11-21 – HA 0.1.4 community artwork and licensing
 
 - 39 local Python tests and 16 card contract tests pass; compile checks pass.

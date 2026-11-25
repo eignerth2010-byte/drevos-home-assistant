@@ -1,5 +1,15 @@
 # Infos, Versionen und Updates / Info, versions and updates
 
+## 0.1.5 – Drevos in der Seitenleiste / Drevos sidebar
+
+Die Integration bringt eine eigene **Drevos**-Seite mit und registriert sie automatisch in der HA-Seitenleiste. Kein zusätzliches Dashboard ist nötig. Mehrere Öfen bekommen getrennte Karten; bei vorübergehendem Verbindungsausfall bleibt die Ansicht erreichbar. Nach Entfernen des letzten Ofens wird der Integrationseintrag entfernt. Bestehende Dashboard-Karten bleiben nutzbar. [Anleitung und Fehlerhilfe](SIDEBAR.md).
+
+The integration automatically registers its own **Drevos** sidebar page. Multiple ovens have separate cards, and the page remains available while a gateway is offline. Removing the last oven removes the integration panel. Existing dashboard cards still work. [Setup and troubleshooting](SIDEBAR.md).
+
+Über Marketplace/HACS aktualisieren, HA neu starten und die Browserseite neu laden. Bei manueller Installation den vollständigen Ordner `custom_components/drevos` einschließlich aller `www`-Dateien ersetzen. Das Pi-Gateway bleibt auf **0.1.1**.
+
+Update through Marketplace/HACS, restart HA and fully reload the browser. Manual installs must replace the complete `custom_components/drevos` folder, including every `www` file. No Pi gateway update is required; it remains **0.1.1**.
+
 ## 0.1.4 – Projektgrafiken und Lizenz / Project artwork and license
 
 Eigener vorläufiger Schriftzug statt Herstellerlogo und quadratisches Ofensymbol.
