@@ -1,18 +1,23 @@
 """Native Drevos integration and bundled dashboard card."""
-import logging
-from pathlib import Path
-from homeassistant.components.http import StaticPathConfig
-from homeassistant.components.lovelace import LOVELACE_DATA
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from .api import DrevosClient, DrevosError, DrevosAuthError
-from .const import DOMAIN, PLATFORMS, CARD_PATH, CARD_URL, PROFILE, API_VERSION
+from .const import DOMAIN, PLATFORMS, PROFILE, API_VERSION
 from .coordinator import DrevosCoordinator
+from .frontend import async_setup_frontend, async_add_entry, async_remove_entry as async_remove_frontend_entry
 from homeassistant.exceptions import ConfigEntryNotReady, ConfigEntryAuthFailed
 
-LOG = logging.getLogger(__name__)
+async def async_setup(hass, config):
+    """Make the sidebar available even while an oven is temporarily offline."""
+    await async_setup_frontend(hass)
+    for entry in hass.config_entries.async_entries(DOMAIN):
+        if entry.disabled_by is None:
+            async_add_entry(hass, entry)
+    return True
 
 
 async def async_setup_entry(hass, entry):
+    await async_setup_frontend(hass)
+    async_add_entry(hass, entry)
     client = DrevosClient(async_get_clientsession(hass), entry.data["url"], entry.data["token"])
     try:
         info = await client.info()
@@ -25,24 +30,17 @@ async def async_setup_entry(hass, entry):
     coordinator = DrevosCoordinator(hass, entry, client, info)
     await coordinator.async_config_entry_first_refresh()
     entry.runtime_data = coordinator
-    if not hass.data.setdefault(DOMAIN, {}).get("frontend_registered"):
-        await hass.http.async_register_static_paths([
-            StaticPathConfig(CARD_PATH, str(Path(__file__).parent / "www" / "drevos-smoker-card.js"), True)
-        ])
-        hass.data[DOMAIN]["frontend_registered"] = True
-    # Use the resource collection API; never edit HA's storage files directly.
-    lovelace = hass.data.get(LOVELACE_DATA)
-    if lovelace and lovelace.resource_mode == "storage":
-        resources = lovelace.resources
-        await resources.async_get_info()
-        matches = [r for r in resources.async_items() if r["url"].split("?")[0] == CARD_PATH]
-        if not matches:
-            await resources.async_create_item({"res_type": "module", "url": CARD_URL})
-        elif matches[0]["url"] != CARD_URL:
-            await resources.async_update_item(matches[0]["id"], {"res_type": "module", "url": CARD_URL})
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
     return True
 
 
 async def async_unload_entry(hass, entry):
-    return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
+    unloaded = await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
+    if unloaded:
+        async_remove_frontend_entry(hass, entry)
+    return unloaded
+
+
+async def async_remove_entry(hass, entry):
+    """Also clean up an entry removed while its gateway was never reachable."""
+    async_remove_frontend_entry(hass, entry)
