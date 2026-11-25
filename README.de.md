@@ -94,7 +94,7 @@ Keine Änderungen an der SPS-Software sind erforderlich. Die Baudrate ist im gep
 
 ### Über den Community-Store
 
-Bei HA mit Marketplace: **Einstellungen → Marketplace**, dort dieses Repository als Integration über den Repository-Link hinzufügen, herunterladen und HA neu starten. Bei älteren Installationen mit HACS: Repository `eignerth2010-byte/drevos-home-assistant` als benutzerdefiniertes Repository der Kategorie **Integration** hinzufügen, herunterladen und neu starten. Die Integration ist dadurch nicht automatisch in den offiziellen Katalog aufgenommen. Die jeweils angebotenen Hinweise des Stores selbst lesen und bestätigen.
+Die Integration ist seit 24.11.2026 im gemeinsamen Marketplace-/HACS-Katalog enthalten. Unter **Einstellungen → Marketplace** nach **Drevos Smoker** suchen, installieren und HA neu starten. Vor HA 2026.11 den vorhandenen HACS verwenden. Die angebotenen Community-Hinweise selbst lesen und bestätigen.
 
 ### Manuell
 
@@ -120,6 +120,10 @@ Bei neuer IP oder geändertem Schlüssel: im Menü des Integrationseintrags **Ne
 
 ## 5. Komplette Ofenkarte hinzufügen
 
+Ab **0.1.5** öffnest du die vollständige Bedienung direkt über **Drevos** in der linken HA-Seitenleiste. Der Eintrag wird von der Integration automatisch angelegt. Dafür ist kein zusätzliches Dashboard nötig. [Seitenleiste und Fehlerhilfe](docs/SIDEBAR.md).
+
+Eine Karte in einem vorhandenen Dashboard ist weiterhin optional:
+
 In einem Dashboard **Bearbeiten → Karte hinzufügen → Drevos Smoker** auswählen. Titel, Sprache und gegebenenfalls das Gerät im Karteneditor einstellen. Bei genau einem eingerichteten Drevos-Gerät wird es automatisch ausgewählt.
 
 Alternativ im manuellen Karteneditor:
@@ -135,7 +139,7 @@ Die Karte enthält Isttemperaturen, Sollwerte, Rauchstärke, beide Lüfter, Heiz
 Die Integration registriert die Kartenressource bei einem Dashboard im Speichermodus automatisch. Falls die Karte nach der Erstinstallation fehlt, den Browser vollständig neu laden. Falls nötig unter Dashboard-Ressourcen eine **JavaScript-Modul**-Ressource eintragen:
 
 ```text
-/drevos_static/drevos-smoker-card.js?v=0.1.4
+/drevos_static/drevos-smoker-card.js?v=0.1.5
 ```
 
 Bei YAML-Ressourcenverwaltung diesen Pfad in der vorhandenen Ressourcenliste eintragen; eine automatische Änderung dieser Liste erfolgt nicht. Keine doppelte Ressource hinzufügen. Die neue Versionsnummer im URL-Parameter sorgt nach Updates für frischen Code.
@@ -169,7 +173,7 @@ In der Drevos-Karte **Info** wählen. Dort stehen Thomas Eigner als Ersteller, d
 
 ## 7. Aktualisieren
 
-**Neu: 0.1.4** ersetzt das Herstellerlogo durch einen eigenen vorläufigen Schriftzug und ein eigenes quadratisches Ofensymbol. Die HA-Integration und Karte bleiben unter MIT; nur Pi-Software und Apps brauchen für Verkauf oder kommerzielle Weitergabe schriftliche Freigabe. [Lizenz und frühere MIT-Fassungen](docs/LICENSING.md). Das Pi-Gateway bleibt auf 0.1.1.
+**Neu: 0.1.5** ergänzt den automatisch registrierten **Drevos**-Eintrag in der HA-Seitenleiste. Die vollständige Bedienung ist damit ohne zusätzliches Dashboard erreichbar. Mehrere Öfen werden getrennt dargestellt; die Ansicht bleibt bei Verbindungsproblemen verfügbar. [Seitenleiste und Fehlerhilfe](docs/SIDEBAR.md). Das Pi-Gateway bleibt auf 0.1.1.
 
 HA-Version **0.1.3** ergänzt die Karte um **Ofen / Info**, deinen Erstellerhinweis, einen freiwilligen PayPal-Spendenbutton, sichtbare Versionsnummer und **Was ist neu?**. Auch die in HA angezeigte Einrichtungsbeschreibung und diese Anleitungen sind aktualisiert. Die frühere Version 0.1.2 hat den alten Mobile-Prototyp entfernt. Die eigenständige App wird ausschließlich im separaten [App-Repository](https://github.com/eignerth2010-byte/drevos-app) gepflegt. Das Pi-Gateway bleibt auf 0.1.1.
 
@@ -177,7 +181,7 @@ Version **0.1.1** enthält das mit der eigenständigen App gemeinsame Gateway 0.
 
 Die aktuelle [eigenständige Android-/iOS-App](https://github.com/eignerth2010-byte/drevos-app) benötigt kein Home Assistant. Beide Anbindungen verwenden denselben lokalen Gateway-Dienst; kein zweiter Dienst darf den SPS-Port öffnen.
 
-Für **0.1.4** den kompletten Ordner `custom_components/drevos` aus dem neuen Paket in HA ersetzen, HA neu starten und das Dashboard neu öffnen. Das bestehende Pi-Gateway 0.1.1 benötigt dafür keine Änderung. Die HA- und App-Versionsnummern laufen getrennt.
+Für **0.1.5** über Marketplace/HACS aktualisieren oder den kompletten Ordner `custom_components/drevos` aus dem neuen Paket in HA ersetzen. HA neu starten und die Browserseite neu laden; anschließend links **Drevos** öffnen. Das bestehende Pi-Gateway 0.1.1 benötigt dafür keine Änderung. Die HA- und App-Versionsnummern laufen getrennt.
 
 Vor einem Update die private Pi-Konfiguration und HA-Konfiguration sichern. Öffentliche Releases enthalten keine persönlichen Einstellungen.
 
@@ -223,11 +227,11 @@ Tests, GitHub-Veröffentlichung, Releases und Beiträge: [GITHUB.md](docs/GITHUB
 
 ## Vorschau
 
-![Drevos – Beispielansicht](docs/assets/drevos-ha-card-demo.jpg)
+![Drevos 0.1.5 – integrierte Seitenleiste](docs/assets/drevos-ha-sidebar-demo.jpg)
 
-Originale Drevos-Karte für Home Assistant – isolierte Vorschau mit Beispielwerten.
+Drevos 0.1.5 – integrierte Seitenleistenansicht mit Beispielwerten.
 
-![HA-Integration 0.1.3 – Info & Unterstützen](docs/assets/drevos-ha-info.jpg)
+![HA-Integration 0.1.5 – Info & Unterstützen](docs/assets/drevos-ha-info.jpg)
 
 ## Mitwirkende
 

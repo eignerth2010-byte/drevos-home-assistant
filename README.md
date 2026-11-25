@@ -28,12 +28,13 @@ Home Assistant 2026.11+: Marketplace · [Open in HACS on older installations](ht
 
 Native, local Home Assistant integration for **one verified Drevos FX3U controller profile**, with a Raspberry Pi serial gateway and a bundled smoker-style dashboard card. The HA connection runs locally without a cloud service; private personal use is free.
 
-**Community project, version 0.1.4. Not an official Drevos or Mitsubishi product.** Compatibility is defined by the register profile, not by the Drevos badge on an oven. Other controllers must be checked before enabling writes.
+**Community project, version 0.1.5. Not an official Drevos or Mitsubishi product.** Compatibility is defined by the register profile, not by the Drevos badge on an oven. Other controllers must be checked before enabling writes.
 
-**Version 0.1.4** introduces the temporary community wordmark, square cabinet icon and revised resale terms. [Licensing and earlier MIT versions](docs/LICENSING.md).
+**Version 0.1.5** adds **Drevos** to the HA sidebar automatically, with the complete smoker controls. No separate dashboard is required; existing dashboard cards still work. [Sidebar and troubleshooting / Seitenleiste](docs/SIDEBAR.md). The Pi gateway remains 0.1.1.
 
 ## What is included
 
+- Automatic **Drevos** sidebar page, including separate cards for multiple ovens and an offline view.
 - Chamber and core temperature, smoke level, setpoints and timer readings.
 - Separate controls for heating, smoke with the PLC's automatic ignition sequence, convection and fan.
 - Timer duration, start/pause, reset and guarded Raspberry Pi shutdown.
@@ -53,12 +54,13 @@ All four boards use **the same gateway program**; the hardware differences are i
 1. Follow [the German guide](README.de.md) or [the English guide](README.en.md) to install the Pi gateway.
 2. Install `custom_components/drevos` in Home Assistant, restart HA, then add **Drevos Smoker** under Devices & services.
 3. Enter the gateway URL and its locally generated private token.
-4. Add **Drevos Smoker** from the dashboard card picker. The integration registers its bundled JavaScript resource in storage mode.
+4. Open **Drevos** in the sidebar. Optionally add **Drevos Smoker** to an existing dashboard using the card picker. The integration registers its local sidebar panel and bundled card resource automatically.
 
 Do not put gateway tokens or personal configuration in an issue, repository or screenshot. The installer defaults to loopback-only, read-only operation. See the full guide before exposing it to your trusted LAN or enabling controls.
 
 ## Documentation
 
+- [Sidebar page / Seitenleiste](docs/SIDEBAR.md).
 - [Deutsch](README.de.md) / [English](README.en.md): complete installation, usage, update, rollback and removal.
 - [Hardware and Pi models](docs/HARDWARE.md).
 - [Verified register profile](docs/REGISTER_PROFILE.md).
@@ -78,11 +80,11 @@ Die [eigenständige Android-/iOS- und Web-App](https://github.com/eignerth2010-b
 
 ## Vorschau / Preview
 
-![Drevos – Beispielansicht / Sample interface](docs/assets/drevos-ha-card-demo.jpg)
+![Drevos 0.1.5 – Seitenleiste / Sidebar](docs/assets/drevos-ha-sidebar-demo.jpg)
 
-Originale Drevos-Karte für Home Assistant – isolierte Vorschau mit Beispielwerten. / Original Drevos card for Home Assistant – isolated preview with sample values.
+Drevos 0.1.5 – integrierte Seitenleistenansicht mit Beispielwerten. / Integrated sidebar page with synthetic values.
 
-![HA-Integration 0.1.4 – Info & Unterstützen / Info & Support](docs/assets/drevos-ha-info.jpg)
+![HA-Integration 0.1.5 – Info & Unterstützen / Info & Support](docs/assets/drevos-ha-info.jpg)
 
 ## Mitwirkende / Contributors
 

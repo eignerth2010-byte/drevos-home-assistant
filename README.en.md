@@ -92,7 +92,7 @@ The PLC program is not modified. The verified profile fixes serial settings to 3
 
 ### Community store
 
-On HA with Marketplace, open **Settings → Marketplace**, add this repository as an integration using its repository link, download and restart HA. On older installations with HACS, add `eignerth2010-byte/drevos-home-assistant` as a custom repository of type **Integration**, download and restart. This does not mean the project is already listed in the official catalog. Read and accept the store's own notices yourself.
+The integration has been in the shared Marketplace/HACS catalog since 2026-11-24. Open **Settings → Marketplace**, search for **Drevos Smoker**, install and restart HA. Before HA 2026.11, use the existing HACS installation. Read and accept the store's community notices yourself.
 
 ### Manual installation
 
@@ -118,6 +118,10 @@ Use **Reconfigure** on the integration entry if its address or token changes. HA
 
 ## 5. Add the complete smoker card
 
+From **0.1.5**, open the complete controls directly through **Drevos** in the HA sidebar. The integration creates this entry automatically; no separate dashboard is needed. [Sidebar and troubleshooting](docs/SIDEBAR.md).
+
+Adding a card to an existing dashboard remains optional:
+
 Open a dashboard, choose **Edit → Add card → Drevos Smoker**. Configure the title, language and device in the visual editor. With exactly one Drevos gateway, the device is selected automatically.
 
 Alternatively use the manual card editor:
@@ -133,7 +137,7 @@ The card includes temperatures, targets, smoke level, both fans, heating, smoke/
 In storage resource mode, the integration registers the bundled JavaScript automatically. Fully reload the browser after first installation. If manual resource registration is needed, add this **JavaScript module** under dashboard resources:
 
 ```text
-/drevos_static/drevos-smoker-card.js?v=0.1.4
+/drevos_static/drevos-smoker-card.js?v=0.1.5
 ```
 
 In YAML resource mode, add the same module URL to the existing resource list. The integration does not edit that list. Avoid duplicate registrations. The version parameter changes on releases so browsers fetch fresh code.
@@ -167,7 +171,7 @@ Select **Info** in the Drevos card for creator Thomas Eigner, the HA integration
 
 ## 7. Update and roll back
 
-**New: 0.1.4** replaces the manufacturer logo with a temporary community wordmark and square cabinet icon. The HA component remains MIT; only Pi software and apps require prior written permission for resale or commercial redistribution. [License and earlier MIT versions](docs/LICENSING.md). The Pi gateway remains 0.1.1.
+**New: 0.1.5** automatically registers **Drevos** in the HA sidebar. Open the complete controls without creating another dashboard. Multiple ovens are separate, and the page remains available during connection failures. [Sidebar and troubleshooting](docs/SIDEBAR.md). The Pi gateway remains 0.1.1.
 
 HA version **0.1.3** adds **Oven / Info** tabs, creator details, optional PayPal support, a visible version and **What’s new?**. The setup information displayed inside HA and these guides are also updated. The earlier 0.1.2 release removed the superseded mobile prototype. The standalone app is maintained only in the separate [app repository](https://github.com/eignerth2010-byte/drevos-app). The Pi gateway remains at 0.1.1.
 
@@ -175,7 +179,7 @@ Version **0.1.1** includes gateway 0.1.1, shared with the standalone app. Overla
 
 The current [standalone Android/iOS app](https://github.com/eignerth2010-byte/drevos-app) does not require Home Assistant. Both connections use the same local gateway service; never open the PLC port with a second service.
 
-For **0.1.4**, replace the complete `custom_components/drevos` folder in HA with the new package, restart HA and reopen the dashboard. The existing Pi gateway 0.1.1 needs no change. HA and app versions are numbered independently.
+For **0.1.5**, update through Marketplace/HACS or replace the complete `custom_components/drevos` folder in HA with the new package. Restart HA, fully reload the browser, then open **Drevos** in the sidebar. The existing Pi gateway 0.1.1 needs no change. HA and app versions are numbered independently.
 
 Back up the private Pi configuration and HA configuration first. Public releases contain no personal settings.
 
@@ -221,11 +225,11 @@ See [GitHub publishing and maintenance](docs/GITHUB.md), [contributing](CONTRIBU
 
 ## Preview
 
-![Drevos sample interface](docs/assets/drevos-ha-card-demo.jpg)
+![Drevos 0.1.5 integrated sidebar](docs/assets/drevos-ha-sidebar-demo.jpg)
 
-Original Drevos card for Home Assistant – isolated preview with sample values.
+Drevos 0.1.5 – integrated sidebar page with synthetic values.
 
-![HA integration 0.1.3 – Info & Support](docs/assets/drevos-ha-info.jpg)
+![HA integration 0.1.5 – Info & Support](docs/assets/drevos-ha-info.jpg)
 
 ## Contributors
 
