@@ -1,6 +1,8 @@
 # Drevos Smoker – deutsche Anleitung
 
-**Neu in 0.2.0:** 40 Rezepte mit Produktbildern und einzeln wählbaren Phasen. Werte ausdrücklich übertragen und jede Phase selbst starten; kein automatischer Wechsel. [Rezept-Anleitung](docs/RECIPES.de.md).
+**Neue Rezepte ohne weiteres App-Update:** [So funktioniert der gemeinsame Rezeptkatalog](docs/ONLINE-RECIPES.de.md). Einmalig App 0.5.0 / HA 0.3.0 installieren.
+
+**Seit 0.2.0:** 40 Rezepte mit Produktbildern und einzeln wählbaren Phasen. Werte ausdrücklich übertragen und jede Phase selbst starten; kein automatischer Wechsel. [Rezept-Anleitung](docs/RECIPES.de.md).
 
 <!-- ha-marketplace:exclude-start -->
 <p align="center">
@@ -141,7 +143,7 @@ Die Karte enthält Isttemperaturen, Sollwerte, Rauchstärke, beide Lüfter, Heiz
 Die Integration registriert die Kartenressource bei einem Dashboard im Speichermodus automatisch. Falls die Karte nach der Erstinstallation fehlt, den Browser vollständig neu laden. Falls nötig unter Dashboard-Ressourcen eine **JavaScript-Modul**-Ressource eintragen:
 
 ```text
-/drevos_static/drevos-smoker-card.js?v=0.2.0
+/drevos_static/drevos-smoker-card.js?v=0.3.0
 ```
 
 Bei YAML-Ressourcenverwaltung diesen Pfad in der vorhandenen Ressourcenliste eintragen; eine automatische Änderung dieser Liste erfolgt nicht. Keine doppelte Ressource hinzufügen. Die neue Versionsnummer im URL-Parameter sorgt nach Updates für frischen Code.
@@ -183,7 +185,7 @@ Version **0.1.1** enthält das mit der eigenständigen App gemeinsame Gateway 0.
 
 Die aktuelle [eigenständige Android-/iOS-App](https://github.com/eignerth2010-byte/drevos-app) benötigt kein Home Assistant. Beide Anbindungen verwenden denselben lokalen Gateway-Dienst; kein zweiter Dienst darf den SPS-Port öffnen.
 
-Für **0.2.0** über Marketplace/HACS aktualisieren oder den kompletten Ordner `custom_components/drevos` aus dem neuen Paket in HA ersetzen. HA neu starten und die Browserseite neu laden; anschließend links **Drevos** öffnen. Das bestehende Pi-Gateway 0.1.1 benötigt dafür keine Änderung. Die HA- und App-Versionsnummern laufen getrennt.
+Für **0.3.0** über Marketplace/HACS aktualisieren oder den kompletten Ordner `custom_components/drevos` aus dem neuen Paket in HA ersetzen. HA neu starten und die Browserseite neu laden; anschließend links **Drevos** öffnen. Das bestehende Pi-Gateway 0.1.1 benötigt dafür keine Änderung. Die HA- und App-Versionsnummern laufen getrennt.
 
 Vor einem Update die private Pi-Konfiguration und HA-Konfiguration sichern. Öffentliche Releases enthalten keine persönlichen Einstellungen.
 
