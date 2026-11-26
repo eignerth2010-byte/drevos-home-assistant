@@ -28,6 +28,7 @@ async def async_setup_frontend(hass):
         await hass.http.async_register_static_paths([
             StaticPathConfig(CARD_PATH, str(directory / "drevos-smoker-card.js"), True),
             StaticPathConfig(PANEL_MODULE_PATH, str(directory / "drevos-smoker-panel.js"), True),
+            StaticPathConfig("/drevos_static/recipes", str(directory / "recipes"), True),
         ])
         data["frontend_registered"] = True
     if data.get("card_resource_registered"):

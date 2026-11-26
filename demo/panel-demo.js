@@ -1,4 +1,4 @@
-import '../custom_components/drevos/www/drevos-smoker-panel.js?v=0.1.5';
+import '../custom_components/drevos/www/drevos-smoker-panel.js?v=0.2.0';
 
 const panel = document.querySelector('drevos-smoker-panel');
 const ledger = document.getElementById('ledger');
@@ -7,7 +7,7 @@ const groups = {
   number: {kammertemperatur_soll:'0', kerntemperatur_ziel:'0', rauch_soll:'0', timer_dauer:'90'},
   switch: {heizelement:'off', rauchbetrieb:'off', konvektion:'off', luefter:'off', timer_lauf:'off'},
   button: {timer_reset:'unknown', shutdown:'unknown'},
-  binary_sensor: {automatik:'off', controls_available:'on'},
+  binary_sensor: {automatik:'off', controls_available:'on', connection:'on'},
 };
 let states = {}, online = true, second = false, count = 0;
 const language = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'de';
@@ -15,15 +15,16 @@ for (const oven of ['one', 'two']) {
   for (const [domain, keys] of Object.entries(groups)) {
     for (const [key, state] of Object.entries(keys)) {
       const id = `${domain}.fixture_${oven}_${key}`;
-      states[id] = {entity_id:id, state, attributes:{drevos_key:key, drevos_gateway_id:`fixture_${oven}`}};
+      const max={kammertemperatur_soll:120,kerntemperatur_ziel:115,rauch_soll:100,timer_dauer:9999}[key];
+      states[id] = {entity_id:id, state, attributes:{drevos_key:key, drevos_gateway_id:`fixture_${oven}`,...(max?{min:key==='timer_dauer'?1:0,max}: {})}};
     }
   }
 }
 function push() {
   panel.hass = {language, states:{...states}, callService:async (domain, service, data) => {
-    if (!online || !states[data.entity_id] || !['set_value','turn_on','turn_off','press'].includes(service)) throw Error('Mock request rejected');
+    if (!online || !states[data.entity_id] || data.entity_id.split('.')[0]!==domain || !['set_value','turn_on','turn_off','press'].includes(service)) throw Error('Mock request rejected');
     count++;
-    ledger.textContent = `${count} simulierte Befehle`;
+    ledger.textContent = `${count} simulierte Befehle · ${domain}.${service} · ${data.entity_id} · ${data.value??''}`;
     states[data.entity_id] = {...states[data.entity_id], state:service === 'set_value' ? String(data.value) : service === 'turn_on' ? 'on' : service === 'turn_off' ? 'off' : 'unknown'};
     push();
   }};
