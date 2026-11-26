@@ -60,6 +60,8 @@ Do not put gateway tokens or personal configuration in an issue, repository or s
 
 ## Documentation
 
+- **[Rezepte: einfache Anleitung auf Deutsch](docs/RECIPES.de.md)** · [Recipes: English guide](docs/RECIPES.en.md) — 40 Originalrezepte, einzelne Phasen und eigene Vorschläge.
+
 - [Sidebar page / Seitenleiste](docs/SIDEBAR.md).
 - [Deutsch](README.de.md) / [English](README.en.md): complete installation, usage, update, rollback and removal.
 - [Hardware and Pi models](docs/HARDWARE.md).
@@ -79,6 +81,10 @@ The current [standalone Android/iOS and Web App](https://github.com/eignerth2010
 Die [eigenständige Android-/iOS- und Web-App](https://github.com/eignerth2010-byte/drevos-app) hat ein eigenes Repository. Dieses Projekt enthält ausschließlich die HA-Integration, ihre Dashboard-Karte und das lokale Pi-Gateway.
 
 ## Vorschau / Preview
+
+![Rezepte in HA 0.2.0 / Recipes in HA](docs/assets/drevos-recipes-ha-demo.jpg)
+
+40 Rezepte in Seitenleiste und Karte; jede Phase einzeln vorbereiten, selbst starten und Pausen einhalten. Nur synthetische Beispielwerte. / 40 recipes in the sidebar and card; prepare and start each phase yourself, with breaks between phases. Synthetic demo only.
 
 ![Drevos 0.1.5 – Seitenleiste / Sidebar](docs/assets/drevos-ha-sidebar-demo.jpg)
 
