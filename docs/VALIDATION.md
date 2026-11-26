@@ -100,3 +100,11 @@ Die native Integration wurde tatsächlich in HA 2026.11.1 eingerichtet. 19 Entit
 34 Python-Prüfungen und 9 Prüfungen der Kartenlogik bestehen; GitHub Actions bestätigt die unterstützten Python-Versionen. Die Karte wurde mit dem gelieferten Logo und Livewerten in normaler und schmaler Browseransicht geprüft. Dabei gefundene erste-Tastenbenutzung wurde korrigiert und als Regression abgesichert.
 
 Heizung und Rauchzündung wurden bei diesen Prüfungen nicht eingeschaltet. Die tatsächliche Pi-Abschaltung wurde ebenfalls nicht ausgelöst. Physisch geprüft ist der Pi 3 B+; die übrigen aufgeführten Pi-Modelle und andere Ofensteuerungen sind nicht dadurch automatisch bestätigt. Eine Browseransicht in Handybreite ist kein Test auf einem echten iPhone.
+
+## Recipe book – HA 0.2.0 (2026-11-26)
+
+- The card and integration-owned sidebar include the same 40 photographed recipes as app 0.4.0, with source notes, restored photos and the suggested 85/55 °C user correction for Rippen, Methode 2. See RECIPES.de.md and RECIPES.en.md for the complete workflow.
+- Local checks passed: 48 Python tests and 31 Node tests. New tests cover numeric-only phase preparation, unused/zero-time phases, actual readback, idle requirements, an old elapsed timer, partial failure, duplicate requests, disconnect, hidden-page interruption, gateway changes and an external target change before start.
+- An isolated browser fixture loaded the actual local frontend modules. Choosing a phase dispatched no mock command. Explicit preparation dispatched exactly four number.set_value intents (85 °C chamber, 55 °C core, 100% smoke and 150 minutes). Heat, smoke, timer and both fans remained off. Offline mode disabled phase selection while keeping recipes readable. The fixture denied external connections and form submissions; no real HA session or PLC endpoint was used.
+- The shared browser form saved and reopened a synthetic personal recipe and photo. Email delivery, owner activation of FormSubmit and physical 0.2.0 controls remain unverified. The original recipe badge describes provenance, not manufacturer endorsement or a food safety assessment.
+- The owner installs HA updates themselves. This development and release preparation did not install, restart or reconfigure live HA or the Pi.
