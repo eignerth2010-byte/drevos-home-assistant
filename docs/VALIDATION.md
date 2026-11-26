@@ -113,3 +113,10 @@ Heizung und Rauchzündung wurden bei diesen Prüfungen nicht eingeschaltet. Die 
 
 - Recipe PR #3 was merged with head `914a70eb49fba3e59db4678ef6f916a73d33f9aa`; checks, hassfest and HACS passed. Release `v0.2.0` publishes the reviewed source archive, whose GitHub asset digest matches `aabf253d0a476448bc968059b9e4d6c4383bde7a973025cb9c998354282d4631`.
 - The companion 0.4.0 web app and submission form are online. FormSubmit activation/actual attachment delivery and physical HA controls remain unverified. The owner installs the HA update personally; no live HA/Pi configuration or PLC command changed.
+
+## Shared online recipe catalog – 0.3.0 (2026-11-26)
+
+- 48 Python and 33 Node tests passed. Added model cases prove that catalog refresh emits no service intent, a staged phase retains its original values when that recipe changes, a stale displayed phase cannot stage, and malformed downloads preserve the cached catalog.
+- The actual 0.3.0 frontend in the isolated sidebar fixture loaded a synthetic 41st community recipe and its author label. A full reload with catalog requests forced offline retained 41 entries and showed an offline message. The service ledger remained zero throughout catalog browsing/refresh.
+- Catalog text/settings are persisted per browser; new photos may require connectivity. The fixed raw GitHub public endpoint was verified anonymously. No HA credentials or device state are passed to the catalog element/client. No real PLC command or live HA/Pi change occurred.
+- Initial test fixture injection/overlap issues were isolated and corrected before the successful cases. This is not physical oven, mobile Safari or full PWA offline validation.

@@ -1,5 +1,7 @@
 # Rezepte verwenden und eigene Rezepte einreichen
 
+**Neu: Rezepte zentral nachladen.** Einmalig App 0.5.0 bzw. HA 0.3.0 installieren; spätere Rezept-Ergänzungen kommen ohne weiteres Software-Update. [Einfache Erklärung](ONLINE-RECIPES.de.md).
+
 ## Ein Rezept am Ofen verwenden
 
 1. App oder Web-App öffnen und deinen Ofen wählen.

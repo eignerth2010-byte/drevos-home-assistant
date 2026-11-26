@@ -1,5 +1,7 @@
 # Recipes and community submissions
 
+**New: shared online recipe updates.** Install app 0.5.0 or HA 0.3.0 once; future recipe additions do not require another software update. [How it works](ONLINE-RECIPES.en.md).
+
 ## Use a recipe
 
 1. Open the app or Web App and select your oven.
