@@ -96,11 +96,11 @@ async def test_local_modules_and_existing_card_resource_registered_once(environm
     e.hass.http.async_register_static_paths.assert_awaited_once()
     paths = e.hass.http.async_register_static_paths.call_args.args[0]
     assert {p[0] for p in paths} == {
-        "/drevos_static/drevos-smoker-card.js", "/drevos_static/drevos-smoker-panel.js"}
-    assert all(Path(p[1]).is_file() for p in paths)
+        "/drevos_static/drevos-smoker-card.js", "/drevos_static/drevos-smoker-panel.js", "/drevos_static/recipes"}
+    assert all(Path(p[1]).exists() for p in paths)
     e.resources.async_create_item.assert_not_awaited()
     e.resources.async_update_item.assert_awaited_once_with("old", {
-        "res_type": "module", "url": "/drevos_static/drevos-smoker-card.js?v=0.1.5"})
+        "res_type": "module", "url": "/drevos_static/drevos-smoker-card.js?v=0.2.0"})
 
 
 @pytest.mark.asyncio
