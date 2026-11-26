@@ -21,7 +21,8 @@ function fixture(){
 }
 test('catalog contains 40 original-source recipes and preserves the user correction evidence',async()=>{
  const m=await model;assert.equal(m.recipes.length,40);assert.equal(new Set(m.recipes.map(r=>r.id)).size,40);
- const r=m.recipes.find(r=>r.id==='rippen-methode-2');assert.equal(r.phases[1].chamberC,85);assert.equal(r.phases[1].coreC,55);assert.equal(r.originalDisplaySettings[1][1],185);assert.equal(r.correction.status,'user_suggested');
+ const r=m.recipes.find(r=>r.id==='rippen-methode-2');assert.equal(r.phases[1].chamberC,85);assert.equal(r.phases[1].coreC,55);
+ const raw=JSON.parse(fs.readFileSync('custom_components/drevos/www/recipes/catalog.json','utf8')).recipes.find(item=>item.id==='rippen-methode-2');assert.equal(raw.originalDisplaySettings[1][1],185);assert.equal(raw.correction.status,'user_suggested');
  assert.ok(m.recipes.every(r=>r.source.kind==='drevos_original'&&r.source.foodSafetyReviewed===false));
 });
 test('preparing a selected phase writes only its four numbers and requires controller feedback',async()=>{
@@ -52,4 +53,31 @@ test('duplicate transfer, disconnect, hidden page and gateway changes stop remai
 test('a later external target change blocks starting a prepared phase',async()=>{
  const {card:c}=fixture();c._recipeModule=await model;c.stageRecipe({id:'lachs-kalt',index:1});await c.prepareRecipe();c.state('rauch_soll').state='99';const count=c.intents.length;
  assert.equal(await c.perform('heizelement','turn_on'),false);assert.equal(c.intents.length,count);
+});
+
+test('a catalog refresh adds recipes without writes and preserves a previously selected phase',async()=>{
+ const m=await model,raw=JSON.parse(fs.readFileSync('custom_components/drevos/www/recipes/catalog.json','utf8'));
+ const next=structuredClone(raw);next.revision='test-next';next.recipes.find(r=>r.id==='rippen-methode-2').phases[1].chamberC=90;
+ next.recipes.push({...structuredClone(next.recipes[0]),id:'community-test',image:'community-test',source:{kind:'community',author:'Test author'}});
+ const {card:c}=fixture();c._recipeModule=m;c.stageRecipe({id:'rippen-methode-2',index:1,expected:m.phaseStamp(m.phaseFor('rippen-methode-2',1).phase)});
+ const original=globalThis.fetch;
+ try{
+  globalThis.fetch=async()=>new Response(JSON.stringify(next));await m.catalogClient.refresh(true);
+  assert.equal(m.recipes.length,41);assert.equal(m.recipes.at(-1).source.kind,'community');assert.ok(m.imageUrl(m.recipes.at(-1)).startsWith('https://raw.githubusercontent.com/'));
+  assert.equal(c.intents.length,0);assert.equal(c._recipeDraft.phase.chamberC,85);
+  assert.equal(await c.prepareRecipe(),true);assert.equal(c.intents[0].value,85);
+  const stale=fixture().card;stale._recipeModule=m;stale.stageRecipe({id:'rippen-methode-2',index:1,expected:m.phaseStamp({...m.phaseFor('rippen-methode-2',1).phase,chamberC:85})});
+  assert.equal(stale._recipeDraft,null);assert.equal(stale.intents.length,0);
+ }finally{globalThis.fetch=async()=>new Response(JSON.stringify(raw));await m.catalogClient.refresh(true);globalThis.fetch=original;}
+});
+
+test('the HA catalog client retains the last valid content offline and rejects invalid updates atomically',async()=>{
+ const {createCatalogClient}=await import(pathToFileURL(path.resolve('custom_components/drevos/www/recipes/catalog-client.mjs')));
+ const raw=JSON.parse(fs.readFileSync('custom_components/drevos/www/recipes/catalog.json','utf8'));let cache=null;
+ const store={getItem:async()=>cache,setItem:async(key,value)=>{assert.equal(key,'drevos.recipes.public.v1');cache=value;}};
+ const next=structuredClone(raw);next.recipes.push({...structuredClone(raw.recipes[0]),id:'offline-test',image:'offline-test',source:{kind:'community'}});
+ await createCatalogClient({fallback:raw,store,fetcher:async()=>new Response(JSON.stringify(next))}).refresh();
+ const bad=structuredClone(next);bad.recipes[0].phases[0].chamberC=999;
+ const offline=await createCatalogClient({fallback:raw,store,fetcher:async()=>new Response(JSON.stringify(bad))}).refresh();
+ assert.equal(offline.status,'offline');assert.equal(offline.catalog.recipes.length,41);assert.equal(JSON.parse(cache).recipes[0].phases[0].chamberC,20);
 });

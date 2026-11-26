@@ -1,5 +1,5 @@
 /* Drevos Smoker Panel — MIT License; see ../LICENSE. */
-import './drevos-smoker-card.js?v=0.2.0';
+import './drevos-smoker-card.js?v=0.3.0';
 
 class DrevosSmokerPanel extends HTMLElement {
   constructor() {
