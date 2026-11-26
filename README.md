@@ -28,9 +28,9 @@ Home Assistant 2026.11+: Marketplace · [Open in HACS on older installations](ht
 
 Native, local Home Assistant integration for **one verified Drevos FX3U controller profile**, with a Raspberry Pi serial gateway and a bundled smoker-style dashboard card. The HA connection runs locally without a cloud service; private personal use is free.
 
-**Community project, version 0.1.5. Not an official Drevos or Mitsubishi product.** Compatibility is defined by the register profile, not by the Drevos badge on an oven. Other controllers must be checked before enabling writes.
+**Community project, version 0.2.0. Not an official Drevos or Mitsubishi product.** Compatibility is defined by the register profile, not by the Drevos badge on an oven. Other controllers must be checked before enabling writes.
 
-**Version 0.1.5** adds **Drevos** to the HA sidebar automatically, with the complete smoker controls. No separate dashboard is required; existing dashboard cards still work. [Sidebar and troubleshooting / Seitenleiste](docs/SIDEBAR.md). The Pi gateway remains 0.1.1.
+**Version 0.2.0** adds 40 recipes with restored photos and separately selected phases. Transfer numeric settings explicitly, then start controls yourself; no automatic next phase. [Recipe guide](docs/RECIPES.en.md). Since **0.1.5**, the integration adds **Drevos** to the HA sidebar automatically, with the complete smoker controls. No separate dashboard is required; existing dashboard cards still work. [Sidebar and troubleshooting / Seitenleiste](docs/SIDEBAR.md). The Pi gateway remains 0.1.1.
 
 ## What is included
 

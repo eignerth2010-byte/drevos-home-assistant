@@ -1,5 +1,7 @@
 # Drevos Smoker – complete English guide
 
+**New in 0.2.0:** 40 recipes with product photos and separately selected phases. Transfer values explicitly and start each phase yourself; no automatic next phase. [Recipe guide](docs/RECIPES.en.md).
+
 <!-- ha-marketplace:exclude-start -->
 <p align="center">
   <a href="https://my.home-assistant.io/redirect/marketplace_repository/?owner=eignerth2010-byte&amp;repository=drevos-home-assistant&amp;category=integration"><img src="https://my.home-assistant.io/badges/marketplace_repository.svg" alt="Open Drevos Smoker in your Home Assistant Marketplace"></a>
@@ -137,7 +139,7 @@ The card includes temperatures, targets, smoke level, both fans, heating, smoke/
 In storage resource mode, the integration registers the bundled JavaScript automatically. Fully reload the browser after first installation. If manual resource registration is needed, add this **JavaScript module** under dashboard resources:
 
 ```text
-/drevos_static/drevos-smoker-card.js?v=0.1.5
+/drevos_static/drevos-smoker-card.js?v=0.2.0
 ```
 
 In YAML resource mode, add the same module URL to the existing resource list. The integration does not edit that list. Avoid duplicate registrations. The version parameter changes on releases so browsers fetch fresh code.
@@ -171,7 +173,7 @@ Select **Info** in the Drevos card for creator Thomas Eigner, the HA integration
 
 ## 7. Update and roll back
 
-**New: 0.1.5** automatically registers **Drevos** in the HA sidebar. Open the complete controls without creating another dashboard. Multiple ovens are separate, and the page remains available during connection failures. [Sidebar and troubleshooting](docs/SIDEBAR.md). The Pi gateway remains 0.1.1.
+**Previously: 0.1.5** automatically registers **Drevos** in the HA sidebar. Open the complete controls without creating another dashboard. Multiple ovens are separate, and the page remains available during connection failures. [Sidebar and troubleshooting](docs/SIDEBAR.md). The Pi gateway remains 0.1.1.
 
 HA version **0.1.3** adds **Oven / Info** tabs, creator details, optional PayPal support, a visible version and **What’s new?**. The setup information displayed inside HA and these guides are also updated. The earlier 0.1.2 release removed the superseded mobile prototype. The standalone app is maintained only in the separate [app repository](https://github.com/eignerth2010-byte/drevos-app). The Pi gateway remains at 0.1.1.
 
@@ -179,7 +181,7 @@ Version **0.1.1** includes gateway 0.1.1, shared with the standalone app. Overla
 
 The current [standalone Android/iOS app](https://github.com/eignerth2010-byte/drevos-app) does not require Home Assistant. Both connections use the same local gateway service; never open the PLC port with a second service.
 
-For **0.1.5**, update through Marketplace/HACS or replace the complete `custom_components/drevos` folder in HA with the new package. Restart HA, fully reload the browser, then open **Drevos** in the sidebar. The existing Pi gateway 0.1.1 needs no change. HA and app versions are numbered independently.
+For **0.2.0**, update through Marketplace/HACS or replace the complete `custom_components/drevos` folder in HA with the new package. Restart HA, fully reload the browser, then open **Drevos** in the sidebar. The existing Pi gateway 0.1.1 needs no change. HA and app versions are numbered independently.
 
 Back up the private Pi configuration and HA configuration first. Public releases contain no personal settings.
 
