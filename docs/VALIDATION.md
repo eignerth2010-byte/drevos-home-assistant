@@ -108,3 +108,8 @@ Heizung und Rauchzündung wurden bei diesen Prüfungen nicht eingeschaltet. Die 
 - An isolated browser fixture loaded the actual local frontend modules. Choosing a phase dispatched no mock command. Explicit preparation dispatched exactly four number.set_value intents (85 °C chamber, 55 °C core, 100% smoke and 150 minutes). Heat, smoke, timer and both fans remained off. Offline mode disabled phase selection while keeping recipes readable. The fixture denied external connections and form submissions; no real HA session or PLC endpoint was used.
 - The shared browser form saved and reopened a synthetic personal recipe and photo. Email delivery, owner activation of FormSubmit and physical 0.2.0 controls remain unverified. The original recipe badge describes provenance, not manufacturer endorsement or a food safety assessment.
 - The owner installs HA updates themselves. This development and release preparation did not install, restart or reconfigure live HA or the Pi.
+
+### Recipe release publication – 2026-11-26
+
+- Recipe PR #3 was merged with head `914a70eb49fba3e59db4678ef6f916a73d33f9aa`; checks, hassfest and HACS passed. Release `v0.2.0` publishes the reviewed source archive, whose GitHub asset digest matches `aabf253d0a476448bc968059b9e4d6c4383bde7a973025cb9c998354282d4631`.
+- The companion 0.4.0 web app and submission form are online. FormSubmit activation/actual attachment delivery and physical HA controls remain unverified. The owner installs the HA update personally; no live HA/Pi configuration or PLC command changed.
